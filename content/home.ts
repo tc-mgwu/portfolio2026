@@ -16,5 +16,3 @@ export const heroLines: Word[][] = [
 export const heroSupport =
   'Ten years in B2B taught me what makes a system complete; game design ' +
   'taught me what makes one fun to operate.';
-
-export const heroCurrent = '[ROLE] at [COMPANY]';

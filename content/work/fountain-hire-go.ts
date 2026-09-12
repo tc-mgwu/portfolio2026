@@ -15,6 +15,7 @@ const fountainHireGo: CaseStudy = {
   role: '[ROLE]',
   protected: false,
   tint: ['#E7DFF2', '#8B79B8'],
+  art: 'grid',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',
   heroAlt: '[ALT TEXT FOR THE HERO VISUAL]',

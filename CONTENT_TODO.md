@@ -3,7 +3,7 @@
 Everything in brackets is a placeholder. Grouped by file.
 
 ## `content/home.ts`
-- [ ] `heroCurrent` — `[ROLE] at [COMPANY]`. The last placeholder above the fold.
+Nothing outstanding. The hero is fully written.
 
 ## `content/about.ts`
 - [ ] `statement` — one line on what you do

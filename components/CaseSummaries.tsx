@@ -47,7 +47,7 @@ function Summary({ study, index }: { study: CaseStudy; index: number }) {
                 aria-label={study.heroAlt}
               >
                 <div ref={art} className="h-full w-full">
-                  <PlateArt slug={study.slug} />
+                  <PlateArt art={study.art} />
                 </div>
               </div>
             </div>

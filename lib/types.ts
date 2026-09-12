@@ -38,6 +38,8 @@ export interface CaseStudy {
   protected: boolean;
   /** Gradient behind the screen in the gallery plate, as two CSS colours. */
   tint: [string, string];
+  /** Which placeholder composition to draw. Replaced by a real screenshot later. */
+  art: 'rings' | 'grid' | 'bars';
   /** Aspect ratio of the hero image slot, as width / height. */
   heroAspect: number;
   heroCaption: string;

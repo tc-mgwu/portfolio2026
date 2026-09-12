@@ -15,6 +15,7 @@ const arinsightsPremium: CaseStudy = {
   role: '[ROLE]',
   protected: false,
   tint: ['#D7E4E8', '#6F94A4'],
+  art: 'rings',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',
   heroAlt: '[ALT TEXT FOR THE HERO VISUAL]',

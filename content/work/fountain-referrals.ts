@@ -15,6 +15,7 @@ const fountainReferrals: CaseStudy = {
   role: '[ROLE]',
   protected: false,
   tint: ['#F4D9C4', '#C9724A'],
+  art: 'rings',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',
   heroAlt: '[ALT TEXT FOR THE HERO VISUAL]',

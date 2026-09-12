@@ -32,7 +32,7 @@ export default function ProjectGallery({ studies }: { studies: CaseStudy[] }) {
                 role="img"
                 aria-label={study.heroAlt}
               >
-                <PlateArt slug={study.slug} />
+                <PlateArt art={study.art} />
               </div>
             </div>
 

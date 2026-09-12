@@ -15,6 +15,7 @@ const medalAnnotations: CaseStudy = {
   role: '[ROLE]',
   protected: false,
   tint: ['#DDE2F0', '#7E88BE'],
+  art: 'bars',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',
   heroAlt: '[ALT TEXT FOR THE HERO VISUAL]',

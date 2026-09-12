@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { heroCurrent, heroLines, heroSupport } from '@/content/home';
+import { heroLines, heroSupport } from '@/content/home';
 
 /* The statement reveals line by line behind a soft mask wipe. Behind it a single
    large gradient blob drifts almost imperceptibly. Calm, not a light show. */
@@ -45,9 +45,6 @@ export default function Hero() {
         >
           <p className="max-w-[58ch] text-[1rem] leading-[1.65] text-ink-2">
             {heroSupport}
-          </p>
-          <p className="label-sc mt-2">
-            Currently &nbsp;·&nbsp; {heroCurrent}
           </p>
         </motion.div>
       </div>

@@ -39,7 +39,7 @@ export default function Collections({ studies }: { studies: CaseStudy[] }) {
                       role="img"
                       aria-label={featured.heroAlt}
                     >
-                      <PlateArt slug={featured.slug} />
+                      <PlateArt art={featured.art} />
                     </div>
                   )}
 

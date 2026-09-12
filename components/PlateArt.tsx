@@ -7,7 +7,7 @@
 
 const ART: Record<string, React.ReactNode> = {
   // Concentric arcs: a system settling into alignment.
-  sense: (
+  rings: (
     <>
       <rect width="600" height="440" fill="var(--color-paper-2)" />
       {[0, 1, 2, 3, 4, 5].map((i) => (
@@ -31,7 +31,7 @@ const ART: Record<string, React.ReactNode> = {
   ),
 
   // A field of rules with one block breaking the grid.
-  meridian: (
+  grid: (
     <>
       <rect width="600" height="440" fill="var(--color-paper-2)" />
       {Array.from({ length: 13 }, (_, i) => (
@@ -53,7 +53,7 @@ const ART: Record<string, React.ReactNode> = {
   ),
 
   // Stacked bars stepping up: a system being built in layers.
-  lantern: (
+  bars: (
     <>
       <rect width="600" height="440" fill="var(--color-paper-2)" />
       {[
@@ -78,18 +78,8 @@ const ART: Record<string, React.ReactNode> = {
   ),
 };
 
-/* Until real product screens land, each project gets one of the compositions,
-   picked from its slug so a given project always looks the same. */
-const VARIANTS = ['sense', 'meridian', 'lantern'] as const;
-
-function variantFor(slug: string): string {
-  let h = 0;
-  for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) >>> 0;
-  return VARIANTS[h % VARIANTS.length];
-}
-
-export default function PlateArt({ slug }: { slug: string }) {
-  const art = ART[variantFor(slug)];
+export default function PlateArt({ art: which }: { art: string }) {
+  const art = ART[which] ?? ART.rings;
   return (
     <svg
       viewBox="0 0 600 440"

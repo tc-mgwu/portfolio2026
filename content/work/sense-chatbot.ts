@@ -17,6 +17,7 @@ const senseChatbot: CaseStudy = {
   role: 'Lead Designer',
   protected: false,
   tint: ['#EBDCC9', '#B7794E'],
+  art: 'grid',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',
   heroAlt: '[ALT TEXT FOR THE HERO VISUAL]',
