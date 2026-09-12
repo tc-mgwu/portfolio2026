@@ -1,0 +1,27 @@
+:root {
+  /* Deep space, warm rather than sci-fi. */
+  --bg: #0B0E1A;
+  --bg-deep: #070911;
+  --bg-lift: #11152400;
+
+  --ink: #ECEAF4;
+  --ink-soft: #A7A6C0;
+  --ink-faint: #6E6D88;
+
+  --hair: rgba(236, 234, 244, 0.13);
+  --hair-bright: rgba(236, 234, 244, 0.28);
+
+  --star: #FFF4E4;
+  --teal: #79CFC6;
+  --violet: #A596E6;
+  --ember: #E6B98A;
+
+  --panel: rgba(18, 21, 38, 0.55);
+
+  --display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
+  --body: "Inter Variable", "Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --measure: 68ch;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --shell: 78rem;
+}

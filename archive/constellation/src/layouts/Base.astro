@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import '../styles/home.css';
+import Starfield from '../components/Starfield';
+
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0B0E1A" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- Without JS the constellations must still read as finished drawings. -->
+    <noscript><style>
+      .con-line { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
+      .con-card { opacity: 1 !important; transform: none !important; }
+    </style></noscript>
+  </head>
+  <body>
+    <a class="skip" href="#work-index">Skip to all work</a>
+
+    <div class="sky-wash" aria-hidden="true"></div>
+    <Starfield client:load />
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="topbar-name" href="/">[YOUR NAME]</a>
+      <nav aria-label="Primary">
+        <a href="#work-index">All work</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+  </body>
+</html>

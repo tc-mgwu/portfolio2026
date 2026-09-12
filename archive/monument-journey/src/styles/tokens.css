@@ -1,0 +1,12 @@
+/* Ink and character cream are global; every other colour is a chapter tone set
+   on the monument group by src/scene/monuments.ts. See spec §8. */
+:root {
+  --ink: #3D3A50;
+  --cream: #F7F3EC;
+
+  --font-display: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Helvetica Neue", Arial, sans-serif;
+
+  --path-surface: 208px;   /* height of the walking line above the viewport floor */
+  --measure: 70ch;
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TC — Product Designer</title>
+  <meta name="description" content="Portfolio of TC, a lead product designer with a master's in game design.">
+  <meta name="theme-color" content="#2E2A57">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:SOFT,WONK,opsz,wght@0..100,0..1,9..144,600..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#work">Skip to the work</a>
+
+  <!-- ============ The drive ============ -->
+  <section class="stage" id="top">
+    <canvas id="scene" role="img"
+            aria-label="A small mint car driving along a road at sunset, passing signposts for each case study."></canvas>
+
+    <div class="stage-title">
+      <h1>TC</h1>
+      <p class="stage-role">Lead Product Designer<span class="sep">·</span>MA Game Design</p>
+    </div>
+
+    <nav class="stage-nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <p class="stage-hint" id="hint">
+      <kbd>←</kbd><kbd>→</kbd> to drive<span class="sep">·</span>or pick a stop
+    </p>
+
+    <!-- Populated by scene.js from the work list below. Hidden until the scene runs. -->
+    <nav class="route" id="route" aria-label="Route stops" hidden></nav>
+
+    <aside class="marquee" id="marquee" hidden aria-live="polite">
+      <p class="marquee-meta"><span id="m-year"></span><span class="sep">·</span><span id="m-kind"></span></p>
+      <h2 id="m-title"></h2>
+      <p id="m-note"></p>
+      <a class="marquee-go" id="m-link" href="#work">Open case study</a>
+    </aside>
+  </section>
+
+  <!-- ============ The page ============ -->
+  <main>
+    <section class="section intro">
+      <p class="lede">
+        I design software for people who use it all day, not for people who see it
+        once in a demo. Ten years in dense B2B workflows, and a game design degree
+        that taught me the difference between a system being complete and a system
+        being fun to operate.
+      </p>
+    </section>
+
+    <section class="section" id="work">
+      <h2 class="label">Selected work</h2>
+      <ol class="index">
+        <li class="entry" data-mile="900" data-note="Collapsed four screens into one working surface and cut average handling time by a third.">
+          <span class="entry-year">2025</span>
+          <span class="entry-title"><a href="#">Rebuilding the claims queue</a></span>
+          <span class="entry-kind">Enterprise SaaS</span>
+          <p class="entry-note">Collapsed four screens into one working surface and cut average handling time by a third.</p>
+        </li>
+        <li class="entry" data-mile="1900" data-note="Tokens, components, and the governance model that kept forty people from drifting apart.">
+          <span class="entry-year">2024</span>
+          <span class="entry-title"><a href="#">A design system for forty people</a></span>
+          <span class="entry-kind">Design systems</span>
+          <p class="entry-note">Tokens, components, and the governance model that kept forty people from drifting apart.</p>
+        </li>
+        <li class="entry" data-mile="2900" data-note="First-run completion went from 41% to 78% by removing steps rather than explaining them.">
+          <span class="entry-year">2023</span>
+          <span class="entry-title"><a href="#">Onboarding without tooltips</a></span>
+          <span class="entry-kind">Growth</span>
+          <p class="entry-note">First-run completion went from 41% to 78% by removing steps rather than explaining them.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section" id="about">
+      <h2 class="label">About</h2>
+      <div class="prose">
+        <p>
+          Replace this with two or three short paragraphs. What kinds of problems you
+          take on, how you work alongside engineering and research, and what the game
+          design training actually changes about how you approach product work.
+        </p>
+        <p>
+          Stay specific. Naming the industries, the team sizes, and the constraints you
+          have designed inside does more work than any adjective will.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2 class="label">Contact</h2>
+      <p class="prose">Email is the fastest way to reach me.</p>
+      <ul class="links">
+        <li><a href="mailto:you@example.com">you@example.com</a></li>
+        <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+        <li><a href="https://github.com/tc-mgwu">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <p>© <span id="year">2026</span> TC</p>
+    <p>Set in Fraunces and IBM Plex.</p>
+  </footer>
+
+  <script src="scene.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
