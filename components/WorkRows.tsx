@@ -3,28 +3,35 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import type { CaseStudy } from '@/lib/types';
-import { collections } from '@/content/collections';
-import PlateArt from './PlateArt';
+import ProjectPlate from './ProjectPlate';
 import BriefModal from './BriefModal';
-import { LockGlyph, useCursorPill } from './CursorPill';
-import { useParallax } from '@/lib/useParallax';
+import { LockGlyph } from './CursorPill';
 
-/* Every case study as a horizontal card, grouped by collection.
+/* The featured case studies, one open row each: the hero image, then the copy.
 
-   A card opens the short form in a dialog rather than navigating, so the long
+   A row opens the short form in a dialog rather than navigating, so the long
    form is a deliberate second step. It stays a real link underneath, so it
-   still works without JavaScript and middle-click opens the page. */
+   still works without JavaScript and middle-click opens the page.
 
-function Card({ study, onOpen }: { study: CaseStudy; onOpen: () => void }) {
-  const { show, hide, pointerFine } = useCursorPill();
-  const art = useParallax<HTMLDivElement>(28);
+   The tag reveal runs while the pointer is on the image or on "Read the
+   summary", or while the row has keyboard focus. Not the whole row: the
+   reveal should answer a move toward the work, not a pass over the copy. */
 
-  const pill = {
-    company: study.company,
-    role: study.role,
-    monogram: study.monogram,
-    locked: study.protected,
+function Card({
+  study,
+  circleX,
+  onOpen,
+}: {
+  study: CaseStudy;
+  circleX: number;
+  onOpen: () => void;
+}) {
+  const [active, setActive] = useState(false);
+
+  const reveal = (e: React.PointerEvent) => {
+    if (e.pointerType === 'mouse') setActive(true);
   };
+  const conceal = () => setActive(false);
 
   return (
     <li>
@@ -36,31 +43,13 @@ function Card({ study, onOpen }: { study: CaseStudy; onOpen: () => void }) {
           e.preventDefault();
           onOpen();
         }}
-        onMouseEnter={() => pointerFine && show(pill)}
-        onMouseLeave={() => pointerFine && hide()}
+        onFocus={(e) => e.currentTarget.matches(':focus-visible') && setActive(true)}
+        onBlur={conceal}
         aria-haspopup="dialog"
-        className={`group grid items-center gap-6 rounded-2xl border border-hair bg-paper-2/30 p-4 transition-colors duration-300 hover:border-ink/25 sm:grid-cols-[minmax(0,15rem)_1fr] sm:gap-8 sm:p-5 ${
-          pointerFine ? 'cursor-none-here' : ''
-        }`}
+        className="group grid items-center gap-10 rounded-2xl sm:grid-cols-[minmax(0,36rem)_1fr] sm:gap-14"
       >
-        <div
-          className="overflow-hidden rounded-xl"
-          style={{
-            background: `linear-gradient(135deg, ${study.tint[0]}, ${study.tint[1]})`,
-          }}
-        >
-          <div className="p-3">
-            <div
-              className="overflow-hidden rounded-md bg-paper shadow-[0_8px_22px_-10px_rgba(26,23,20,0.5)]"
-              style={{ aspectRatio: '16 / 10' }}
-              role="img"
-              aria-label={study.heroAlt}
-            >
-              <div ref={art} className="h-full w-full">
-                <PlateArt art={study.art} />
-              </div>
-            </div>
-          </div>
+        <div onPointerEnter={reveal} onPointerLeave={conceal}>
+          <ProjectPlate study={study} active={active} circleX={circleX} />
         </div>
 
         <div className="min-w-0 pb-1 sm:pr-4">
@@ -83,12 +72,18 @@ function Card({ study, onOpen }: { study: CaseStudy; onOpen: () => void }) {
             {study.summary}
           </p>
 
-          <p className="mt-4 inline-flex items-center gap-2 text-[0.8125rem] text-ink-3 transition-colors group-hover:text-accent">
-            Read the summary
-            <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+          {/* Styled as a button, but the whole row is already the link, and a
+              button cannot sit inside a link. The row's click handles it. */}
+          <span
+            onPointerEnter={reveal}
+            onPointerLeave={conceal}
+            className="mt-5 inline-flex h-10 items-center gap-2 rounded-full border border-ink/15 bg-paper px-4 text-[0.8125rem] font-medium text-ink shadow-[0_1px_2px_rgba(26,23,20,0.06)] transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-paper"
+          >
+            Read more
+            <span aria-hidden="true">
               &rarr;
             </span>
-          </p>
+          </span>
         </div>
       </Link>
     </li>
@@ -99,34 +94,28 @@ export default function WorkRows({ studies }: { studies: CaseStudy[] }) {
   const [active, setActive] = useState<CaseStudy | null>(null);
 
   return (
-    <section id="work" aria-labelledby="work-heading" className="pb-24">
+    <section
+      id="work"
+      aria-labelledby="work-heading"
+      className="overflow-x-clip pb-24 pt-16"
+    >
       <h2 id="work-heading" className="sr-only">
         Selected work
       </h2>
 
-      {collections.map((c) => {
-        const members = studies.filter((s) => s.collection === c.id);
-        if (!members.length) return null;
-
-        return (
-          <div key={c.id} id={`c-${c.id}`} className="scroll-mt-24 border-t border-hair">
-            <div className="mx-auto max-w-6xl px-6 pb-7 pt-14">
-              <p className="label-sc">{c.label}</p>
-              <h3 className="mt-2 max-w-[34ch] font-display text-[clamp(1.25rem,2.2vw,1.6rem)] leading-[1.2] tracking-[-0.015em]">
-                <Link href={`/collections/${c.id}`} className="hover:text-accent">
-                  {c.title}
-                </Link>
-              </h3>
-            </div>
-
-            <ul className="mx-auto flex max-w-6xl flex-col gap-4 px-6 pb-14">
-              {members.map((study) => (
-                <Card key={study.slug} study={study} onOpen={() => setActive(study)} />
-              ))}
-            </ul>
-          </div>
-        );
-      })}
+      {/* Generous gaps: with no borders, space is what separates the rows.
+          The section clips sideways so tags flying in from outside the plate
+          never widen the page; the vertical overflow stays free. */}
+      <ul className="mx-auto flex max-w-6xl flex-col gap-24 px-6">
+        {studies.map((study, i) => (
+          <Card
+            key={study.slug}
+            study={study}
+            circleX={30 + (studies.length > 1 ? (i / (studies.length - 1)) * 40 : 20)}
+            onOpen={() => setActive(study)}
+          />
+        ))}
+      </ul>
 
       {active && <BriefModal study={active} onClose={() => setActive(null)} />}
     </section>

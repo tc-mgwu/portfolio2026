@@ -26,9 +26,15 @@ export const caseStudies: CaseStudy[] = [
   agenticAssistant,
 ];
 
-/* The home page leads with one summary per collection. The rest live on the
-   collection pages, so the front page stays a thirty-second read. */
-export const featured: CaseStudy[] = [fountainReferrals, fountainHireGo, edutechPlatform];
+/* The home page shows these four. Everything else lives on the collection
+   pages, so the front page stays a thirty-second read. Collections with no
+   featured project are skipped rather than rendered empty. */
+export const featured: CaseStudy[] = [
+  fountainReferrals,
+  senseChatbot,
+  fountainHireGo,
+  senseMessaging,
+];
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);

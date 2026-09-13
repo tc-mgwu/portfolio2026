@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Source_Serif_4, Inter } from 'next/font/google';
-import { CursorPillProvider } from '@/components/CursorPill';
 import Motion from '@/components/Motion';
 import { UnlockProvider } from '@/components/Unlock';
 import Header from '@/components/Header';
@@ -51,10 +50,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AmbientGradient />
         <Motion>
           <UnlockProvider>
-            <CursorPillProvider>
-              <Header />
-              <main>{children}</main>
-            </CursorPillProvider>
+            <Header />
+            <main>{children}</main>
           </UnlockProvider>
         </Motion>
       </body>

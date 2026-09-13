@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { CaseStudy } from '@/lib/types';
-import PlateArt from './PlateArt';
+import ProjectPlate from './ProjectPlate';
 import { LockGlyph } from './CursorPill';
 
 /* The gallery a collection opens into.
@@ -11,29 +11,19 @@ import { LockGlyph } from './CursorPill';
 
 export default function ProjectGallery({ studies }: { studies: CaseStudy[] }) {
   return (
-    <ul className="grid gap-8 lg:grid-cols-2">
-      {studies.map((study) => (
+    <ul className="grid gap-8 overflow-x-clip lg:grid-cols-2">
+      {studies.map((study, i) => (
         <li key={study.slug}>
           <Link
             href={`/work/${study.slug}`}
             prefetch={study.protected ? false : undefined}
-            className="group block h-full overflow-hidden rounded-[22px] border border-hair bg-paper shadow-[0_2px_30px_-12px_rgba(26,23,20,0.18)] transition-shadow duration-300 hover:shadow-[0_18px_50px_-18px_rgba(26,23,20,0.3)]"
+            className="group block h-full rounded-[22px] border border-hair bg-paper shadow-[0_2px_30px_-12px_rgba(26,23,20,0.18)] transition-shadow duration-300 hover:shadow-[0_18px_50px_-18px_rgba(26,23,20,0.3)]"
           >
-            {/* Tinted plate. The inner panel reads as a screen resting on it. */}
-            <div
-              className="p-5 sm:p-7"
-              style={{
-                background: `linear-gradient(135deg, ${study.tint[0]}, ${study.tint[1]})`,
-              }}
-            >
-              <div
-                className="overflow-hidden rounded-lg bg-paper shadow-[0_10px_30px_-10px_rgba(26,23,20,0.45)] transition-transform duration-500 ease-out motion-safe:group-hover:-translate-y-1"
-                style={{ aspectRatio: '16 / 10' }}
-                role="img"
-                aria-label={study.heroAlt}
-              >
-                <PlateArt art={study.art} />
-              </div>
+            {/* Inset, so the tags and the growing screen have room to break
+                past the panel on hover. Extra on top, where the screen rises.
+                The card does not clip: nothing inside it sits flush any more. */}
+            <div className="px-10 pb-0 pt-10">
+              <ProjectPlate study={study} circleX={i % 2 ? 62 : 38} />
             </div>
 
             <div className="flex flex-col gap-3 p-6 sm:p-7">

@@ -71,7 +71,7 @@ export default function BriefModal({
         className="relative flex max-h-[86svh] w-full max-w-[46rem] flex-col overflow-hidden rounded-2xl border border-hair bg-paper shadow-[0_28px_80px_-24px_rgba(26,23,20,0.5)] outline-none motion-safe:animate-[pill-in_200ms_cubic-bezier(0.22,1,0.36,1)]"
       >
         <div
-          className="shrink-0 px-7 pb-6 pt-7"
+          className="shrink-0 px-7 pb-3.5 pt-3.5"
           style={{ background: `linear-gradient(135deg, ${study.tint[0]}, ${study.tint[1]})` }}
         >
           <p className="text-[0.6875rem] font-medium uppercase tracking-[0.16em] text-ink/60">
@@ -79,7 +79,7 @@ export default function BriefModal({
           </p>
           <h2
             id={titleId}
-            className="mt-3 font-display text-[clamp(1.5rem,3.4vw,2.1rem)] leading-[1.12] tracking-[-0.018em] text-ink"
+            className="mt-1 font-display text-[1.25rem] leading-[1.2] tracking-[-0.015em] text-ink"
           >
             {study.title}
           </h2>

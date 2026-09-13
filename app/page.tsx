@@ -1,12 +1,12 @@
 import Hero from '@/components/Hero';
 import WorkRows from '@/components/WorkRows';
-import { caseStudies } from '@/content';
+import { featured } from '@/content';
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <WorkRows studies={caseStudies} />
+      <WorkRows studies={featured} />
     </>
   );
 }

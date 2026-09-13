@@ -15,6 +15,7 @@ const orionCommand: CaseStudy = {
   role: '[ROLE]',
   protected: false,
   tint: ['#D9E3E6', '#6E8E9B'],
+  tags: ['0 to 1', 'Enterprise', 'Shipped'],
   art: 'rings',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',

@@ -15,6 +15,7 @@ const edutechPlatform: CaseStudy = {
   role: '[ROLE]',
   protected: true,
   tint: ['#EFDCD8', '#B27A78'],
+  tags: ['Contract', 'EdTech', 'NDA'],
   art: 'bars',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',

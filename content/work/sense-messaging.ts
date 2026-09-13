@@ -15,6 +15,7 @@ const senseMessaging: CaseStudy = {
   role: '[ROLE]',
   protected: false,
   tint: ['#DCE6DF', '#7B9A88'],
+  tags: ['Information Architecture', 'Design systems', 'Shipped'],
   art: 'bars',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',

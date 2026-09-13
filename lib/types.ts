@@ -40,6 +40,8 @@ export interface CaseStudy {
   tint: [string, string];
   /** Which placeholder composition to draw. Replaced by a real screenshot later. */
   art: 'rings' | 'grid' | 'bars';
+  /** Short attributes that fan out from behind the plate. Three or four reads best. */
+  tags: string[];
   /** Aspect ratio of the hero image slot, as width / height. */
   heroAspect: number;
   heroCaption: string;

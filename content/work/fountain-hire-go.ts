@@ -15,6 +15,7 @@ const fountainHireGo: CaseStudy = {
   role: '[ROLE]',
   protected: false,
   tint: ['#E7DFF2', '#8B79B8'],
+  tags: ['Agentic AI', 'Workflows', 'Shipped'],
   art: 'grid',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',

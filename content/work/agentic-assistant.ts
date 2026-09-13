@@ -15,6 +15,7 @@ const agenticAssistant: CaseStudy = {
   role: '[ROLE]',
   protected: false,
   tint: ['#E3E0D6', '#948D74'],
+  tags: ['Independent', 'Agentic AI', 'Prototype'],
   art: 'grid',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',

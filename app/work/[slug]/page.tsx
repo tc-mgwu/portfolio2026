@@ -5,6 +5,7 @@ import { caseStudies, getCaseStudy, neighbours } from '@/content';
 import { collections } from '@/content/collections';
 import TableOfContents from '@/components/TableOfContents';
 import CaseBody from '@/components/CaseBody';
+import ProjectPlate from '@/components/ProjectPlate';
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -70,17 +71,8 @@ export default async function CaseStudyPage(
           </dl>
 
           {/* Hero visual */}
-          <figure className="mt-10 m-0">
-            <div
-              className="overflow-hidden rounded-2xl border border-hair bg-paper-2"
-              style={{ aspectRatio: String(study.heroAspect) }}
-              role="img"
-              aria-label={study.heroAlt}
-            >
-              <div className="grid h-full w-full place-items-center">
-                <span className="label-sc">Hero image slot &nbsp;·&nbsp; {study.heroAspect.toFixed(2)}:1</span>
-              </div>
-            </div>
+          <figure className="m-0 mt-20 overflow-x-clip">
+            <ProjectPlate study={study} />
             <figcaption className="mt-3 text-[0.8125rem] text-ink-3">{study.heroCaption}</figcaption>
           </figure>
 

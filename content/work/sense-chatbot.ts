@@ -17,6 +17,7 @@ const senseChatbot: CaseStudy = {
   role: 'Lead Designer',
   protected: false,
   tint: ['#EBDCC9', '#B7794E'],
+  tags: ['0 to 1', 'Conversational AI', 'Shipped', 'WCAG'],
   art: 'grid',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',

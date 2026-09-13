@@ -13,6 +13,11 @@
   --color-accent: #B4451F;
   --color-accent-soft: #F3E2DA;
 
+  /* Tag bubbles on project plates. They sit on the plate's fixed tint, not on
+     the page ground, so they keep the light theme's ink and never flip. */
+  --color-bubble: #1A1714;
+  --color-bubble-ink: #FAF8F5;
+
   --font-display: var(--font-display-face);
   --font-body: var(--font-inter);
 }
@@ -27,6 +32,11 @@
   --color-hair: #262B33;
   --color-accent: #E58F62;
   --color-accent-soft: #33231B;
+
+  /* Tag bubbles flip to the dark accent: they land straddling the edge of a
+     light screenshot and the dark ground, and the orange reads on both. */
+  --color-bubble: #E58F62;
+  --color-bubble-ink: #1A1714;
 }
 
 @layer base {
@@ -70,8 +80,12 @@
   .cursor-none-here, .cursor-none-here a, .cursor-none-here * { cursor: none; }
 }
 
+/* Reduced motion. Everything that travels is cut to nothing, except the
+   project plates: their reveal only runs on hover, never on its own, and it is
+   the one piece of motion on the site that is the design rather than dressing,
+   so it plays the same way for everyone. */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  :not(.plate-tag, .plate-screen, .plate-circle), ::before, ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -209,4 +223,96 @@
 @media (prefers-reduced-motion: reduce) {
   .theme-icon { transition: none; }
   .theme-toggle:hover .theme-icon { transform: none; }
+}
+
+
+/* ---- Project plate ------------------------------------------------------ */
+/* Tag reveal. State is data-revealed on the plate. Stacking, low to high:
+   circle, screen, tags; the tags land over the screen, so they are always in
+   front. The tag layer is a size container so the offsets, in cqw/cqh, measure
+   the plate. Tags are hidden at rest in every mode. */
+.plate {
+  /* Fast out, long settle: most of the travel lands in the first quarter. */
+  --plate-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  container-type: inline-size;
+}
+
+/* The screen keeps the light palette in dark mode. It stands in for a product
+   screenshot, which will not change with the theme either. */
+.plate-screen {
+  --color-paper: #FAF8F5;
+  --color-paper-2: #F2EEE8;
+  --color-ink: #1A1714;
+  --color-accent: #B4451F;
+}
+
+/* Dark mode already carries the ambient gradients; the circle would be one
+   glow too many. */
+.dark .plate-circle {
+  display: none;
+}
+
+.plate-circle {
+  z-index: 0;
+  height: 112%;
+  transform: translate(-50%, -50%);
+  transition: transform 800ms var(--plate-ease);
+}
+
+.plate[data-revealed] .plate-circle {
+  transform: translate(-50%, -50%) translate(var(--away-x, 0px), 4cqw);
+}
+
+.plate-screen-wrap {
+  z-index: 2;
+}
+
+.plate-screen {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 14px 38px -14px rgba(26, 23, 20, 0.55);
+  transition:
+    transform 760ms var(--plate-ease),
+    box-shadow 760ms var(--plate-ease);
+}
+
+.plate[data-revealed] .plate-screen {
+  transform: translateY(-4%) scale(1.05);
+  box-shadow: 0 34px 70px -22px rgba(26, 23, 20, 0.5);
+}
+
+.plate-tags {
+  z-index: 3;
+  container-type: size;
+}
+
+.plate-tag {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  height: 2.667em;
+  padding: 0 1.333em;
+  font-size: clamp(11px, 3.158cqw, 14px);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  background: var(--color-bubble);
+  color: var(--color-bubble-ink);
+  box-shadow: 0 18px 30px -8px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  filter: blur(8px);
+  transform: translate(-50%, -50%) translate(var(--from-x), var(--from-y)) rotate(0deg) scale(0.92);
+  /* The fade finishes before the travel does, so a tag is fully solid while
+     still on its way in and settles sharp over the screen. */
+  transition:
+    transform 900ms var(--plate-ease) var(--delay, 0ms),
+    opacity 480ms ease-out var(--delay, 0ms),
+    filter 600ms var(--plate-ease) var(--delay, 0ms);
+}
+
+.plate[data-revealed] .plate-tag {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translate(-50%, -50%) translate(var(--x), var(--y)) rotate(var(--rot)) scale(1);
 }
