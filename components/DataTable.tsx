@@ -26,9 +26,11 @@ export default function DataTable({
               <th
                 key={c}
                 scope="col"
-                className={`label-sc py-2.5 pr-4 font-medium text-ink-3 ${i === 0 ? "text-left" : "text-right"}`}
+                className={`label-sc py-2.5 font-medium text-ink-3 ${i === 0 ? "pr-4 text-left" : "pl-4 text-right"}`}
               >
-                {c}
+                {/* Uppercase tracking adds space after the last letter; pull the
+                    header back by that much so it shares the numbers' right edge. */}
+                <span className={i === 0 ? undefined : "-mr-[0.16em] inline-block"}>{c}</span>
               </th>
             ))}
           </tr>
