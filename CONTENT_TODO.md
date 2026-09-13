@@ -24,7 +24,7 @@ each need:
 - [ ] `details` — Role, Team, Timeline, Tools, shown on the case study page
 - [ ] `brief` — the five blocks: Background, Project context, The problem, The solution, The outcome
 - [ ] `sections` — the long-form body: Overview, Problem, Process, Solution, Outcome
-- [ ] `heroCaption` and `heroAlt`, plus alt text and captions on every image block
+- [ ] `heroAlt` (read out for the hero on the home page and in galleries), plus alt text and captions on every image block. `heroCaption` is kept in the content files but no longer shown: the case study page no longer repeats the hero.
 
 Files: `fountain-referrals`, `medal-annotations`, `orion-command`,
 `fountain-hire-go`, `sense-messaging`, `arinsights-premium`, `edutech-platform`,

@@ -5,7 +5,6 @@ import { caseStudies, getCaseStudy, neighbours } from '@/content';
 import { collections } from '@/content/collections';
 import TableOfContents from '@/components/TableOfContents';
 import CaseBody from '@/components/CaseBody';
-import ProjectPlate from '@/components/ProjectPlate';
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -69,12 +68,6 @@ export default async function CaseStudyPage(
               </div>
             ))}
           </dl>
-
-          {/* Hero visual */}
-          <figure className="m-0 mt-20 overflow-x-clip">
-            <ProjectPlate study={study} />
-            <figcaption className="mt-3 text-[0.8125rem] text-ink-3">{study.heroCaption}</figcaption>
-          </figure>
 
           {/* Details rail sits inline on the way into the body */}
           <dl className="mt-12 grid gap-6 rounded-xl border border-hair bg-paper-2/60 p-6 sm:grid-cols-4">
