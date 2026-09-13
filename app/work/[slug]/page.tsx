@@ -59,16 +59,6 @@ export default async function CaseStudyPage(
             </p>
           </header>
 
-          {/* Summary strip */}
-          <dl className="mt-10 grid gap-6 border-y border-hair py-6 sm:grid-cols-3">
-            {study.facts.map((f) => (
-              <div key={f.label}>
-                <dt className="label-sc">{f.label}</dt>
-                <dd className="mt-1.5 text-[0.9375rem] text-ink">{f.value}</dd>
-              </div>
-            ))}
-          </dl>
-
           {/* Details rail sits inline on the way into the body */}
           <dl className="mt-12 grid gap-6 rounded-xl border border-hair bg-paper-2/60 p-6 sm:grid-cols-4">
             {study.details.map((d) => (
