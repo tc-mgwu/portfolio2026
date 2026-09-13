@@ -7,25 +7,45 @@ import {
 import { useRouter } from 'next/navigation';
 import { LockGlyph } from './CursorPill';
 
-interface Target { slug: string; title: string }
+interface Target { slug: string; title: string; redacted?: boolean }
 
-const Ctx = createContext<{ open: (t: Target) => void }>({ open: () => {} });
+/* `unlocks` counts successful unlocks this session, so anything showing a
+   redacted asset can try again the moment the cookie exists. */
+const Ctx = createContext<{ open: (t: Target) => void; unlocks: number }>({
+  open: () => {},
+  unlocks: 0,
+});
 export const useUnlock = () => useContext(Ctx);
 
 export function UnlockProvider({ children }: { children: ReactNode }) {
   const [target, setTarget] = useState<Target | null>(null);
+  const [unlocks, setUnlocks] = useState(0);
   const open = useCallback((t: Target) => setTarget(t), []);
-  const value = useMemo(() => ({ open }), [open]);
+  const value = useMemo(() => ({ open, unlocks }), [open, unlocks]);
 
   return (
     <Ctx.Provider value={value}>
       {children}
-      {target && <UnlockModal target={target} onClose={() => setTarget(null)} />}
+      {target && (
+        <UnlockModal
+          target={target}
+          onClose={() => setTarget(null)}
+          onUnlocked={() => setUnlocks((n) => n + 1)}
+        />
+      )}
     </Ctx.Provider>
   );
 }
 
-function UnlockModal({ target, onClose }: { target: Target; onClose: () => void }) {
+function UnlockModal({
+  target,
+  onClose,
+  onUnlocked,
+}: {
+  target: Target;
+  onClose: () => void;
+  onUnlocked: () => void;
+}) {
   const router = useRouter();
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -75,7 +95,8 @@ function UnlockModal({ target, onClose }: { target: Target; onClose: () => void 
         // The provider lives in the root layout and survives navigation, so the
         // modal has to be dismissed explicitly or it stays over the unlocked
         // page. refresh() drops any router-cache entry captured while locked.
-        router.push(data.next as string);
+        onUnlocked();
+        if (window.location.pathname !== data.next) router.push(data.next as string);
         router.refresh();
         onClose();
         return;
@@ -119,7 +140,8 @@ function UnlockModal({ target, onClose }: { target: Target; onClose: () => void 
         </h2>
 
         <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-2">
-          This work is under NDA. Enter the password from my resume, or{' '}
+          {target.redacted ? 'These details are confidential.' : 'This work is under NDA.'}{' '}
+          Enter the password from my resume, or{' '}
           <a href="#contact" onClick={onClose} className="text-accent underline underline-offset-4">
             email me for access
           </a>.

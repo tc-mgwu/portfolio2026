@@ -68,15 +68,48 @@ Vercel, zero configuration beyond the two environment variables above.
 
 1. Push to GitHub.
 2. In Vercel, New Project → import the repository.
-3. Add `CASE_PASSWORD` and `SITE_SECRET` before the first build.
+3. Add `CASE_PASSWORD`, `SITE_SECRET` and `ASSET_KEY` before the first build. `ASSET_KEY` must be the same value used locally to encrypt redacted assets (see below).
 4. Deploy.
 
 ## Images
 
-Every image is a coded placeholder right now. `components/PlateArt.tsx` draws
-them, and each case study declares a `tint` gradient pair for the plate behind
-it. Replacing a placeholder with a real screenshot means swapping `PlateArt` for
-an `Image`, keeping the same `heroAspect` so nothing shifts.
+**In case study bodies.** An `image` block takes a `src` under `/public`, its
+`aspect` (width / height of the file), `alt`, and a `caption`. Leave `src` off
+and the slot is drawn empty at that ratio, so a page can be laid out before the
+imagery exists. Two more blocks help with process work: `gallery` shows two or
+three pictures side by side for comparing options, and `links` renders a row of
+external references such as Figma files. Put files in
+`public/work/<slug>/`, sized to about 2400px on the long edge; GIFs are served
+as-is, since the optimiser would flatten them to a single frame.
+`content/work/sense-chatbot.ts` is a complete example.
+
+**Redacted images.** For a picture that only password holders may see, the
+repository (which is public) never contains the original in the clear. Run
+
+```bash
+node scripts/protect-asset.mjs <slug> path/to/original.png
+```
+
+to write `private/work/<slug>/original.png.enc`, encrypted with `ASSET_KEY`
+from `.env.local`. Then make the public preview from the original at 96px
+wide, which keeps the shape and colour and none of the text:
+
+```bash
+sips -Z 96 path/to/original.png --out public/work/<slug>/original-redacted.png
+```
+
+In the content, set `src` to the preview and `protectedSrc` to
+`/api/asset/<slug>/original.png`. The page shows the preview blurred with an
+"Unlock to view" button; the asset route serves the decrypted original only to
+a request carrying the unlock cookie for that slug, and never caches it. Keep
+the original itself out of the repository. Sense Chatbot's two usage charts
+work this way.
+
+**Hero plates.** The home page and gallery heroes are still coded placeholders.
+`components/PlateArt.tsx` draws them, and each case study declares a `tint`
+pair for the circle behind. Replacing one with a real screenshot means swapping
+`PlateArt` for an `Image` in `components/ProjectPlate.tsx`, keeping the same
+`heroAspect` so nothing shifts.
 
 ## Notes
 

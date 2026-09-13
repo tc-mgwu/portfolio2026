@@ -70,7 +70,7 @@ export default async function CaseStudyPage(
           </dl>
 
           <div className="mt-20">
-            <CaseBody sections={study.sections} />
+            <CaseBody sections={study.sections} slug={study.slug} title={study.title} />
           </div>
 
           {/* Prev / next */}

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { COOKIE_MAX_AGE, UNLOCK_COOKIE, passwordFor, safeEqual, scopeFor, signScope } from '@/lib/auth';
-import { protectedSlugs } from '@/content';
+import { caseStudies } from '@/content';
 
 export async function POST(req: Request) {
   let body: { password?: string; slug?: string };
@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 
   const slug = typeof body.slug === 'string' ? body.slug : '';
   const password = typeof body.password === 'string' ? body.password : '';
-  if (!protectedSlugs.includes(slug)) {
+  if (!caseStudies.some((c) => c.slug === slug)) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 

@@ -41,4 +41,4 @@ Files: `fountain-referrals`, `medal-annotations`, `orion-command`,
 ## Not yet built
 - [ ] Contact section. The nav links to `/#contact`, which does not exist yet.
 - [ ] Resume PDF, if you want it linked.
-- [ ] Real images for every plate and image slot.
+- [ ] Real images for every plate and image slot. Sense Chatbot is done; the other eight still show empty slots.

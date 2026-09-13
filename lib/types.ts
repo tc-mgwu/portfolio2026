@@ -4,12 +4,27 @@ export interface Fact {
   value: string;
 }
 
+/** One picture. `src` is a path under /public; without it the slot is drawn empty.
+    With `protectedSrc`, `src` is the public, unreadable preview and the real
+    file is served from /api/asset once the case study password is entered. */
+export interface Picture {
+  src?: string;
+  protectedSrc?: string;
+  aspect: number;
+  alt: string;
+  caption?: string;
+}
+
 export type Block =
   | { kind: 'p'; text: string }
   | { kind: 'lead'; text: string }
   | { kind: 'list'; items: string[] }
   | { kind: 'quote'; text: string }
-  | { kind: 'image'; aspect: number; caption: string; alt: string };
+  | ({ kind: 'image'; caption: string } & Picture)
+  /** Two or three pictures side by side, for comparing options. */
+  | { kind: 'gallery'; items: Picture[]; caption?: string }
+  /** External references, such as Figma files. */
+  | { kind: 'links'; items: { label: string; href: string }[] };
 
 /** One entry in the sticky table of contents, and one section of the body. */
 export interface Section {
