@@ -111,6 +111,7 @@ const senseChatbot: CaseStudy = {
         {
           kind: 'image',
           src: `${A}/flow-designer-and-mobile.png`,
+          lightbox: false,
           aspect: 2624 / 1584,
           alt:
             'The Conversation Flow Designer canvas with a branching pre-screening ' +
@@ -188,7 +189,8 @@ const senseChatbot: CaseStudy = {
         {
           kind: 'image',
           src: `${A}/research-notes.png`,
-          aspect: 2400 / 885,
+          lightbox: false,
+          aspect: 3292 / 1215,
           alt:
             'Pages from the research notes: what a chatbot is, common issues, a ' +
             'feature comparison of recruiting chatbots, and a feature brainstorm.',
@@ -228,7 +230,8 @@ const senseChatbot: CaseStudy = {
         {
           kind: 'image',
           src: `${A}/early-concepts.png`,
-          aspect: 2400 / 1299,
+          lightbox: false,
+          aspect: 4488 / 2430,
           alt:
             'Early concepts for Reva on desktop and mobile: a welcome screen with ' +
             'a circular multicolour mark, and a chat with a zip code question and ' +
@@ -261,7 +264,8 @@ const senseChatbot: CaseStudy = {
         {
           kind: 'image',
           src: `${A}/style-guide.png`,
-          aspect: 2400 / 2292,
+          lightbox: false,
+          aspect: 5628 / 5376,
           alt:
             'The Reva style guide: colours including a five-step rating scale, ' +
             'typography, buttons, headers, message bubbles, inputs, indicators and ' +
@@ -283,6 +287,7 @@ const senseChatbot: CaseStudy = {
         {
           kind: 'image',
           src: `${A}/reva-demo.gif`,
+          lightbox: false,
           aspect: 1936 / 1378,
           alt:
             'Recording of the Reva chat: the bot greets John, asks for his zip ' +
@@ -393,20 +398,20 @@ const senseChatbot: CaseStudy = {
           kind: 'gallery',
           items: [
             {
-              src: `${A}/edit-toolbox.png`,
-              aspect: 2281 / 2400,
+              src: `${A}/edit-toolbox.svg`,
+              aspect: 1440 / 1515,
               alt: 'A floating toolbox listing questions to drag onto the canvas.',
               caption: 'Toolbox: drag a question in. Out of scope.',
             },
             {
-              src: `${A}/edit-inline.png`,
-              aspect: 2281 / 2400,
+              src: `${A}/edit-inline.svg`,
+              aspect: 1440 / 1515,
               alt: 'A question node expanded into a form directly on the canvas.',
               caption: 'Inline: the node is the form. Would not scale.',
             },
             {
-              src: `${A}/edit-modal.png`,
-              aspect: 2281 / 2400,
+              src: `${A}/edit-modal.svg`,
+              aspect: 1440 / 1515,
               alt: 'An Add a Question panel beside the canvas with a searchable question list.',
               caption: 'Modal: room for fields, canvas stays usable. Shipped.',
             },
@@ -425,20 +430,20 @@ const senseChatbot: CaseStudy = {
           kind: 'gallery',
           items: [
             {
-              src: `${A}/node-question.png`,
-              aspect: 2400 / 2218,
+              src: `${A}/node-question.svg`,
+              aspect: 2961 / 2736,
               alt: 'States of the Add Question Node modal: empty, naming, tooltip, dropdown, and a binary response.',
               caption: 'Question node: from empty state to a validated answer.',
             },
             {
-              src: `${A}/node-responses.png`,
-              aspect: 2400 / 2218,
+              src: `${A}/node-responses.svg`,
+              aspect: 2961 / 2736,
               alt: 'Multiple response options with ATS values and toggles, and a custom question with editable buttons.',
               caption: 'Response options, and a fully custom question.',
             },
             {
-              src: `${A}/node-conditions.png`,
-              aspect: 2400 / 2218,
+              src: `${A}/node-conditions.svg`,
+              aspect: 2961 / 2736,
               alt: 'Three versions of a conditions node built as an if, then, else sentence.',
               caption: 'Condition node: three ways to write if, then, else.',
             },
@@ -483,22 +488,16 @@ const senseChatbot: CaseStudy = {
         {
           kind: 'image',
           src: `${A}/branching-options.png`,
-          aspect: 2000 / 1463,
+          href: 'https://www.figma.com/file/ZbqcLEEKudYjv3eQ9WqWkn/Branching-Options',
+          aspect: 2 / 1,
+          fit: 'contain',
+          background: '#3A4655',
           alt:
             'Four rows of canvas screens labelled V1 to V4, each a different way ' +
             'of creating and displaying a branch.',
           caption:
             'Four approaches to branching, from splitting a response automatically ' +
             'to letting users draw the path themselves.',
-        },
-        {
-          kind: 'links',
-          items: [
-            {
-              label: 'Figma: branching options',
-              href: 'https://www.figma.com/file/ZbqcLEEKudYjv3eQ9WqWkn/Branching-Options',
-            },
-          ],
         },
       ],
     },
@@ -595,29 +594,32 @@ const senseChatbot: CaseStudy = {
             'Two years on, the picture had changed scale.',
         },
         {
-          kind: 'image',
-          src: `${A}/usage-by-use-case-redacted.png`,
-          protectedSrc: '/api/asset/sense-chatbot/usage-by-use-case.png',
-          aspect: 2400 / 973,
-          alt:
-            'Four bar charts: conversations started by use case, unique candidates ' +
-            'engaged by use case, conversations started by channel, and active bots ' +
-            'by use case.',
+          kind: 'table',
+          columns: ['Use case', 'Conversations started', 'Unique candidates', 'Active bots'],
+          rows: ['Data enrichment', 'Pre-screening', 'Sourcing'],
+          protectedSrc: '/api/asset/sense-chatbot/usage-by-use-case.json',
           caption:
-            'Usage by mid-2022, by use case and channel. Data enrichment, the ' +
-            'first use case, remained the most used; SMS, the channel we had to ' +
-            'cut from the MVP, carried most of the volume. Figures are ' +
-            'confidential; unlock with the password to see them.',
+            'Usage by mid-2022, by use case. Data enrichment, the first use case, ' +
+            'remained the most used. Figures are confidential; unlock with the ' +
+            'password to see them.',
         },
         {
-          kind: 'image',
-          src: `${A}/unique-conversations-redacted.png`,
-          protectedSrc: '/api/asset/sense-chatbot/unique-conversations.png',
-          aspect: 2313 / 561,
-          alt:
-            'A stacked bar chart of unique conversations per day from September ' +
-            '2021 to May 2022, rising over time.',
-          caption: 'Unique conversations per day, September 2021 to May 2022.',
+          kind: 'table',
+          columns: ['Channel', 'Conversations started'],
+          rows: ['SMS', 'Mobile web', 'Desktop web', 'Unknown'],
+          protectedSrc: '/api/asset/sense-chatbot/usage-by-channel.json',
+          caption:
+            'Conversations started by channel, mid-2022. SMS, the channel we had ' +
+            'to cut from the MVP, carried most of the volume.',
+        },
+        {
+          kind: 'table',
+          columns: ['Month', 'Typical day', 'Busiest day'],
+          rows: ['September 2021', 'November 2021', 'January 2022', 'March 2022', 'May 2022'],
+          protectedSrc: '/api/asset/sense-chatbot/unique-conversations.json',
+          caption:
+            'Unique conversations per day, September 2021 to May 2022, read from ' +
+            'the daily chart, so approximate.',
         },
         {
           kind: 'p',
@@ -628,6 +630,12 @@ const senseChatbot: CaseStudy = {
             'The team did the best work it could with what it had. The experience ' +
             'that shipped still left a lot to be desired, and saying so is part of ' +
             'the job.',
+        },
+        {
+          kind: 'callout',
+          text: 'Want to see the next version of chatbot?',
+          cta: 'Read about Chatbot 2.0 here',
+          href: '/work/sense-chatbot-2',
         },
       ],
     },

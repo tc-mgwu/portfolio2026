@@ -77,11 +77,19 @@ Vercel, zero configuration beyond the two environment variables above.
 `aspect` (width / height of the file), `alt`, and a `caption`. Leave `src` off
 and the slot is drawn empty at that ratio, so a page can be laid out before the
 imagery exists. Two more blocks help with process work: `gallery` shows two or
-three pictures side by side for comparing options, and `links` renders a row of
-external references such as Figma files. Put files in
-`public/work/<slug>/`, sized to about 2400px on the long edge; GIFs are served
-as-is, since the optimiser would flatten them to a single frame.
-`content/work/sense-chatbot.ts` is a complete example.
+three pictures side by side for comparing options, `links` renders a row of
+external references such as Figma files, and `callout` is a banner that points
+to related work (Chatbot 1.0 and 2.0 point at each other this way). Put files in
+`public/work/<slug>/` at their original resolution: the page serves a sized
+copy through the image optimiser, and the lightbox opens the full file. Keep
+vector sources as SVG (run them through `npx svgo --multipass` first; they
+halve). GIFs and SVGs are served as-is, since the optimiser would flatten a GIF
+to one frame and has nothing to add to a vector. Per picture, `lightbox: false`
+turns off click-to-zoom, `bare: true` drops the frame for a transparent
+composite, and `href` makes the picture link out (a "View in Figma" badge
+appears on hover in place of the lightbox). Figures go in a `table` block
+rather than a chart screenshot: `columns`, `rows` (the row labels) and
+`values`, one array per row. `content/work/sense-chatbot.ts` is a complete example.
 
 **Redacted images.** For a picture that only password holders may see, the
 repository (which is public) never contains the original in the clear. Run
@@ -93,6 +101,12 @@ node scripts/protect-asset.mjs <slug> path/to/original.png
 to write `private/work/<slug>/original.png.enc`, encrypted with `ASSET_KEY`
 from `.env.local`. Then make the public preview from the original at 96px
 wide, which keeps the shape and colour and none of the text:
+
+Confidential figures work the same way: write `{ "values": [[...], ...] }` to
+a JSON file, encrypt it with the script above, and give the `table` block a
+`protectedSrc` of `/api/asset/<slug>/<name>.json` instead of `values`. The
+labels ship with the page; the numbers stay blurred until the password is
+entered.
 
 ```bash
 sips -Z 96 path/to/original.png --out public/work/<slug>/original-redacted.png

@@ -13,6 +13,16 @@ export interface Picture {
   aspect: number;
   alt: string;
   caption?: string;
+  /** Set false for a picture that should not open in the lightbox. */
+  lightbox?: boolean;
+  /** Link out instead of opening the lightbox: the frame becomes a link and shows `linkLabel` on hover. */
+  href?: string;
+  linkLabel?: string;
+  /** `contain` shows the whole picture inside a frame of a different ratio; set `background` to the picture's own ground so the letterboxing disappears. */
+  fit?: 'cover' | 'contain';
+  background?: string;
+  /** No frame: for a transparent PNG composite that should float on the page. */
+  bare?: boolean;
 }
 
 export type Block =
@@ -24,7 +34,23 @@ export type Block =
   /** Two or three pictures side by side, for comparing options. */
   | { kind: 'gallery'; items: Picture[]; caption?: string }
   /** External references, such as Figma files. */
-  | { kind: 'links'; items: { label: string; href: string }[] };
+  | { kind: 'links'; items: { label: string; href: string }[] }
+  /** A banner pointing to related work, e.g. the next version of a product. */
+  | { kind: 'callout'; text: string; cta: string; href: string }
+  /** Copy beside a picture, in two columns on wide screens. */
+  | { kind: 'split'; blocks: Block[]; picture: Picture }
+  /** A small figures table. `rows` are the row labels; `values` holds one
+      array of cells per row, one cell per column after the first. For
+      confidential figures leave `values` out and set `protectedSrc` to
+      /api/asset/<slug>/<name>.json, an encrypted `{ values: [...] }`. */
+  | {
+      kind: 'table';
+      columns: string[];
+      rows: string[];
+      values?: (string | number)[][];
+      protectedSrc?: string;
+      caption?: string;
+    };
 
 /** One entry in the sticky table of contents, and one section of the body. */
 export interface Section {

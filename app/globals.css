@@ -226,6 +226,19 @@
 }
 
 
+/* ---- Guarded imagery -------------------------------------------------- */
+/* Case study pictures and the lightbox. No selecting, no dragging out, no
+   long-press save sheet; pointer events go to the frame around the picture,
+   so a right-click lands on the frame rather than the image. Friction only:
+   see components/ImageGuard.tsx. */
+.guarded img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
 /* ---- Project plate ------------------------------------------------------ */
 /* Tag reveal. State is data-revealed on the plate. Stacking, low to high:
    circle, screen, tags; the tags land over the screen, so they are always in
