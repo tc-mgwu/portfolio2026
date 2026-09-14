@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'That password did not match.' }, { status: 401 });
   }
 
-  const res = NextResponse.json({ ok: true, next: `/work/${slug}` });
+  const res = NextResponse.json({ ok: true, next: `/${listed ? 'work' : 'secretwork'}/${slug}` });
   res.cookies.set({
     name: UNLOCK_COOKIE,
     value: await signScope(scopeFor(slug)),

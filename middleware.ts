@@ -14,9 +14,10 @@ import { caseStudies, protectedSlugs } from '@/content';
 const NOINDEX = 'noindex, nofollow, noarchive, nosnippet';
 
 export async function middleware(req: NextRequest) {
-  const slug = req.nextUrl.pathname.split('/')[2];
+  const [, base, slug] = req.nextUrl.pathname.split('/');
   if (!slug) return NextResponse.next();
-  const listed = caseStudies.some((c) => c.slug === slug);
+  /* /secretwork holds only unlisted studies; nothing there is ever public. */
+  const listed = base === 'work' && caseStudies.some((c) => c.slug === slug);
   if (listed && !protectedSlugs.includes(slug)) return NextResponse.next();
 
   const token = req.cookies.get(UNLOCK_COOKIE)?.value;
@@ -29,11 +30,11 @@ export async function middleware(req: NextRequest) {
   } else {
     const url = req.nextUrl.clone();
     url.pathname = '/unlock';
-    url.searchParams.set('next', `/work/${slug}`);
+    url.searchParams.set('next', `/${base}/${slug}`);
     res = NextResponse.rewrite(url);
   }
   if (!listed) res.headers.set('X-Robots-Tag', NOINDEX);
   return res;
 }
 
-export const config = { matcher: '/work/:slug' };
+export const config = { matcher: ['/work/:slug', '/secretwork/:slug'] };

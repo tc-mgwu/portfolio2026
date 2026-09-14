@@ -7,8 +7,8 @@ import { decryptAsset } from '@/lib/assets';
 /* Unlisted case studies. Nothing about them lives in the source: not the
    slug, not the copy, not the imagery. Each is an encrypted JSON file in
    /private/hidden/<slug>.json.enc, decrypted with ASSET_KEY when a request
-   that already passed the password gate asks for it. The slug is random and
-   appears in no list, sitemap, neighbour link or static build. */
+   that already passed the password gate asks for it, at /secretwork/<slug>.
+   The slug appears in no list, sitemap, neighbour link or static build. */
 
 const SLUG = /^[a-z0-9][a-z0-9-]{2,60}$/;
 

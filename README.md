@@ -103,7 +103,8 @@ study object, encrypted with `ASSET_KEY`, its pictures referenced through
 `protectedSrc` and encrypted the same way under `private/work/<slug>/`. Give
 the slug a random suffix, set `CASE_PASSWORD_<SLUG>` (upper case, dashes to
 underscores) in `.env.local` and in Vercel, and share only the URL and that
-password. The shared password never opens it; the page is linked from nowhere,
+password. It is served at `/secretwork/<slug>`, not `/work`. The shared
+password never opens it; the page is linked from nowhere,
 excluded from the build, and served with no-index headers. To edit it, decrypt
 the JSON with `ASSET_KEY`, change it, and re-encrypt with the same layout as
 `scripts/protect-asset.mjs` (12-byte iv, 16-byte tag, ciphertext).
