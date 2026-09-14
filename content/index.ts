@@ -6,7 +6,6 @@ import orionCommand from './work/orion-command';
 import fountainHireGo from './work/fountain-hire-go';
 import senseMessaging from './work/sense-messaging';
 import senseChatbot2 from './work/sense-chatbot-2';
-import arinsightsPremium from './work/arinsights-premium';
 import edutechPlatform from './work/edutech-platform';
 import agenticAssistant from './work/agentic-assistant';
 
@@ -22,7 +21,6 @@ export const caseStudies: CaseStudy[] = [
   fountainHireGo,
   senseMessaging,
   senseChatbot2,
-  arinsightsPremium,
   // Independent and contract
   edutechPlatform,
   agenticAssistant,

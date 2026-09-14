@@ -5,7 +5,10 @@ const config: NextConfig = {
   poweredByHeader: false,
   /* The asset route reads /private at request time; trace it into the
      deployment, since the path is built dynamically. */
-  outputFileTracingIncludes: { '/api/asset/[...path]': ['./private/**/*'] },
+  outputFileTracingIncludes: {
+    '/api/asset/[...path]': ['./private/**/*'],
+    '/work/[slug]': ['./private/hidden/**/*'],
+  },
 };
 
 export default config;

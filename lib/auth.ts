@@ -49,9 +49,15 @@ export function safeEqual(a: string, b: string): boolean {
   return diff === 0;
 }
 
+/** True when this slug has its own password, which is then the only key to it. */
+export function hasOwnPassword(slug: string): boolean {
+  return Boolean(process.env[`CASE_PASSWORD_${slug.toUpperCase().replace(/-/g, '_')}`]);
+}
+
 export async function tokenUnlocks(token: string | undefined, slug: string): Promise<boolean> {
   if (!token) return false;
-  for (const scope of [scopeFor(slug), 'all']) {
+  const scopes = hasOwnPassword(slug) ? [slug] : ['all'];
+  for (const scope of scopes) {
     const expected = await signScope(scope);
     if (safeEqual(token, expected)) return true;
   }

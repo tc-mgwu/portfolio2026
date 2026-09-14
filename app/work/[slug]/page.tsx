@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { caseStudies, getCaseStudy, neighbours } from '@/content';
+import { loadHiddenStudy } from '@/lib/hidden';
 import TableOfContents from '@/components/TableOfContents';
 import ComingSoon from '@/components/ComingSoon';
 import CaseBody from '@/components/CaseBody';
@@ -14,19 +15,28 @@ export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
 ): Promise<Metadata> {
   const { slug } = await params;
-  const study = getCaseStudy(slug);
+  const study = getCaseStudy(slug) ?? (await loadHiddenStudy(slug));
   if (!study) return {};
-  return { title: `${study.title} — Toni Chen`, description: study.summary };
+  return {
+    title: `${study.title} — Toni Chen`,
+    description: study.summary,
+    ...(study.hidden && {
+      robots: { index: false, follow: false, noarchive: true, nosnippet: true },
+    }),
+  };
 }
 
 export default async function CaseStudyPage(
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
-  const study = getCaseStudy(slug);
+  /* Unlisted studies come from the encrypted store. The middleware has
+     already checked the cookie, so by the time this runs the reader holds
+     the study's own password. */
+  const study = getCaseStudy(slug) ?? (await loadHiddenStudy(slug));
   if (!study) notFound();
 
-  const { prev, next } = neighbours(slug);
+  const { prev, next } = study.hidden ? {} : neighbours(slug);
   if (study.comingSoon) return <ComingSoon study={study} prev={prev} next={next} />;
 
   return (

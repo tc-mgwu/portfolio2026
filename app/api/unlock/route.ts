@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { COOKIE_MAX_AGE, UNLOCK_COOKIE, passwordFor, safeEqual, scopeFor, signScope } from '@/lib/auth';
+import { COOKIE_MAX_AGE, UNLOCK_COOKIE, hasOwnPassword, passwordFor, safeEqual, scopeFor, signScope } from '@/lib/auth';
 import { caseStudies } from '@/content';
 
 export async function POST(req: Request) {
@@ -12,8 +12,10 @@ export async function POST(req: Request) {
 
   const slug = typeof body.slug === 'string' ? body.slug : '';
   const password = typeof body.password === 'string' ? body.password : '';
-  if (!caseStudies.some((c) => c.slug === slug)) {
-    return NextResponse.json({ ok: false }, { status: 400 });
+  const listed = caseStudies.some((c) => c.slug === slug);
+  if (!/^[a-z0-9][a-z0-9-]{2,60}$/.test(slug) || (!listed && !hasOwnPassword(slug))) {
+    // Same answer as a wrong password: an unknown slug reveals nothing.
+    return NextResponse.json({ ok: false, error: 'That password did not match.' }, { status: 401 });
   }
 
   const expected = passwordFor(slug);

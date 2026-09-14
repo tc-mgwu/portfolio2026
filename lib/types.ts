@@ -88,6 +88,8 @@ export interface CaseStudy {
   /** Set true while the write-up is still being made: the page shows a
       coming-soon note instead of the body, and cards say so. */
   comingSoon?: boolean;
+  /** Unlisted: loaded from the encrypted store, never linked, never indexed. */
+  hidden?: boolean;
   /** Gradient behind the screen in the gallery plate, as two CSS colours. */
   tint: [string, string];
   /** Which placeholder composition to draw. Replaced by a real screenshot later. */

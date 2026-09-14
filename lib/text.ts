@@ -2,7 +2,7 @@
    written in sentence case; the contents rail shows them as titles.
 
    Small words stay lower case unless they open the title or follow a colon.
-   Words that already carry capitals (Reva, ARInsights, PM, PowerBI) are left
+   Words that already carry capitals (Reva, PM, PowerBI) are left
    as written, and each part of a hyphenated word is capitalised. */
 
 const SMALL = new Set([

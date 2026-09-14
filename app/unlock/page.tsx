@@ -5,6 +5,8 @@ import { caseStudies } from '@/content';
    study without a cookie. The modal is the usual route in; this is the fallback
    that keeps the URL working and the page shareable. */
 
+export const metadata = { robots: { index: false, follow: false, noarchive: true, nosnippet: true } };
+
 export default async function UnlockPage(
   { searchParams }: { searchParams: Promise<{ next?: string }> },
 ) {
@@ -20,10 +22,16 @@ export default async function UnlockPage(
           {study ? study.title : 'This work is protected'}
         </h1>
         <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-2">
-          This work is under NDA. Enter the password from my resume, or{' '}
-          <a href="/#contact" className="text-accent underline underline-offset-4">
-            email me for access
-          </a>.
+          {study ? (
+            <>
+              This work is under NDA. Enter the password from my resume, or{' '}
+              <a href="/#contact" className="text-accent underline underline-offset-4">
+                email me for access
+              </a>.
+            </>
+          ) : (
+            'Enter the password you were given.'
+          )}
         </p>
         <UnlockForm slug={slug} />
       </div>
