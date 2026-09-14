@@ -40,7 +40,7 @@ export default function DataTable({
     !values ||
     values.every((row) => {
       const v = row[c];
-      return typeof v === "number" || v === undefined || /^[\s\d.,%~\u00d7x+-]*$/.test(v);
+      return typeof v === "number" || v === undefined || /^[\s\d.,%~\u00d7\u2014x+-]*$/.test(v);
     }),
   );
   return (

@@ -52,7 +52,7 @@ const fountainHireGo: CaseStudy = {
         'Hire Go lets frontline managers activate a job opening through a chat. ' +
         'That chat predates Cue, Fountain’s AI agent: its questions and rules ' +
         'lived in prompts engineers edited by hand, routed by customer ID and ' +
-        'feature flag. Three enterprise accounts ran custom versions.',
+        'feature flag. 3 enterprise accounts ran custom versions.',
     },
     {
       label: 'Project context',
@@ -60,7 +60,7 @@ const fountainHireGo: CaseStudy = {
         'I owned the admin flow builder, the configuration model as it surfaces ' +
         'in UI, preview and test, the account settings page the builder lives ' +
         'in, and how Cue and the fallback form honor a configured flow. About ' +
-        'three and a half weeks, on a weekly loop of prototype, customer call, ' +
+        '3 and a half weeks, on a weekly loop of prototype, customer call, ' +
         'engineering review. I was laid off before the feature shipped.',
     },
     {
@@ -68,7 +68,7 @@ const fountainHireGo: CaseStudy = {
       body:
         'Every change to how a customer activated an opening went customer, ' +
         'implementation manager, engineering, deploy. Cue could not run the ' +
-        'custom accounts’ questions, so it bounced them to a two-year-old ' +
+        'custom accounts’ questions, so it bounced them to a 2-year-old ' +
         'legacy chat. The bet was to move activation logic into configuration ' +
         'an admin owns. The tension: the more an admin can configure, the more ' +
         'ways they have to break activation for every opening.',
@@ -88,7 +88,7 @@ const fountainHireGo: CaseStudy = {
       body:
         'The success test written into the epic: a new multi-flow customer ' +
         'configured end to end with zero code changes, zero deploys and no ' +
-        'per-customer feature flag. Three custom accounts and the legacy chat ' +
+        'per-customer feature flag. 3 custom accounts and the legacy chat ' +
         'were gated on it. I left before launch, so these are the criteria the ' +
         'team committed to, not measured outcomes.',
     },

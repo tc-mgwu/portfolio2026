@@ -19,7 +19,7 @@ const senseChatbot2: CaseStudy = {
   title: 'Chatbot 2.0',
   summary:
     'Rebuilding the chatbot around natural-language understanding, and ' +
-    'settling a design freeze with six recruiters and a user test.',
+    'settling a design freeze with 6 recruiters and a user test.',
   projectType: 'AI-enabled redesign',
   role: 'Lead Product Designer',
   protected: false,
@@ -32,15 +32,15 @@ const senseChatbot2: CaseStudy = {
     'A laptop showing the Chatbot 2.0 conversation builder: a flow on a dotted ' +
     'canvas and a side panel listing preset questions.',
   facts: [
-    { label: 'Timeline', value: 'About eighteen months, with stops' },
-    { label: 'Team', value: 'Fourteen, one designer' },
+    { label: 'Timeline', value: 'About 18 months, with stops' },
+    { label: 'Team', value: '14, 1 designer' },
     { label: 'Impact', value: 'Candidates rate 2.0 above 1.0' },
   ],
   details: [
     { label: 'Role', value: 'Lead Product Designer' },
     {
       label: 'Team',
-      value: 'Directors of product and engineering, PM, three EMs, seven engineers including two in ML, me',
+      value: 'Directors of product and engineering, PM, 3 EMs, 7 engineers including 2 in ML, me',
     },
     { label: 'Timeline', value: '2022 to May 2023' },
     { label: 'Tools', value: 'Figma, UserTesting' },
@@ -57,8 +57,8 @@ const senseChatbot2: CaseStudy = {
     {
       label: 'Project context',
       body:
-        'I was the one designer on a fourteen-person team spanning product, ' +
-        'engineering and ML, over roughly eighteen months with several stops ' +
+        'I was the 1 designer on a 14-person team spanning product, ' +
+        'engineering and ML, over roughly 18 months with several stops ' +
         'for rescoping and for the model to catch up.',
     },
     {
@@ -94,9 +94,9 @@ const senseChatbot2: CaseStudy = {
         {
           kind: 'lead',
           text:
-            'The second Sense Chatbot understands what candidates mean. It ' +
-            'reads natural language, works out the intent, and acts on it, ' +
-            'writing what it learns into the agency’s ATS. This is how we ' +
+            'Sense Chatbot 2.0 understands what candidates are asking for, ' +
+            'reading natural language, working out the intent, acting on it, ' +
+            'and writing what it learns back into the agency’s ATS. This is how we ' +
             'redesigned the tool recruiters use to build it, including the month ' +
             'we could not agree on one field.',
         },
@@ -201,6 +201,8 @@ const senseChatbot2: CaseStudy = {
           ],
           picture: {
             src: `${A}/mapping.png`,
+            lightbox: false,
+            maxWidth: '20rem',
             aspect: 1400 / 1400,
             alt: 'A diagram: a candidate response flows to a preset question and its data slot, and on to the ATS record.',
             caption: 'How a response reaches the ATS: preset question, data slot, record.',
@@ -279,32 +281,38 @@ const senseChatbot2: CaseStudy = {
             'more required field: the data type each question collects.',
         },
         {
-          kind: 'p',
-          text:
-            'The hypothesis for adding it: a "data captured" field would drive ' +
-            'adoption of presets and make data more accurate, because it would ' +
-            'auto-detect the type as you typed a question and convert your custom ' +
-            'question into the smarter preset equivalent, so nobody would have to ' +
-            'convert by hand.',
-        },
-        {
-          kind: 'image',
-          src: `${A}/data-captured.png`,
-          aspect: 1600 / 2160,
-          alt: 'Two states of the question editor with a Data Captured dropdown: None detected, then Full Name detected with a Replace with prompt.',
-          caption: 'The contested field, in both states.',
-        },
-        {
-          kind: 'p',
-          text: 'From a usability standpoint I disagreed, for three reasons.',
-        },
-        {
-          kind: 'list',
-          items: [
-            'It was redundant: we already had a data validation field, and this would not replace it.',
-            'It was error-prone and confusing: the field auto-fills as you type, but if you then pick a type by hand your question silently converts into a preset.',
-            'It needed a lot of copy to explain, and our users do not read that copy.',
+          kind: 'split',
+          blocks: [
+            {
+              kind: 'p',
+              text:
+                'The hypothesis for adding it: a "data captured" field would drive ' +
+                'adoption of presets and make data more accurate, because it would ' +
+                'auto-detect the type as you typed a question and convert your custom ' +
+                'question into the smarter preset equivalent, so nobody would have to ' +
+                'convert by hand.',
+            },
+            {
+              kind: 'p',
+              text: 'From a usability standpoint I disagreed, for three reasons.',
+            },
+            {
+              kind: 'list',
+              items: [
+                'It was redundant: we already had a data validation field, and this would not replace it.',
+                'It was error-prone and confusing: the field auto-fills as you type, but if you then pick a type by hand your question silently converts into a preset.',
+                'It needed a lot of copy to explain, and our users do not read that copy.',
+              ],
+            },
           ],
+          picture: {
+            src: `${A}/data-captured-2.png`,
+            lightbox: false,
+            maxWidth: '18rem',
+            aspect: 1381 / 2008,
+            alt: 'Two states of the question editor with a Data Captured dropdown: None detected, then Full Name detected with a Replace with prompt.',
+            caption: 'The contested field, in both states.',
+          },
         },
       ],
     },
@@ -398,24 +406,31 @@ const senseChatbot2: CaseStudy = {
             'to do before people know what the library can do for them.',
         },
         {
-          kind: 'image',
-          src: `${A}/custom-vs-preset-redacted.png`,
-          protectedSrc: '/api/asset/sense-chatbot-2/custom-vs-preset.png',
-          aspect: 3610 / 1286,
-          alt: 'Two pie charts: custom versus preset questions in use, and how many custom questions have a preset available.',
-          caption: 'Custom versus preset questions, one month after launch. Confidential; unlock to view.',
+          kind: 'table',
+          columns: ['Questions in use', 'Count', 'Share'],
+          rows: ['Custom', 'Preset'],
+          protectedSrc: '/api/asset/sense-chatbot-2/questions-by-type.json',
+          caption: 'Bot questions in use, one month after launch. Confidential; unlock to view.',
+        },
+        {
+          kind: 'table',
+          columns: ['Custom questions', 'Count', 'Share'],
+          rows: ['Preset available', 'No preset available'],
+          protectedSrc: '/api/asset/sense-chatbot-2/custom-with-preset.json',
+          caption: 'Of the custom questions in use, about half had a preset equivalent.',
         },
         {
           kind: 'p',
           text: 'Candidates, meanwhile, rate Chatbot 2.0 conversations higher than 1.0.',
         },
         {
-          kind: 'image',
-          src: `${A}/ratings-redacted.png`,
-          protectedSrc: '/api/asset/sense-chatbot-2/ratings.png',
-          aspect: 3610 / 1229,
-          alt: 'A bar chart of monthly candidate ratings for Chatbot 1.0 and Chatbot 2.0 from January to May 2023.',
-          caption: 'Candidate ratings by month, 1.0 against 2.0. Confidential; unlock to view.',
+          kind: 'table',
+          columns: ['Month', 'Chatbot 1.0', 'Chatbot 2.0'],
+          rows: ['January 2023', 'February 2023', 'March 2023', 'April 2023', 'May 2023'],
+          protectedSrc: '/api/asset/sense-chatbot-2/ratings.json',
+          caption:
+            'Average candidate rating by month, out of 5. Chatbot 2.0 launched in ' +
+            'March. Read from the monthly chart, so approximate.',
         },
         {
           kind: 'list',

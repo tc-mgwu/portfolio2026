@@ -25,6 +25,6 @@ export default async function CaseStudyPage(
   if (!study) notFound();
 
   const { prev, next } = neighbours(slug);
-  if (study.comingSoon) return <ComingSoon study={study} prev={prev} next={next} />;
+  if (study.comingSoon) return <ComingSoon study={study} />;
   return <CaseStudyView study={study} prev={prev} next={next} />;
 }

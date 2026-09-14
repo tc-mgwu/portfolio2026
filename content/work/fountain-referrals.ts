@@ -15,7 +15,7 @@ const fountainReferrals: CaseStudy = {
   summary:
     'I designed a 0 to 1 referral product end to end, from the employer\u2019s ' +
     'campaign tooling on web to the worker\u2019s mobile referral flow. Live in 12 ' +
-    'customer contracts within six months of GA.',
+    'customer contracts within 6 months of GA.',
   projectType: '[PROJECT TYPE]',
   role: '[ROLE]',
   protected: false,

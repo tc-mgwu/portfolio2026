@@ -16,9 +16,9 @@ Nothing outstanding. The hero is fully written.
 ## `content/work/*.ts` — nine case studies
 
 **Written so far:** Sense Chatbot, Sense Messaging, Sense Chatbot 2.0, Fountain
-Hire Go (Configurable Opening Flows) and one unlisted study. Use them as the
-model. The other five are flagged `comingSoon: true` and show a coming-soon
-page until written; drop the flag when each is done. Each needs:
+Hire Go (Configurable Opening Flows), Medal Annotations and one unlisted study.
+Use them as the model. The other four are flagged `comingSoon: true` and show a
+coming-soon page until written; drop the flag when each is done. Each needs:
 
 - [ ] `summary` — one line, shown on the collection cards
 - [ ] `projectType` and `role`
@@ -28,8 +28,7 @@ page until written; drop the flag when each is done. Each needs:
 - [ ] `sections` — the long-form body: Overview, Problem, Process, Solution, Outcome
 - [ ] `heroAlt` (read out for the hero on the home page and in galleries), plus alt text and captions on every image block. `heroCaption` is kept in the content files but no longer shown: the case study page no longer repeats the hero.
 
-Files: `fountain-referrals`, `medal-annotations`, `orion-command`,
-`edutech-platform`,
+Files: `fountain-referrals`, `orion-command`, `edutech-platform`,
 `agentic-assistant`.
 
 ## Open questions
@@ -79,3 +78,13 @@ Open questions from the write-up, for Toni
       that a static frame would not have (A weekly loop).
 - [ ] Reading check: the page says most Hire Go users do *not* have access to
       Fountain Hire. Confirm that is the right way round.
+
+## `content/work/medal-annotations.ts`
+Written from the 2026 write-up. No imagery yet. The write-up names three
+Figma frames; the Sketch sources are in `~/Documents/Medal 2019`.
+
+- [ ] Decision 1: the post-it changelog exploration and the final versioning flow
+- [ ] Decision 2: the Manage Annotations flow and label creation with live preview
+- [ ] Decision 3: hotkey explorations and the final color-coded menu
+- [ ] A hero: the annotation view with the categorized menu open
+- [ ] Screens must show no real patient data (HIPAA); use the demo records only.

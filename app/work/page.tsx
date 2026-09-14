@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { caseStudies } from '@/content';
-import { collections } from '@/content/collections';
 import ProjectGallery from '@/components/ProjectGallery';
 
-/* Every case study in one gallery, ordered by collection but not divided by
-   it, so the page reads as one body of work. */
+/* Every case study in one gallery, grouped by company but not divided by
+   headings, so the page reads as one body of work. */
 
 export const metadata: Metadata = {
   title: 'Work — Toni Chen',
@@ -12,8 +11,14 @@ export const metadata: Metadata = {
 };
 
 export default function WorkPage() {
-  /* One flat gallery, in collection order. */
-  const ordered = collections.flatMap((c) => caseStudies.filter((s) => s.collection === c.id));
+  /* One flat gallery, grouped by company in this order. Anything from a
+     company not listed follows, in collection order. */
+  const COMPANIES = ['Fountain', 'Sense', 'Medal', 'Orion'];
+  const rank = (s: (typeof caseStudies)[number]) => {
+    const i = COMPANIES.indexOf(s.company);
+    return i === -1 ? COMPANIES.length : i;
+  };
+  const ordered = [...caseStudies].sort((a, b) => rank(a) - rank(b));
 
   return (
     <div className="mx-auto max-w-6xl px-6 pb-28 pt-28">

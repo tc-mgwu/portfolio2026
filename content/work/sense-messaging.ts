@@ -35,17 +35,17 @@ const senseMessaging: CaseStudy = {
     'The redesigned Sense Messaging inbox inside the Chrome extension, beside ' +
     'an applicant tracking system: inbox list, conversation and compose bar.',
   facts: [
-    { label: 'Timeline', value: 'Seven months to beta, eight to market' },
-    { label: 'Team', value: 'Ten, one lead designer' },
-    { label: 'Impact', value: 'Two fixes shipped from 121 beta responses' },
+    { label: 'Timeline', value: '7 months to beta, 8 to market' },
+    { label: 'Team', value: '10, one lead designer' },
+    { label: 'Impact', value: '2 fixes shipped from 121 beta responses' },
   ],
   details: [
     { label: 'Role', value: 'Lead Product Designer' },
     {
       label: 'Team',
-      value: 'PM, design system designer, junior designer, two EMs, four engineers, me',
+      value: 'PM, design system designer, junior designer, 2 EMs, 4 engineers, me',
     },
-    { label: 'Timeline', value: 'Eight months' },
+    { label: 'Timeline', value: '8 months' },
     { label: 'Tools', value: 'Figma, FigJam, in-product survey' },
   ],
   brief: [
@@ -54,7 +54,7 @@ const senseMessaging: CaseStudy = {
       body:
         'Sense Messaging is how recruiters talk to candidates over SMS and ' +
         'WhatsApp, mostly from a Chrome extension docked beside their applicant ' +
-        'tracking system. It is one of the most used things Sense makes, and it ' +
+        'tracking system. It is 1 of the most used things Sense makes, and it ' +
         'was built without a designer.',
     },
     {

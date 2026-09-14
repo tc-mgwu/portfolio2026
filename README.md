@@ -87,7 +87,8 @@ halve). GIFs and SVGs are served as-is, since the optimiser would flatten a GIF
 to one frame and has nothing to add to a vector. Per picture, `lightbox: false`
 turns off click-to-zoom, `bare: true` drops the frame for a transparent
 composite, and `href` makes the picture link out (a "View in Figma" badge
-appears on hover in place of the lightbox). A section can carry a `subtitle`, one italic line under its heading for the
+appears on hover in place of the lightbox). Questions and answers go in a `qa` block (`items` of `q` and `a`), each pair set
+tight. A section can carry a `subtitle`, one italic line under its heading for the
 section's thesis. A before/after of a workflow goes in a `flow` block (rows of steps,
 the last row drawn as the present). Dated events go in a `timeline` block
 (`date` as "Jun 14, 2020", `title`, optional `text`), drawn along a rail. Figures go in a `table` block

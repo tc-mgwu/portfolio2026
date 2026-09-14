@@ -223,17 +223,28 @@ function Blocks({
             );
           case "split":
             return (
-              <div key={i} className="grid items-start gap-8 sm:grid-cols-2 sm:gap-10">
-                <div className="space-y-6">
+              <div key={i} className="grid items-start gap-8 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] sm:gap-10">
+                <div className="space-y-5 [&_li]:text-[1rem] [&_p]:text-[1rem]">
                   <Blocks blocks={b.blocks} slug={slug} title={title} />
                 </div>
-                <figure>
-                  <Frame picture={b.picture} slug={slug} title={title} sizes="(min-width: 1024px) 360px, 100vw" />
+                <figure style={b.picture.maxWidth ? { maxWidth: b.picture.maxWidth } : undefined}>
+                  <Frame picture={b.picture} slug={slug} title={title} sizes="(min-width: 1024px) 480px, 100vw" />
                   {b.picture.caption && (
                     <figcaption className="mt-4 text-[0.8125rem] leading-relaxed text-ink-3">{b.picture.caption}</figcaption>
                   )}
                 </figure>
               </div>
+            );
+          case "qa":
+            return (
+              <dl key={i} className="max-w-[50rem] space-y-5">
+                {b.items.map((it) => (
+                  <div key={it.q}>
+                    <dt className="text-[1.0625rem] font-medium leading-[1.5] text-ink">{it.q}</dt>
+                    <dd className="mt-1.5 text-[1.0625rem] leading-[1.6] text-ink-2">{it.a}</dd>
+                  </div>
+                ))}
+              </dl>
             );
           case "flow":
             return (

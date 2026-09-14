@@ -21,6 +21,8 @@ export interface Picture {
   /** `contain` shows the whole picture inside a frame of a different ratio; set `background` to the picture's own ground so the letterboxing disappears. */
   fit?: 'cover' | 'contain';
   background?: string;
+  /** Cap the picture's width, e.g. '20rem', for a small diagram that need not fill its column. */
+  maxWidth?: string;
   /** No frame: for a transparent PNG composite that should float on the page. */
   bare?: boolean;
 }
@@ -42,6 +44,8 @@ export type Block =
   /** Rows of steps read left to right, for a before/after of a workflow.
       The last row is drawn as the current state, the others as the past. */
   | { kind: 'flow'; rows: { label: string; steps: { title: string; detail?: string }[] }[] }
+  /** Questions with their answers, each pair set tight, pairs spaced apart. */
+  | { kind: 'qa'; items: { q: string; a: string }[] }
   /** Dated events in order, drawn along a rail. `title` is the short
       headline; `text` the detail beneath it, optional. */
   | { kind: 'timeline'; items: { date: string; title: string; text?: string }[] }

@@ -34,7 +34,7 @@ export default function CaseStudyView({
         <article className="min-w-0">
           <header className="space-y-6">
             <p className="label-sc">
-              {study.year} &nbsp;·&nbsp; {study.company} &nbsp;·&nbsp; {study.projectType}
+              {study.year} &nbsp;·&nbsp; {study.company}
             </p>
             <h1 className="max-w-[24ch] font-display text-[clamp(1.9rem,3.4vw,2.8rem)] leading-[1.1] tracking-[-0.02em]">
               {study.title}
@@ -44,12 +44,16 @@ export default function CaseStudyView({
             </p>
           </header>
 
-          {/* Details rail sits inline on the way into the body */}
-          <dl className="mt-12 grid gap-6 rounded-xl border border-hair bg-paper-2/60 p-6 sm:grid-cols-4">
+          {/* Details as rows: a narrow label column, the value beside it. A
+              long value wraps in place instead of stretching a card. */}
+          <dl className="mt-10 max-w-[50rem] border-t border-ink/60">
             {study.details.map((d) => (
-              <div key={d.label}>
-                <dt className="label-sc">{d.label}</dt>
-                <dd className="mt-1.5 text-[0.9375rem] text-ink">{d.value}</dd>
+              <div
+                key={d.label}
+                className="grid grid-cols-[7rem_1fr] gap-x-6 border-b border-hair py-3 sm:grid-cols-[9rem_1fr]"
+              >
+                <dt className="label-sc pt-[0.2rem]">{d.label}</dt>
+                <dd className="text-[0.9375rem] leading-[1.55] text-ink">{d.value}</dd>
               </div>
             ))}
           </dl>

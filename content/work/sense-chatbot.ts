@@ -22,7 +22,7 @@ const senseChatbot: CaseStudy = {
     'I designed Sense’s first chatbot end to end, from the recruiter’s setup ' +
     'flow to the candidate’s conversation, taking repetitive work off ' +
     'recruiters and giving candidates answers at any hour. Shipped in six ' +
-    'months to ten paying customers, at more than double the revenue stretch ' +
+    'months to 10 paying customers, at more than double the revenue stretch ' +
     'goal.',
   projectType: '0 to 1 product design',
   role: 'Lead Designer',
@@ -36,14 +36,14 @@ const senseChatbot: CaseStudy = {
     'The Sense conversation flow canvas showing a branching pre-screening ' +
     'flow, beside a phone running the same conversation as a chat.',
   facts: [
-    { label: 'Timeline', value: 'Six months, 2020' },
-    { label: 'Team', value: 'Four, one designer' },
-    { label: 'Impact', value: 'Ten paying customers by December' },
+    { label: 'Timeline', value: '6 months, 2020' },
+    { label: 'Team', value: '4, 1 designer' },
+    { label: 'Impact', value: '10 paying customers by December' },
   ],
   details: [
     { label: 'Role', value: 'Lead Designer' },
     { label: 'Team', value: 'ML engineer, PM, front-end engineer, me' },
-    { label: 'Timeline', value: 'Six months, 2020' },
+    { label: 'Timeline', value: '6 months, 2020' },
     { label: 'Tools', value: 'Figma, Notion, UserTesting' },
   ],
   brief: [
@@ -52,14 +52,14 @@ const senseChatbot: CaseStudy = {
       body:
         'Sense builds automation for recruiting agencies: personalized candidate ' +
         'communication that integrates with applicant tracking systems (ATS). In ' +
-        '2020 it had two products, Engage and Messaging, and a pandemic-battered ' +
+        '2020 it had 2 products, Engage and Messaging, and a pandemic-battered ' +
         'market.',
     },
     {
       label: 'Project context',
       body:
         "I led all design for Sense's third product, a recruiting chatbot, on a " +
-        'team of four (ML engineer, PM, front-end engineer, and me), on a timeline ' +
+        'team of 4 (ML engineer, PM, front-end engineer, and me), on a timeline ' +
         'compressed by the need to stay competitive mid-pandemic.',
     },
     {
@@ -84,7 +84,7 @@ const senseChatbot: CaseStudy = {
     {
       label: 'The outcome',
       body:
-        'Shipped in six months. Ten paying customers by December, more than ' +
+        'Shipped in 6 months. 10 paying customers by December, more than ' +
         "doubling the revenue stretch goal, including Sense's largest enterprise " +
         'deal, and it helped keep the company alive through the pandemic.',
     },
