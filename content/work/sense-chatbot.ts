@@ -25,7 +25,7 @@ const senseChatbot: CaseStudy = {
   projectType: '0 to 1 product design',
   role: 'Lead Designer',
   protected: false,
-  tint: ['#CFE9E6', '#2FA39A'],
+  tint: ['#F6D8E9', '#D14A9E'],
   tags: ['0 to 1', 'Conversational AI', 'Shipped', 'WCAG'],
   art: 'grid',
   heroSrc: '/work/sense-chatbot/hero.png',
