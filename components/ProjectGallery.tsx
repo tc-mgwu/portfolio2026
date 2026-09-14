@@ -62,6 +62,17 @@ export default function ProjectGallery({ studies }: { studies: CaseStudy[] }) {
               <p className="text-[0.9375rem] leading-[1.55] text-ink-2">
                 {study.comingSoon && study.summary.startsWith('[') ? 'Case study coming soon.' : study.summary}
               </p>
+
+              {/* Appears on hover or keyboard focus; always shown where there is
+                  no hover to reveal it. Space is reserved so the card never
+                  changes height. The card itself is the link. */}
+              <span
+                aria-hidden="true"
+                className="mt-2 inline-flex h-9 w-fit items-center gap-2 rounded-full bg-ink px-4 text-[0.8125rem] font-medium text-paper opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:opacity-100"
+              >
+                {study.comingSoon ? 'Coming soon' : 'View project'}
+                <span>&rarr;</span>
+              </span>
             </div>
           </Link>
         </li>

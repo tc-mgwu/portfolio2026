@@ -32,8 +32,8 @@ const fountainHireGo: CaseStudy = {
     'The Opening Flows builder in Hire Go: a list of flows with the default ' +
     'row locked, and a question editor beside it.',
   facts: [
-    { label: 'Timeline', value: 'July to August 2026, about 3.5 weeks' },
-    { label: 'Team', value: 'PM, engineering lead, prompt owner, a design collaborator, me' },
+    { label: 'Timeline', value: 'About 3.5 weeks' },
+    { label: 'Role', value: 'Lead Product Designer' },
     { label: 'Impact', value: 'Design complete; shipped after I left' },
   ],
   details: [
@@ -42,7 +42,7 @@ const fountainHireGo: CaseStudy = {
       label: 'Team',
       value: 'A PM, the engineering lead, the owner of the live activation prompts, one design collaborator, me',
     },
-    { label: 'Timeline', value: 'July to August 2026, about 3.5 weeks from kickoff to design complete' },
+    { label: 'Timeline', value: 'About 3.5 weeks from kickoff to design complete' },
     { label: 'Tools', value: 'Claude Design, Figma' },
   ],
   brief: [
@@ -301,7 +301,7 @@ const fountainHireGo: CaseStudy = {
         {
           kind: 'p',
           text:
-            'Signal: after the August 5 review the engineering lead’s read was ' +
+            'Signal: after the second engineering review, the engineering lead’s read was ' +
             'that the model was drifting toward a workflow editor. Conditionals ' +
             'referenced location, prior answers and a hardcoded state list; ' +
             'validation caps were literal per flow; none of it had a schema.',
@@ -361,7 +361,7 @@ const fountainHireGo: CaseStudy = {
           kind: 'p',
           text:
             'Call: the third. Per-question instructions were removed after the ' +
-            'August 11 review. Each one was customer-written text fed straight ' +
+            'final review. Each one was customer-written text fed straight ' +
             'into what Cue runs, and a careless or hostile instruction could skip ' +
             'a gate or write the wrong value. A form fallback honors the same ' +
             'flow, and preview runs against a real opening.',
@@ -420,7 +420,7 @@ const fountainHireGo: CaseStudy = {
               'showed “required” was five different behaviors, the toggle was a ' +
               'lie. Standard questions lock to the data model; custom questions are ' +
               'editable.',
-            'The per-question AI instruction field was removed after the August 11 ' +
+            'The per-question AI instruction field was removed after the final ' +
               'review and replaced with one flow-level instruction, for the reasons ' +
               'in Decision 3.',
           ],
@@ -428,12 +428,12 @@ const fountainHireGo: CaseStudy = {
         {
           kind: 'timeline',
           items: [
-            { date: 'Jul 2026', title: 'Kickoff.', text: 'Prompt diff, schema review, the first Claude Design prototype.' },
-            { date: 'Jul 31, 2026', title: 'Preview and test ruled out of scope.' },
-            { date: 'Aug 5, 2026', title: 'Engineering review.', text: 'The model is drifting toward a workflow editor; preview and test reopened.' },
-            { date: 'Aug 10, 2026', title: 'Test with Cue designed.', text: 'Rather than letting “publish to sandbox first” stand as the answer.' },
-            { date: 'Aug 11, 2026', title: 'Review: per-question instructions removed.', text: 'One flow-level instruction replaces them.' },
-            { date: 'Aug 2026', title: 'Design complete.', text: 'Builder, settings home, mobile standard and the Cue path handed over.' },
+            { date: 'Week 1', title: 'Kickoff.', text: 'Prompt diff, schema review, the first Claude Design prototype.' },
+            { date: 'Week 1', title: 'Preview and test ruled out of scope.' },
+            { date: 'Week 2', title: 'Engineering review.', text: 'The model is drifting toward a workflow editor; preview and test reopened.' },
+            { date: 'Week 3', title: 'Test with Cue designed.', text: 'Rather than letting “publish to sandbox first” stand as the answer.' },
+            { date: 'Week 3', title: 'Review: per-question instructions removed.', text: 'One flow-level instruction replaces them.' },
+            { date: 'Week 4', title: 'Design complete.', text: 'Builder, settings home, mobile standard and the Cue path handed over.' },
           ],
         },
       ],
@@ -539,8 +539,8 @@ const fountainHireGo: CaseStudy = {
           text:
             'Conversation is the right surface for describing what you want. It ' +
             'is the wrong surface for reviewing something that changes how every ' +
-            'opening in the account activates. So the split is by risk, not by ' +
-            'preference. Cue handles intake and proposal in chat. The moment a ' +
+            'opening in the account activates. Cue handles intake and proposal ' +
+            'in chat. The moment a ' +
             'configuration would be saved, or an opening activated, the design ' +
             'materializes structure around the conversation: the full proposed ' +
             'configuration as a card, the collected activation values as a ' +
@@ -618,32 +618,6 @@ const fountainHireGo: CaseStudy = {
             ['Leading indicator: if admins pin every question, we have rebuilt bespoke prompting with a UI on top'],
             ['Leading indicator: if admins rewrite most of a proposal, the inference is reading the wrong signals'],
           ],
-        },
-      ],
-    },
-    {
-      id: 'reflection',
-      title: 'What I got wrong going in',
-      blocks: [
-        {
-          kind: 'p',
-          text:
-            'I assumed the agentic path was the manual flow with a chat on the ' +
-            'front: an admin would describe a flow and Cue would build it. Working ' +
-            'through the prompts and the routing showed the admin rarely needs to ' +
-            'describe anything. The openings already say most of it. The reversal ' +
-            'was that the agent’s value is not in understanding what the admin ' +
-            'types; it is in reading what the account already has and making the ' +
-            'admin’s first draft for them. Good AI UX here reduces prompting ' +
-            'rather than depending on it.',
-        },
-        {
-          kind: 'p',
-          text:
-            'Where it goes next: the correction rate on proposals is the number I ' +
-            'would watch. If admins rewrite most of what Cue proposes, the ' +
-            'inference is reading the wrong signals, and the fix is in what the ' +
-            'agent reads, not in a better prompt.',
         },
       ],
     },

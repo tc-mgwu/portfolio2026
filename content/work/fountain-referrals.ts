@@ -23,9 +23,13 @@ const fountainReferrals: CaseStudy = {
   tint: ['#F4D9C4', '#C9724A'],
   tags: ['0 to 1', 'Workflows', 'Shipped'],
   art: 'rings',
-  heroAspect: 16 / 10,
-  heroCaption: '[CAPTION FOR THE HERO VISUAL]',
-  heroAlt: '[ALT TEXT FOR THE HERO VISUAL]',
+  heroSrc: '/work/fountain-referrals/hero.png',
+  heroAspect: 1596 / 1000,
+  heroCaption: 'The Referrals pipeline, as shipped.',
+  heroAlt:
+    'The Referrals pipeline in Fountain: five counts across the top, from ' +
+    'self-identified to retained, above a table of referred candidates with ' +
+    'status, job, campaign, referrer and relationship.',
   facts: [
     { label: 'Timeline', value: '[TIMELINE]' },
     { label: 'Team', value: '[TEAM]' },

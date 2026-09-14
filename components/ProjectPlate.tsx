@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { CaseStudy } from '@/lib/types';
+import Image from 'next/image';
 import PlateArt from './PlateArt';
 
 /* A project plate: a soft circular gradient, the work sitting on top of it as
@@ -111,12 +112,22 @@ export default function ProjectPlate({
       {/* The screen. */}
       <div className="plate-screen-wrap relative" style={{ padding: `${PAD_Y}% ${PAD_X}%` }}>
         <div
-          className="plate-screen overflow-hidden rounded-lg bg-paper"
+          className="plate-screen relative overflow-hidden rounded-lg bg-paper"
           style={{ aspectRatio: String(study.heroAspect) }}
           role="img"
           aria-label={study.heroAlt}
         >
-          <PlateArt art={study.art} />
+          {study.heroSrc ? (
+            <Image
+              src={study.heroSrc}
+              alt=""
+              fill
+              sizes="(min-width: 640px) 36rem, 100vw"
+              className="object-cover object-left-top"
+            />
+          ) : (
+            <PlateArt art={study.art} />
+          )}
         </div>
       </div>
 

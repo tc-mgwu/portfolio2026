@@ -33,14 +33,14 @@ const senseChatbot2: CaseStudy = {
     'canvas and a side panel listing preset questions.',
   facts: [
     { label: 'Timeline', value: 'About 18 months, with stops' },
-    { label: 'Team', value: '14, 1 designer' },
+    { label: 'Role', value: 'Lead Product Designer' },
     { label: 'Impact', value: 'Candidates rate 2.0 above 1.0' },
   ],
   details: [
     { label: 'Role', value: 'Lead Product Designer' },
     {
       label: 'Team',
-      value: 'Directors of product and engineering, PM, 3 EMs, 7 engineers including 2 in ML, me',
+      value: 'Directors of product and engineering, PM, 3 engineering managers, 7 engineers including 2 in ML, me',
     },
     { label: 'Timeline', value: '2022 to May 2023' },
     { label: 'Tools', value: 'Figma, UserTesting' },
@@ -57,7 +57,7 @@ const senseChatbot2: CaseStudy = {
     {
       label: 'Project context',
       body:
-        'I was the 1 designer on a 14-person team spanning product, ' +
+        'I was the one designer on a 14-person team spanning product, ' +
         'engineering and ML, over roughly 18 months with several stops ' +
         'for rescoping and for the model to catch up.',
     },

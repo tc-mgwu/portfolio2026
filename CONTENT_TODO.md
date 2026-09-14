@@ -71,9 +71,7 @@ Nice to have
 The before/after diagram (Visual 2) is built as a `flow` block, not an image.
 
 Open questions from the write-up, for Toni
-- [ ] Reflection: the "What I got wrong going in" section is the write-up's best
-      guess at a reversal. Confirm it is true, or replace it with the belief you
-      actually held at the start.
+- [x] Reflection section removed at Toni's request.
 - [ ] Optional: one thing a Claude Design prototype revealed on a customer call
       that a static frame would not have (A weekly loop).
 - [ ] Reading check: the page says most Hire Go users do *not* have access to

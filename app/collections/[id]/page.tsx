@@ -34,12 +34,12 @@ export default async function CollectionPage(
         &larr; All work
       </Link>
 
-      <header className="mt-8 max-w-[46rem]">
+      <header className="mt-8">
         <p className="label-sc">{collection.label}</p>
         <h1 className="mt-3 font-display text-[clamp(1.8rem,3.6vw,2.6rem)] leading-[1.08] tracking-[-0.02em]">
           {collection.title}
         </h1>
-        <p className="mt-5 max-w-[62ch] text-[1.0625rem] leading-[1.7] text-ink-2">
+        <p className="mt-5 text-[1.0625rem] leading-[1.7] text-ink-2">
           {collection.blurb}
         </p>
       </header>

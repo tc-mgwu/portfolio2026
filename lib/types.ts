@@ -104,6 +104,8 @@ export interface CaseStudy {
   art: 'rings' | 'grid' | 'bars';
   /** Short attributes that fan out from behind the plate. Three or four reads best. */
   tags: string[];
+  /** The hero screenshot under /public, 16:10 at about 1600 by 1000. Without it the plate draws `art`. */
+  heroSrc?: string;
   /** Aspect ratio of the hero image slot, as width / height. */
   heroAspect: number;
   heroCaption: string;

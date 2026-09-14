@@ -30,14 +30,16 @@ const senseChatbot: CaseStudy = {
   tint: ['#EBDCC9', '#B7794E'],
   tags: ['0 to 1', 'Conversational AI', 'Shipped', 'WCAG'],
   art: 'grid',
+  heroSrc: '/work/sense-chatbot/hero.png',
   heroAspect: 16 / 10,
-  heroCaption: 'The Conversation Flow Designer, and the candidate chat it produces.',
+  heroCaption: 'The Conversation Flow Designer, mid-build.',
   heroAlt:
-    'The Sense conversation flow canvas showing a branching pre-screening ' +
-    'flow, beside a phone running the same conversation as a chat.',
+    'The Conversation Flow Designer: a vertical flow from Start through greeting, ' +
+    'introduction and closing nodes, with the add menu open offering a question, ' +
+    'a message, a summary or a jump.',
   facts: [
     { label: 'Timeline', value: '6 months, 2020' },
-    { label: 'Team', value: '4, 1 designer' },
+    { label: 'Role', value: 'Lead Designer' },
     { label: 'Impact', value: '10 paying customers by December' },
   ],
   details: [

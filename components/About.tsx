@@ -41,7 +41,7 @@ export default function About() {
           About me
         </h2>
 
-        <p className="mt-10 max-w-[34ch] font-display text-[clamp(1.375rem,2.8vw,2rem)] leading-[1.25] tracking-[-0.015em]">
+        <p className="mt-10 font-display text-[clamp(1.375rem,2.8vw,2rem)] leading-[1.25] tracking-[-0.015em]">
           {statement}
         </p>
 

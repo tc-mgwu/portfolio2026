@@ -36,14 +36,14 @@ const senseMessaging: CaseStudy = {
     'an applicant tracking system: inbox list, conversation and compose bar.',
   facts: [
     { label: 'Timeline', value: '7 months to beta, 8 to market' },
-    { label: 'Team', value: '10, one lead designer' },
+    { label: 'Role', value: 'Lead Product Designer' },
     { label: 'Impact', value: '2 fixes shipped from 121 beta responses' },
   ],
   details: [
     { label: 'Role', value: 'Lead Product Designer' },
     {
       label: 'Team',
-      value: 'PM, design system designer, junior designer, 2 EMs, 4 engineers, me',
+      value: 'PM, design system designer, junior designer, 2 engineering managers, 4 engineers, me',
     },
     { label: 'Timeline', value: '8 months' },
     { label: 'Tools', value: 'Figma, FigJam, in-product survey' },
@@ -54,7 +54,7 @@ const senseMessaging: CaseStudy = {
       body:
         'Sense Messaging is how recruiters talk to candidates over SMS and ' +
         'WhatsApp, mostly from a Chrome extension docked beside their applicant ' +
-        'tracking system. It is 1 of the most used things Sense makes, and it ' +
+        'tracking system. It is one of the most used things Sense makes, and it ' +
         'was built without a designer.',
     },
     {
@@ -319,11 +319,10 @@ const senseMessaging: CaseStudy = {
               caption: 'The survey, shown after four days in beta.',
             },
             {
-              src: `${A}/csat-redacted.png`,
-              protectedSrc: '/api/asset/sense-messaging/csat.png',
+              src: `${A}/csat.png`,
               aspect: 1642 / 1548,
               alt: 'A table of satisfaction scores across five levels with counts and percentages.',
-              caption: 'Satisfaction scores. Confidential; unlock to view.',
+              caption: 'Satisfaction scores from the beta survey.',
             },
             {
               src: `${A}/complaint-themes.png`,
@@ -364,13 +363,15 @@ const senseMessaging: CaseStudy = {
           items: [
             {
               src: `${A}/issue-user-details.jpg`,
-              aspect: 1580 / 2160,
+              lightbox: false,
+              aspect: 3 / 4,
               alt: 'The beta conversation panel with the ellipsis menu circled and an arrow to the candidate details panel it opened.',
               caption: 'Before: details behind the ellipsis.',
             },
             {
               src: `${A}/issue-user-details-fix.jpg`,
-              aspect: 1440 / 2160,
+              lightbox: false,
+              aspect: 3 / 4,
               alt: 'The fixed conversation panel with a details icon in the header, phone and email under the name, and the details panel open.',
               caption: 'After: a one-click details icon, and phone and email in the header.',
             },
@@ -401,13 +402,15 @@ const senseMessaging: CaseStudy = {
           items: [
             {
               src: `${A}/issue-submenu.jpg`,
-              aspect: 1740 / 2160,
+              lightbox: false,
+              aspect: 3 / 4,
               alt: 'The inbox navigation panel taking up most of the width, with a note that its width is fluid rather than fixed.',
               caption: 'Before: the submenu panel, fluid and wide.',
             },
             {
               src: `${A}/issue-submenu-fix.jpg`,
-              aspect: 1920 / 2160,
+              lightbox: false,
+              aspect: 3 / 4,
               alt: 'The three-panel view with the inbox list, the conversation and the candidate details panel in place of the submenu.',
               caption: 'After: details panel by default, submenu on demand.',
             },

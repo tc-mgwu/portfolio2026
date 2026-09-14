@@ -37,7 +37,7 @@ const medalAnnotations: CaseStudy = {
     'label menu beside the highlighted text.',
   facts: [
     { label: 'Timeline', value: 'About 2 months, from November 2019' },
-    { label: 'Team', value: '6, 1 designer' },
+    { label: 'Role', value: 'Sole Product Designer' },
     { label: 'Impact', value: 'Versioning, admin portal and menu shipped' },
   ],
   details: [
@@ -443,15 +443,6 @@ const medalAnnotations: CaseStudy = {
           kind: 'qa',
           items: [
             {
-              q: 'How do you know this worked? You left after two months.',
-              a:
-                'I don’t have longitudinal metrics, and I won’t pretend to. I can ' +
-                'verify three things. The work shipped. My interview findings ' +
-                'changed the roadmap. And the expert-review approach my system ' +
-                'supported was still central at acquisition, six months later. The ' +
-                'missing instrumentation is the thing I would fix.',
-            },
-            {
               q: 'Why was the menu worth reprioritizing?',
               a:
                 'Annotation speed was the business. Medal sold expert-corrected ' +
@@ -468,13 +459,6 @@ const medalAnnotations: CaseStudy = {
                 'problem: version each session instead of pushing updates. The ' +
                 'admin’s side-by-side view answered “what changed” better than ' +
                 'email could.',
-            },
-            {
-              q: 'How does this hold up as a system?',
-              a:
-                'The admin portal. I did not design a label taxonomy. I designed ' +
-                'the machinery for admins to build their own, with guardrails like ' +
-                'forced text contrast.',
             },
             {
               q: 'How early was engineering involved?',
