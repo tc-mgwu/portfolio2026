@@ -25,7 +25,7 @@ export default async function UnlockPage(
           {study ? (
             <>
               This work is under NDA. Enter the password from my resume, or{' '}
-              <a href="/#contact" className="text-accent underline underline-offset-4">
+              <a href="/about#contact" className="text-accent underline underline-offset-4">
                 email me for access
               </a>.
             </>

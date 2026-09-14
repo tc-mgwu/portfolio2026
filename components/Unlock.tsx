@@ -96,7 +96,13 @@ function UnlockModal({
         // modal has to be dismissed explicitly or it stays over the unlocked
         // page. refresh() drops any router-cache entry captured while locked.
         onUnlocked();
-        if (window.location.pathname !== data.next) router.push(data.next as string);
+        const next = data.next as string;
+        if (next.startsWith('/api/')) {
+          // A gated file: hand the browser the URL so it downloads.
+          window.location.assign(next);
+        } else if (window.location.pathname !== next) {
+          router.push(next);
+        }
         router.refresh();
         onClose();
         return;
@@ -140,9 +146,9 @@ function UnlockModal({
         </h2>
 
         <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-2">
-          {target.redacted ? 'These details are confidential.' : 'This work is under NDA.'}{' '}
+          {target.redacted ? 'These details are confidential.' : target.slug === 'resume' ? 'The resume is shared on request.' : 'This work is under NDA.'}{' '}
           Enter the password from my resume, or{' '}
-          <a href="#contact" onClick={onClose} className="text-accent underline underline-offset-4">
+          <a href="/about#contact" onClick={onClose} className="text-accent underline underline-offset-4">
             email me for access
           </a>.
         </p>

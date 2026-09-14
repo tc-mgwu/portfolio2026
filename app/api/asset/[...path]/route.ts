@@ -33,11 +33,14 @@ export async function GET(_req: Request, { params }: { params: Promise<{ path: s
     return new Response(null, { status: 404 });
   }
 
-  return new Response(new Uint8Array(decryptAsset(encrypted)), {
-    headers: {
-      'content-type': type,
-      'cache-control': 'private, no-store',
-      'x-content-type-options': 'nosniff',
-    },
-  });
+  const headers: Record<string, string> = {
+    'content-type': type,
+    'cache-control': 'private, no-store',
+    'x-content-type-options': 'nosniff',
+  };
+  // Documents download; images and data are read in place.
+  if (type === 'application/pdf') {
+    headers['content-disposition'] = `attachment; filename="${parts[parts.length - 1]}"`;
+  }
+  return new Response(new Uint8Array(decryptAsset(encrypted)), { headers });
 }

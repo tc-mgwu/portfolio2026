@@ -36,4 +36,5 @@ export const ASSET_TYPES: Record<string, string> = {
   '.webp': 'image/webp',
   '.mp4': 'video/mp4',
   '.json': 'application/json',
+  '.pdf': 'application/pdf',
 };

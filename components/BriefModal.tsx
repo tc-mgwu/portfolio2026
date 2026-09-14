@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useRef } from 'react';
+import { Fragment, useEffect, useId, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CaseStudy } from '@/lib/types';
@@ -22,6 +22,8 @@ export default function BriefModal({
 }) {
   const panel = useRef<HTMLDivElement>(null);
   const titleId = useId();
+  const impact = study.facts.find((f) => f.label === 'Impact');
+  const strip = study.facts.filter((f) => f !== impact);
 
   useEffect(() => {
     const opener = document.activeElement as HTMLElement | null;
@@ -105,8 +107,10 @@ export default function BriefModal({
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5 sm:px-7">
-          <dl className="grid grid-cols-3 gap-x-4 gap-y-3 border-b border-hair pb-4">
-            {study.facts.map((f) => (
+          {/* Impact is a sentence, so it reads as a block after Background
+              rather than squeezed into the facts strip. */}
+          <dl className={`grid gap-x-4 gap-y-3 border-b border-hair pb-4 ${strip.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
+            {strip.map((f) => (
               <div key={f.label}>
                 <dt className="label-sc">{f.label}</dt>
                 <dd className="mt-1 text-[0.8125rem] leading-snug text-ink">{f.value}</dd>
@@ -115,13 +119,23 @@ export default function BriefModal({
           </dl>
 
           <dl className="mt-4 space-y-3.5">
-            {study.brief.map((b) => (
-              <div key={b.label}>
-                <dt className="label-sc">{b.label}</dt>
-                <dd className="mt-1 text-[0.9375rem] leading-[1.5] text-ink-2">
-                  {b.body}
-                </dd>
-              </div>
+            {study.brief.map((b, i) => (
+              <Fragment key={b.label}>
+                <div>
+                  <dt className="label-sc">{b.label}</dt>
+                  <dd className="mt-1 text-[0.9375rem] leading-[1.5] text-ink-2">
+                    {b.body}
+                  </dd>
+                </div>
+                {i === 0 && impact && (
+                  <div>
+                    <dt className="label-sc">{impact.label}</dt>
+                    <dd className="mt-1 text-[0.9375rem] leading-[1.5] text-ink">
+                      {impact.value}
+                    </dd>
+                  </div>
+                )}
+              </Fragment>
             ))}
           </dl>
         </div>

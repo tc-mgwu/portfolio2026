@@ -158,7 +158,7 @@ function Blocks({
             return (
               <blockquote
                 key={i}
-                className="max-w-[60ch] border-l-2 border-accent pl-5 font-display text-[1.375rem] leading-[1.45] text-ink"
+                className="max-w-[50rem] border-l-2 border-accent pl-5 font-display text-[1.375rem] leading-[1.45] text-ink"
               >
                 {b.text}
               </blockquote>

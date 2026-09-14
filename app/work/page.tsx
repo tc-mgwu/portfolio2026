@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { caseStudies } from '@/content';
+import { caseStudies, featured } from '@/content';
 import ProjectGallery from '@/components/ProjectGallery';
 
 /* Every case study in one gallery, grouped by company but not divided by
@@ -18,7 +18,10 @@ export default function WorkPage() {
     const i = COMPANIES.indexOf(s.company);
     return i === -1 ? COMPANIES.length : i;
   };
-  const ordered = [...caseStudies].sort((a, b) => rank(a) - rank(b));
+  /* Unwritten studies stay off this page unless they are featured on the
+     home page, so the gallery ends with real work rather than placeholders. */
+  const shown = caseStudies.filter((s) => !s.comingSoon || featured.includes(s));
+  const ordered = [...shown].sort((a, b) => rank(a) - rank(b));
 
   return (
     <div className="mx-auto max-w-6xl px-6 pb-28 pt-28">

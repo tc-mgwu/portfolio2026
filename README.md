@@ -98,6 +98,17 @@ written yet carries `comingSoon: true`: its cards say "Case study coming
 soon", the button reads "Coming soon", and its page shows a short note with
 links onward instead of the body. Remove the flag when the write-up lands.
 
+**Contact form.** `/api/contact` relays the About page form to `CONTACT_TO`
+through Resend. Set `RESEND_API_KEY` in Vercel (and `.env.local`); without it
+the route answers 503 and the form shows the email address instead. The sender
+is Resend's onboarding address until a domain is verified there.
+
+**Resume.** The PDF is a gated download, not a public file: it lives encrypted
+at `private/work/resume/Toni-Chen-Resume-2026.pdf.enc` and is served by the
+asset route once the shared case study password is entered. To replace it, run
+`node scripts/protect-asset.mjs resume <new.pdf>` with the same file name, or
+update `RESUME_FILE` in `lib/resume.ts`.
+
 **Unlisted case studies.** A study that must leave no trace in this public
 repository is stored as `private/hidden/<slug>.json.enc`: the whole case
 study object, encrypted with `ASSET_KEY`, its pictures referenced through

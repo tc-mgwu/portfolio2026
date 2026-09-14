@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { COOKIE_MAX_AGE, UNLOCK_COOKIE, hasOwnPassword, passwordFor, safeEqual, scopeFor, signScope } from '@/lib/auth';
 import { caseStudies } from '@/content';
+import { RESUME_PATH, RESUME_SLUG } from '@/lib/resume';
 
 export async function POST(req: Request) {
   let body: { password?: string; slug?: string };
@@ -12,7 +13,7 @@ export async function POST(req: Request) {
 
   const slug = typeof body.slug === 'string' ? body.slug : '';
   const password = typeof body.password === 'string' ? body.password : '';
-  const listed = caseStudies.some((c) => c.slug === slug);
+  const listed = caseStudies.some((c) => c.slug === slug) || slug === RESUME_SLUG;
   if (!/^[a-z0-9][a-z0-9-]{2,60}$/.test(slug) || (!listed && !hasOwnPassword(slug))) {
     // Same answer as a wrong password: an unknown slug reveals nothing.
     return NextResponse.json({ ok: false, error: 'That password did not match.' }, { status: 401 });
@@ -24,7 +25,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'That password did not match.' }, { status: 401 });
   }
 
-  const res = NextResponse.json({ ok: true, next: `/${listed ? 'work' : 'secretwork'}/${slug}` });
+  const next =
+    slug === RESUME_SLUG ? RESUME_PATH : `/${listed ? 'work' : 'secretwork'}/${slug}`;
+  const res = NextResponse.json({ ok: true, next });
   res.cookies.set({
     name: UNLOCK_COOKIE,
     value: await signScope(scopeFor(slug)),

@@ -37,7 +37,12 @@ const senseMessaging: CaseStudy = {
   facts: [
     { label: 'Timeline', value: '7 months to beta, 8 to market' },
     { label: 'Role', value: 'Lead Product Designer' },
-    { label: 'Impact', value: '2 fixes shipped from 121 beta responses' },
+    {
+      label: 'Impact',
+      value:
+        'Turned a reskin brief into a rearchitecture of Sense’s most used product, ' +
+        'shipped to 860 recruiters, with the 2 top complaints fixed before general release',
+    },
   ],
   details: [
     { label: 'Role', value: 'Lead Product Designer' },
@@ -52,44 +57,54 @@ const senseMessaging: CaseStudy = {
     {
       label: 'Background',
       body:
-        'Sense Messaging is how recruiters talk to candidates over SMS and ' +
-        'WhatsApp, mostly from a Chrome extension docked beside their applicant ' +
-        'tracking system. It is one of the most used things Sense makes, and it ' +
-        'was built without a designer.',
+        'Sense Messaging is how staffing recruiters text candidates over SMS and ' +
+        'WhatsApp, mostly from a Chrome extension docked beside their ATS. It was ' +
+        'built by engineers and a PM without a designer, and it was one of the ' +
+        'most used products Sense had.',
     },
     {
       label: 'Project context',
       body:
-        'I led design for moving Messaging onto the new company design system, ' +
-        'with a PM, a design system designer, a junior designer and a six-person ' +
-        'engineering team. Web app and Chrome extension; the mobile app was out ' +
-        'of scope.',
+        'The brief was to reskin the app on the new company design system. ' +
+        'Feedback in our Slack channel was scoring it 0 to 5 out of 10, and ' +
+        'support tickets showed new recruiters couldn’t find features, so I made ' +
+        'the case that a coat of paint wouldn’t fix it and got the PM, ' +
+        'engineering and leadership to expand scope to the information ' +
+        'architecture. Team: a PM, a design system designer, a junior designer ' +
+        'and 6 engineers, working in 2-week sprints. Web app and Chrome extension.',
     },
     {
       label: 'The problem',
       body:
-        'The interface was dated, cluttered and short of accessibility ' +
-        'standards, and its information architecture could not take the ' +
-        'integrations the business wanted next, starting with AI-written ' +
-        'messages. New recruiters struggled to find features; support tickets ' +
-        'said so.',
+        'Navigation was scattered across 3 places, common actions sat behind an ' +
+        'extra menu, and the layout had nowhere to put the integrations the ' +
+        'business wanted next, starting with AI-written messages. The old design ' +
+        'system also fell short of accessibility standards.',
     },
     {
       label: 'The solution',
       body:
-        'A four-level architecture (global bar, inbox, conversation, details ' +
-        'panel) chosen from two options through user testing, the app reskinned ' +
-        'on the new system, the compose bar rebuilt, and everything else at ' +
-        'feature parity. Priorities came out of a three-day workshop with sales, ' +
-        'support, product and engineering.',
+        'I ran a 3-day workshop with sales, support, product and engineering to ' +
+        'agree what to fix now and what to defer. From competitive analysis of ' +
+        'TextUs and Intercom I drew up 2 four-level architectures (global bar, ' +
+        'inbox, conversation, details panel) and tested them with recruiters, ' +
+        'CSMs and implementation staff; the panel-by-panel option won. Priority ' +
+        'order for launch: reskin, move navigation under each inbox, rebuild the ' +
+        'compose bar, feature parity for everything else, and leave the global ' +
+        'bar ready for integrations.',
     },
     {
       label: 'The outcome',
       body:
-        'Beta went to 860 recruiters; 121 answered a survey and 45 wrote ' +
-        'comments. Satisfaction skewed negative, as it does after a big change, ' +
-        'and the two most common complaints became the first two post-launch ' +
-        'fixes.',
+        'Beta reached 860 recruiters. 121 answered a CSAT survey and 45 left ' +
+        'comments; half were dissatisfied, which is normal right after a big ' +
+        'change and mostly came from users who preferred the old layout. The 2 ' +
+        'most common complaints, candidate details hidden behind a menu and an ' +
+        'inbox panel that couldn’t collapse, became the first post-launch fixes: ' +
+        'contact info moved into the conversation header, and the details panel ' +
+        'now opens in place of the inbox list on wider screens, with a ' +
+        'notification badge added to keep other inboxes visible. Both shipped ' +
+        'before general release.',
     },
   ],
   sections: [

@@ -22,7 +22,7 @@ const fountainHireGo: CaseStudy = {
     'never break activation for the account.',
   projectType: 'Admin configuration for an AI agent',
   role: 'Lead Product Designer',
-  protected: false,
+  protected: true,
   tint: ['#E7DFF2', '#8B79B8'],
   tags: ['Agentic AI', 'Workflows', 'Design complete'],
   art: 'grid',

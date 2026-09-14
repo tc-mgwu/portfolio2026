@@ -6,12 +6,12 @@ Everything in brackets is a placeholder. Grouped by file.
 Nothing outstanding. The hero is fully written.
 
 ## `content/about.ts`
-- [ ] `statement` — one line on what you do
-- [ ] `bio` — two or three sentences
-- [ ] `experience` — three employers, each with roles, dates, team, scope and bullets
-- [ ] `skills` — three groups, each with its items
-- [ ] `education` — degree and institution
-- [ ] `certificates` — two entries, title and issuer
+Filled from the 2026 resume: statement, bio, five employers (Fountain, Sense,
+Medal, Orion Labs, Independent), skills, education, certificate, and the
+contact block. Dates are years only; dollar figures are left out.
+- [ ] Add a LinkedIn or other link to `contact` if wanted.
+- [ ] The resume lists the portfolio password as "ruminate"; the site's shared
+      case study password is different. Align one to the other.
 
 ## `content/work/*.ts` — nine case studies
 
@@ -86,3 +86,11 @@ Figma frames; the Sketch sources are in `~/Documents/Medal 2019`.
 - [ ] Decision 3: hotkey explorations and the final color-coded menu
 - [ ] A hero: the annotation view with the categorized menu open
 - [ ] Screens must show no real patient data (HIPAA); use the demo records only.
+
+## `content/work/sense-messaging.ts`
+Short form rewritten in September 2026. Two things to confirm before relying
+on them publicly:
+- [ ] "Both shipped before general release" is inferred from beta at 7 months
+      and GTM at 8; confirm the fixes actually landed before GA.
+- [ ] Add a post-fix number to the end of the outcome if one exists (a second
+      CSAT, ticket volume, time to send); without it the story ends on the fix.

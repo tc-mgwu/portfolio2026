@@ -15,7 +15,7 @@ export default function ComingSoon({ study }: { study: CaseStudy }) {
         </h1>
         <p className="mt-4 text-[1.0625rem] leading-[1.6] text-ink-2">
           Check back soon, or{' '}
-          <a href="/#contact" className="text-accent underline underline-offset-4">
+          <a href="/about#contact" className="text-accent underline underline-offset-4">
             ask me about it
           </a>{' '}
           in the meantime.
