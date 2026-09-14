@@ -42,19 +42,15 @@ export const statement =
 
 /* One entry per paragraph. */
 export const bio: string[] = [
-  'I’m a lead product designer focused on AI-native products, agentic ' +
-    'experiences, and data-dense B2B tools, with ten-plus years across startups ' +
-    'and consulting. I’ve designed a conversational hiring chatbot from its ' +
-    'first version through 2.0, across more than two million candidate ' +
-    'conversations, and shaped how users delegate work to an AI copilot. Much ' +
-    'of my work has been 0→1: enterprise applications, agent onboarding and ' +
-    'recovery patterns, and the design systems that let teams build faster. I ' +
-    'partner closely with engineering, product, and leadership to get from an ' +
-    'ambiguous brief to something shipped.',
-  'AI has collapsed the gap between design and engineering. I use Claude ' +
-    'Design to prototype in code instead of static mockups, and Claude Code to ' +
-    'ship design-system PRs, run accessibility audits, and synthesize research, ' +
-    'so the handoff is a pull request rather than a spec.',
+  'I\u2019m a lead product designer with over ten years designing AI agents and ' +
+    'workflow-heavy B2B software across startups and consulting, as a founding ' +
+    'designer and later a design manager. I\u2019m at my best at 0 to 1, when the ' +
+    'problem is real and the product doesn\u2019t exist yet. I care about making ' +
+    'tools people actually want to use, especially the ones they\u2019re required ' +
+    'to. I work closely with engineering and product to turn an ambiguous brief ' +
+    'into a product people rely on.',
+  'Recently, I\u2019ve been leaning into vibe coding with Claude Code. In fact, ' +
+    'this whole website was created using Claude Code!',
   'Off the clock I’m usually brewing tea (currently deep in a research hole on ' +
     'Ruyao and Jingdezhen ceramics) or fostering kittens through the Feral Cat ' +
     'Foundation, which is a lot like design work: delightful, chaotic, and ' +

@@ -40,7 +40,7 @@ const fountainHireGo: CaseStudy = {
     { label: 'Role', value: 'Lead Product Designer' },
     {
       label: 'Team',
-      value: 'A PM, the engineering lead, the owner of the live activation prompts, one design collaborator, me',
+      value: '1 product manager, 1 engineering lead, 2 engineers, 1 QA lead',
     },
     { label: 'Timeline', value: 'About 3.5 weeks from kickoff to design complete' },
     { label: 'Tools', value: 'Claude Design, Figma' },
@@ -295,7 +295,7 @@ const fountainHireGo: CaseStudy = {
     },
     {
       id: 'mvp',
-      title: 'Decision 2: the MVP line',
+      title: 'Decision 2: the MVP',
       subtitle: 'Core builder now, conditionals and validation next.',
       blocks: [
         {
@@ -330,9 +330,7 @@ const fountainHireGo: CaseStudy = {
           kind: 'p',
           text:
             'Cost: the MVP cannot migrate two of the three custom accounts on its ' +
-            'own, since both depend on branching. I put that in the epic as a ' +
-            'prerequisite to retiring legacy rather than letting it surface after ' +
-            'launch.',
+            'own, since both depend on branching.',
         },
       ],
     },

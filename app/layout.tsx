@@ -22,6 +22,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Toni Chen — Senior Product Designer',
   description: '[POSITIONING STATEMENT] Portfolio of Toni Chen, senior product designer.',
+  /* Not for search engines. Every page inherits this; the X-Robots-Tag header
+     in next.config.ts says the same thing for non-HTML responses. */
+  robots: {
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+    noimageindex: true,
+    googleBot: { index: false, follow: false, noarchive: true, nosnippet: true, noimageindex: true },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

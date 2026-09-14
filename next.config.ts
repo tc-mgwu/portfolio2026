@@ -9,6 +9,21 @@ const config: NextConfig = {
     '/api/asset/[...path]': ['./private/**/*'],
     '/work/[slug]': ['./private/hidden/**/*'],
   },
+  /* The whole site stays out of search engines. The header covers every
+     response, including images and files, where a meta tag cannot reach. */
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet, noimageindex',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default config;

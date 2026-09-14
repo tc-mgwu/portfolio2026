@@ -14,5 +14,5 @@ export const heroLines: Word[][] = [
 ];
 
 export const heroSupport =
-  'Ten years in B2B taught me what makes a system complete; game design ' +
-  'taught me what makes one fun to operate.';
+  'Ten years designing B2B software, from data-heavy dashboards to AI agents. ' +
+  'I thrive in ambiguity and enjoy defining the logic underneath the chaos.';

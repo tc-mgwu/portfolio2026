@@ -42,7 +42,7 @@ export default function About() {
               />
             </div>
             <figcaption className="mt-3 text-[0.8125rem] text-ink-3 md:text-right">
-              Foster kitten, quality assurance.
+              Foster kitten for quality assurance.
             </figcaption>
           </figure>
         </div>
