@@ -26,9 +26,9 @@
 .dark {
   --color-paper: #0E1014;
   --color-paper-2: #171A21;
-  --color-ink: #EDEAE5;
-  --color-ink-2: #B5AFA7;
-  --color-ink-3: #8A837A;
+  --color-ink: #F1EEE9;
+  --color-ink-2: #CBC5BD;
+  --color-ink-3: #A9A199;
   --color-hair: #262B33;
   --color-accent: #E58F62;
   --color-accent-soft: #33231B;
@@ -131,7 +131,9 @@
   --blob-2: 38 92 186;   /* cool blue, top left */
   --blob-3: 108 58 176;  /* violet, low left    */
   --blob-4: 26 122 150;  /* teal, low right     */
-  --blob-alpha: 0.42;
+  /* Kept low enough that the muted text tokens stay readable over the
+     brightest part of a blob. */
+  --blob-alpha: 0.3;
 }
 
 .blob {
@@ -328,4 +330,18 @@
   opacity: 1;
   filter: blur(0px);
   transform: translate(-50%, -50%) translate(var(--x), var(--y)) rotate(var(--rot)) scale(1);
+}
+
+/* Brief modal header: the study tint in light, a dark ground with a cast of
+   the tint in dark. --tint-a / --tint-b are set inline per study. */
+.brief-head {
+  background: linear-gradient(135deg, var(--tint-a), var(--tint-b));
+}
+.dark .brief-head {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--tint-a) 14%, var(--color-paper-2)),
+    color-mix(in srgb, var(--tint-b) 22%, var(--color-paper-2))
+  );
+  border-bottom: 1px solid var(--color-hair);
 }

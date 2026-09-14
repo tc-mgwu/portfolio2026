@@ -14,6 +14,7 @@ const edutechPlatform: CaseStudy = {
   projectType: '[PROJECT TYPE]',
   role: '[ROLE]',
   protected: true,
+  comingSoon: true,
   tint: ['#EFDCD8', '#B27A78'],
   tags: ['Contract', 'EdTech', 'NDA'],
   art: 'bars',

@@ -14,6 +14,7 @@ const fountainReferrals: CaseStudy = {
   projectType: '[PROJECT TYPE]',
   role: '[ROLE]',
   protected: false,
+  comingSoon: true,
   tint: ['#F4D9C4', '#C9724A'],
   tags: ['0 to 1', 'Workflows', 'Shipped'],
   art: 'rings',

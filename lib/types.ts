@@ -39,6 +39,12 @@ export type Block =
   | { kind: 'callout'; text: string; cta: string; href: string }
   /** Copy beside a picture, in two columns on wide screens. */
   | { kind: 'split'; blocks: Block[]; picture: Picture }
+  /** Rows of steps read left to right, for a before/after of a workflow.
+      The last row is drawn as the current state, the others as the past. */
+  | { kind: 'flow'; rows: { label: string; steps: { title: string; detail?: string }[] }[] }
+  /** Dated events in order, drawn along a rail. `title` is the short
+      headline; `text` the detail beneath it, optional. */
+  | { kind: 'timeline'; items: { date: string; title: string; text?: string }[] }
   /** A small figures table. `rows` are the row labels; `values` holds one
       array of cells per row, one cell per column after the first. For
       confidential figures leave `values` out and set `protectedSrc` to
@@ -56,6 +62,8 @@ export type Block =
 export interface Section {
   id: string;
   title: string;
+  /** One line under the heading, in the display italic: the section's thesis. */
+  subtitle?: string;
   blocks: Block[];
 }
 
@@ -77,6 +85,9 @@ export interface CaseStudy {
   role: string;
   /** Set true to put this route behind the password gate in middleware. */
   protected: boolean;
+  /** Set true while the write-up is still being made: the page shows a
+      coming-soon note instead of the body, and cards say so. */
+  comingSoon?: boolean;
   /** Gradient behind the screen in the gallery plate, as two CSS colours. */
   tint: [string, string];
   /** Which placeholder composition to draw. Replaced by a real screenshot later. */

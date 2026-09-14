@@ -503,7 +503,7 @@ const senseChatbot: CaseStudy = {
     },
     {
       id: 'standalone',
-      title: 'A product, not an add-on',
+      title: 'A product in its own right',
       blocks: [
         {
           kind: 'p',
@@ -572,18 +572,31 @@ const senseChatbot: CaseStudy = {
             'requested channel, was pushed to the following quarter.',
         },
         {
-          kind: 'list',
+          kind: 'timeline',
           items: [
-            'June 14, 2020: Sense announced the chatbot.',
-            'July 28: the Conversation Flow Designer launched.',
-            'August 6: the first paying customer, a national staffing firm ' +
-              'running a three-month pilot across five of its top clients. The ' +
-              'chatbot was now the third product after Engage and Messaging.',
-            'August 11: outbound pre-screening supported in the designer.',
-            'December 14: an enterprise-wide rollout signed, every branch and ' +
-              'unlimited bots, making that agency our largest customer by revenue.',
-            'December 20: ten signed chatbot customers, and more than double ' +
-              'the revenue we had set as the stretch goal for the year.',
+            { date: 'Jun 14, 2020', title: 'Sense announced the chatbot.' },
+            { date: 'Jul 28, 2020', title: 'The Conversation Flow Designer launched.' },
+            {
+              date: 'Aug 6, 2020',
+              title: 'First paying customer.',
+              text:
+                'A national staffing firm ran a three-month pilot across five of ' +
+                'its top clients. The chatbot was now the third product after ' +
+                'Engage and Messaging.',
+            },
+            { date: 'Aug 11, 2020', title: 'Outbound pre-screening supported in the designer.' },
+            {
+              date: 'Dec 14, 2020',
+              title: 'First enterprise-wide rollout.',
+              text:
+                'Every branch and unlimited bots, making that agency our largest ' +
+                'customer by revenue.',
+            },
+            {
+              date: 'Dec 20, 2020',
+              title: 'Ten signed chatbot customers.',
+              text: 'More than double the revenue we had set as the stretch goal for the year.',
+            },
           ],
         },
         {

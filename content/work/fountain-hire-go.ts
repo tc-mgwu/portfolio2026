@@ -14,6 +14,7 @@ const fountainHireGo: CaseStudy = {
   projectType: '[PROJECT TYPE]',
   role: '[ROLE]',
   protected: false,
+  comingSoon: true,
   tint: ['#E7DFF2', '#8B79B8'],
   tags: ['Agentic AI', 'Workflows', 'Shipped'],
   art: 'grid',

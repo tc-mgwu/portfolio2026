@@ -39,13 +39,14 @@ function Card({
         href={`/work/${study.slug}`}
         prefetch={study.protected ? false : undefined}
         onClick={(e) => {
+          if (study.comingSoon) return;
           if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
           e.preventDefault();
           onOpen();
         }}
         onFocus={(e) => e.currentTarget.matches(':focus-visible') && setActive(true)}
         onBlur={conceal}
-        aria-haspopup="dialog"
+        aria-haspopup={study.comingSoon ? undefined : 'dialog'}
         className="group grid items-center gap-10 rounded-2xl sm:grid-cols-[minmax(0,36rem)_1fr] sm:gap-14"
       >
         <div onPointerEnter={reveal} onPointerLeave={conceal}>
@@ -69,7 +70,7 @@ function Card({
           </h3>
 
           <p className="mt-2 max-w-[56ch] text-[0.9375rem] leading-[1.6] text-ink-2">
-            {study.summary}
+            {study.comingSoon ? 'Case study coming soon.' : study.summary}
           </p>
 
           {/* Styled as a button, but the whole row is already the link, and a
@@ -79,7 +80,7 @@ function Card({
             onPointerLeave={conceal}
             className="mt-5 inline-flex h-10 items-center gap-2 rounded-full border border-ink/15 bg-paper px-4 text-[0.8125rem] font-medium text-ink shadow-[0_1px_2px_rgba(26,23,20,0.06)] transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-paper"
           >
-            Read more
+            {study.comingSoon ? 'Coming soon' : 'Read more'}
             <span aria-hidden="true">
               &rarr;
             </span>

@@ -48,7 +48,9 @@ export default function ProjectGallery({ studies }: { studies: CaseStudy[] }) {
                 )}
               </h3>
 
-              <p className="text-[1rem] leading-relaxed text-ink-2">{study.summary}</p>
+              <p className="text-[1rem] leading-relaxed text-ink-2">
+                {study.comingSoon ? 'Case study coming soon.' : study.summary}
+              </p>
             </div>
           </Link>
         </li>

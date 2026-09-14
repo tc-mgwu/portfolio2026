@@ -14,6 +14,7 @@ const agenticAssistant: CaseStudy = {
   projectType: '[PROJECT TYPE]',
   role: '[ROLE]',
   protected: false,
+  comingSoon: true,
   tint: ['#E3E0D6', '#948D74'],
   tags: ['Independent', 'Agentic AI', 'Prototype'],
   art: 'grid',

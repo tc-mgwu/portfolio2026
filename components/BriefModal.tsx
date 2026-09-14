@@ -70,16 +70,19 @@ export default function BriefModal({
         onKeyDown={trap}
         className="relative flex max-h-[86svh] w-full max-w-[46rem] flex-col overflow-hidden rounded-2xl border border-hair bg-paper shadow-[0_28px_80px_-24px_rgba(26,23,20,0.5)] outline-none motion-safe:animate-[pill-in_200ms_cubic-bezier(0.22,1,0.36,1)]"
       >
+        {/* Light theme: the study's tint gradient with dark type. Dark theme:
+            a dark ground with only a cast of the tint, and light type. The
+            gradient itself lives in globals.css under .brief-head. */}
         <div
-          className="shrink-0 px-7 pb-3.5 pt-3.5"
-          style={{ background: `linear-gradient(135deg, ${study.tint[0]}, ${study.tint[1]})` }}
+          className="brief-head shrink-0 px-7 pb-3.5 pt-3.5 text-[#1A1714] dark:text-ink"
+          style={{ '--tint-a': study.tint[0], '--tint-b': study.tint[1] } as React.CSSProperties}
         >
-          <p className="text-[0.6875rem] font-medium uppercase tracking-[0.16em] text-ink/60">
+          <p className="text-[0.6875rem] font-medium uppercase tracking-[0.16em] opacity-65">
             {study.year} &nbsp;·&nbsp; {study.company} &nbsp;·&nbsp; {study.projectType}
           </p>
           <h2
             id={titleId}
-            className="mt-1 font-display text-[1.25rem] leading-[1.2] tracking-[-0.015em] text-ink"
+            className="mt-1 font-display text-[1.25rem] leading-[1.2] tracking-[-0.015em]"
           >
             {study.title}
           </h2>
@@ -99,7 +102,7 @@ export default function BriefModal({
             {study.brief.map((b) => (
               <div key={b.label}>
                 <dt className="label-sc">{b.label}</dt>
-                <dd className="mt-2 max-w-[64ch] text-[0.9375rem] leading-[1.7] text-ink-2">
+                <dd className="mt-2 max-w-[64ch] text-[0.9375rem] leading-[1.6] text-ink-2">
                   {b.body}
                 </dd>
               </div>

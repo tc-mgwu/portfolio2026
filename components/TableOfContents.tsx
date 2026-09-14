@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { Section } from '@/lib/types';
+import { titleCase } from '@/lib/text';
 
 /* Sticky contents rail. Clicking scrolls to the section; an IntersectionObserver
    keeps the current item marked while the reader scrolls on their own. */
@@ -69,7 +70,7 @@ export default function TableOfContents({ sections }: { sections: Section[] }) {
                     active ? 'bg-accent' : 'bg-hair'
                   }`}
                 />
-                {s.title}
+                {titleCase(s.title)}
               </a>
             </li>
           );

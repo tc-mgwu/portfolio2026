@@ -87,9 +87,15 @@ halve). GIFs and SVGs are served as-is, since the optimiser would flatten a GIF
 to one frame and has nothing to add to a vector. Per picture, `lightbox: false`
 turns off click-to-zoom, `bare: true` drops the frame for a transparent
 composite, and `href` makes the picture link out (a "View in Figma" badge
-appears on hover in place of the lightbox). Figures go in a `table` block
+appears on hover in place of the lightbox). A section can carry a `subtitle`, one italic line under its heading for the
+section's thesis. A before/after of a workflow goes in a `flow` block (rows of steps,
+the last row drawn as the present). Dated events go in a `timeline` block
+(`date` as "Jun 14, 2020", `title`, optional `text`), drawn along a rail. Figures go in a `table` block
 rather than a chart screenshot: `columns`, `rows` (the row labels) and
-`values`, one array per row. `content/work/sense-chatbot.ts` is a complete example.
+`values`, one array per row. `content/work/sense-chatbot.ts` is a complete example. A study that is not
+written yet carries `comingSoon: true`: its cards say "Case study coming
+soon", the button reads "Coming soon", and its page shows a short note with
+links onward instead of the body. Remove the flag when the write-up lands.
 
 **Redacted images.** For a picture that only password holders may see, the
 repository (which is public) never contains the original in the clear. Run

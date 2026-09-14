@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { caseStudies, getCaseStudy, neighbours } from '@/content';
-import { collections } from '@/content/collections';
 import TableOfContents from '@/components/TableOfContents';
+import ComingSoon from '@/components/ComingSoon';
 import CaseBody from '@/components/CaseBody';
 
 export function generateStaticParams() {
@@ -27,34 +27,32 @@ export default async function CaseStudyPage(
   if (!study) notFound();
 
   const { prev, next } = neighbours(slug);
-  const collection = collections.find((c) => c.id === study.collection);
+  if (study.comingSoon) return <ComingSoon study={study} prev={prev} next={next} />;
 
   return (
-    <div className="mx-auto max-w-[86rem] px-6 pb-28 pt-28">
-      <div className="lg:grid lg:grid-cols-12 lg:gap-x-12">
+    /* Same container as the header, so the contents rail starts under the
+       logo and the article ends under the theme toggle. Rail 18rem, gap 4rem,
+       which leaves the article the 50rem measure CaseBody uses for its text:
+       pictures, tables and paragraphs all end on the container's right edge. */
+    <div className="mx-auto max-w-6xl px-6 pb-28 pt-28">
+      <div className="lg:grid lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-x-16">
         {/* Contents rail */}
-        <aside className="hidden lg:col-span-3 lg:block">
-          <div className="sticky top-28 space-y-8">
-            <Link
-              href={collection ? `/collections/${collection.id}` : '/'}
-              className="label-sc inline-block hover:text-ink"
-            >
-              &larr; {collection ? collection.label : 'All work'}
-            </Link>
+        <aside className="hidden lg:block">
+          <div className="sticky top-28">
             <TableOfContents sections={study.sections} />
           </div>
         </aside>
 
         {/* Main column */}
-        <article className="lg:col-span-9">
+        <article className="min-w-0">
           <header className="space-y-6">
             <p className="label-sc">
               {study.year} &nbsp;·&nbsp; {study.company} &nbsp;·&nbsp; {study.projectType}
             </p>
-            <h1 className="max-w-[22ch] font-display text-[clamp(2.2rem,5.2vw,3.9rem)] leading-[1.05] tracking-[-0.025em]">
+            <h1 className="max-w-[24ch] font-display text-[clamp(1.9rem,3.4vw,2.8rem)] leading-[1.1] tracking-[-0.02em]">
               {study.title}
             </h1>
-            <p className="max-w-[68ch] text-[1.1875rem] leading-[1.65] text-ink-2">
+            <p className="max-w-[50rem] text-[1.0625rem] leading-[1.6] text-ink-2">
               {study.summary}
             </p>
           </header>

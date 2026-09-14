@@ -14,6 +14,7 @@ const orionCommand: CaseStudy = {
   projectType: '[PROJECT TYPE]',
   role: '[ROLE]',
   protected: false,
+  comingSoon: true,
   tint: ['#D9E3E6', '#6E8E9B'],
   tags: ['0 to 1', 'Enterprise', 'Shipped'],
   art: 'rings',

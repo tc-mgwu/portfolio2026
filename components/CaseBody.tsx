@@ -4,11 +4,14 @@ import type { Block, Picture, Section } from "@/lib/types";
 import ProtectedFrame from "./ProtectedFrame";
 import ImageGuard from "./ImageGuard";
 import DataTable from "./DataTable";
+import { titleCase } from "@/lib/text";
 import ProtectedTable from "./ProtectedTable";
 import { Zoomable } from "./Lightbox";
 
-/* Long-form body. Measure is held at 68 characters so the reading column stays
-   in the 65 to 75 range the spec asks for. */
+/* Long-form body. Every block that carries text shares one measure, 50rem,
+   which is about 74 characters at the body size, so the reading column stays
+   in the 65 to 75 range the spec asks for and tables, lists and flows end on
+   the same right edge as the paragraphs. */
 
 /* A picture in its frame. With no `src` the frame stands empty, labelled
    with its ratio, so a page can be laid out before the imagery exists. GIFs
@@ -126,7 +129,7 @@ function Blocks({
             return (
               <p
                 key={i}
-                className="max-w-[68ch] text-[1.1875rem] leading-[1.7] text-ink"
+                className="max-w-[50rem] text-[1.0625rem] leading-[1.6] text-ink"
               >
                 {b.text}
               </p>
@@ -135,7 +138,7 @@ function Blocks({
             return (
               <p
                 key={i}
-                className="max-w-[68ch] text-[1.0625rem] leading-[1.75] text-ink-2"
+                className="max-w-[50rem] text-[1.0625rem] leading-[1.6] text-ink-2"
               >
                 {b.text}
               </p>
@@ -144,7 +147,7 @@ function Blocks({
             return (
               <ul
                 key={i}
-                className="max-w-[68ch] list-disc space-y-2 pl-5 text-[1.0625rem] leading-[1.7] text-ink-2"
+                className="max-w-[50rem] list-disc space-y-2 pl-5 text-[1.0625rem] leading-[1.6] text-ink-2"
               >
                 {b.items.map((item) => (
                   <li key={item}>{item}</li>
@@ -232,9 +235,81 @@ function Blocks({
                 </figure>
               </div>
             );
+          case "flow":
+            return (
+              <div key={i} className="max-w-[50rem] space-y-6">
+                {b.rows.map((row, r) => {
+                  const now = r === b.rows.length - 1;
+                  return (
+                    <div key={row.label}>
+                      <p className="label-sc mb-3">{row.label}</p>
+                      <ol className="flex flex-wrap items-stretch gap-y-3">
+                        {row.steps.map((st, k) => (
+                          <li key={st.title} className="flex items-center">
+                            <div
+                              className={`rounded-lg border px-3.5 py-2.5 ${
+                                now ? "border-ink/60 bg-paper text-ink" : "border-hair bg-paper-2/60 text-ink-2"
+                              }`}
+                            >
+                              <p className="text-[0.9375rem] font-medium leading-snug">{st.title}</p>
+                              {st.detail && (
+                                <p className={`mt-0.5 text-[0.8125rem] leading-snug ${now ? "text-ink-2" : "text-ink-3"}`}>
+                                  {st.detail}
+                                </p>
+                              )}
+                            </div>
+                            {k < row.steps.length - 1 && (
+                              <span aria-hidden="true" className="px-2 text-ink-3">
+                                &rarr;
+                              </span>
+                            )}
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          case "timeline":
+            return (
+              <ol key={i} className="max-w-[50rem] space-y-0">
+                {b.items.map((it, j) => {
+                  const last = j === b.items.length - 1;
+                  return (
+                    <li
+                      key={it.date + it.title}
+                      className="grid grid-cols-[auto_1fr] gap-x-5 sm:grid-cols-[7.5rem_auto_1fr] sm:gap-x-6"
+                    >
+                      {/* Date. Sits in its own column on wide screens, so the
+                          eye can run down the dates alone. */}
+                      <p className="col-start-2 pt-[0.05rem] text-[0.875rem] tabular-nums text-ink-3 sm:col-start-1 sm:pt-[0.2rem] sm:text-right">
+                        {it.date}
+                      </p>
+                      {/* Rail and marker. The rail stops at the last event. */}
+                      <div className="col-start-1 row-span-2 row-start-1 flex flex-col items-center sm:col-start-2">
+                        <span
+                          aria-hidden="true"
+                          className={`mt-[0.45rem] block h-2.5 w-2.5 shrink-0 rounded-full ${
+                            last ? "bg-accent ring-4 ring-accent/20" : "border-[1.5px] border-accent bg-paper"
+                          }`}
+                        />
+                        {!last && <span aria-hidden="true" className="mt-1.5 w-px flex-1 bg-hair" />}
+                      </div>
+                      <div className={`col-start-2 sm:col-start-3 ${last ? "pb-0" : "pb-7"}`}>
+                        <p className="text-[1.0625rem] leading-[1.5] text-ink">{it.title}</p>
+                        {it.text && (
+                          <p className="mt-1 text-[0.9375rem] leading-[1.55] text-ink-2">{it.text}</p>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            );
           case "table":
             return (
-              <figure key={i} className="pb-2">
+              <figure key={i} className="max-w-[50rem] pb-2">
                 {b.protectedSrc ? (
                   <ProtectedTable
                     columns={b.columns}
@@ -289,9 +364,16 @@ export default function CaseBody({
       <ImageGuard />
       {sections.map((s) => (
         <section key={s.id} id={s.id} className="scroll-mt-28 space-y-6">
-          <h2 className="font-display text-[clamp(1.5rem,3vw,2.1rem)] leading-tight tracking-[-0.015em]">
-            {s.title}
-          </h2>
+          <div className="space-y-2">
+            <h2 className="font-display text-[clamp(1.5rem,3vw,2.1rem)] leading-tight tracking-[-0.015em]">
+              {titleCase(s.title)}
+            </h2>
+            {s.subtitle && (
+              <p className="max-w-[50rem] text-[1rem] leading-snug text-ink-3">
+                {s.subtitle}
+              </p>
+            )}
+          </div>
           <Blocks blocks={s.blocks} slug={slug} title={title} />
         </section>
       ))}

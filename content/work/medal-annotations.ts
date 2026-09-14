@@ -14,6 +14,7 @@ const medalAnnotations: CaseStudy = {
   projectType: '[PROJECT TYPE]',
   role: '[ROLE]',
   protected: false,
+  comingSoon: true,
   tint: ['#DDE2F0', '#7E88BE'],
   tags: ['0 to 1', 'Tooling', 'Shipped'],
   art: 'bars',
