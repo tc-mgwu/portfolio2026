@@ -1,5 +1,4 @@
 import { bio, contact, statement } from '@/content/about';
-import ResumeButton from './ResumeButton';
 import Image from 'next/image';
 import ContactForm from './ContactForm';
 
@@ -54,27 +53,8 @@ export default function About() {
             <h3 className="border-b border-hair pb-3 font-display text-[1.125rem]">
               Contact me
             </h3>
-            <div className="mt-8 grid gap-12 md:grid-cols-[minmax(0,1fr)_16rem] md:gap-x-16">
+            <div className="mt-8 max-w-[48rem]">
               <ContactForm fallbackEmail={contact[0]?.value ?? ''} />
-              <div className="space-y-6">
-                {contact.map((c) => (
-                  <div key={c.href}>
-                    <p className="label-sc">{c.label}</p>
-                    <a
-                      href={c.href}
-                      className="mt-1 inline-block text-[0.9375rem] text-ink underline decoration-hair underline-offset-4 hover:decoration-accent"
-                    >
-                      {c.value}
-                    </a>
-                  </div>
-                ))}
-                <div>
-                  <p className="label-sc">Resume</p>
-                  <div className="mt-2">
-                    <ResumeButton />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
