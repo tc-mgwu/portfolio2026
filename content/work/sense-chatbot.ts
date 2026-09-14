@@ -14,11 +14,16 @@ const senseChatbot: CaseStudy = {
   collection: 'zero-to-one',
   year: '2020',
   company: 'Sense',
+  logo: '/logos/sense-tile-3.png',
+  kicker: 'Chatbot',
   monogram: 'SE',
-  title: 'Sense Chatbot',
+  title: 'Recruiting through conversation',
   summary:
-    'Shipped in six months, to ten paying customers and more than double the ' +
-    'revenue stretch goal.',
+    'I designed Sense’s first chatbot end to end, from the recruiter’s setup ' +
+    'flow to the candidate’s conversation, taking repetitive work off ' +
+    'recruiters and giving candidates answers at any hour. Shipped in six ' +
+    'months to ten paying customers, at more than double the revenue stretch ' +
+    'goal.',
   projectType: '0 to 1 product design',
   role: 'Lead Designer',
   protected: false,

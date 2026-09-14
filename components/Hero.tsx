@@ -8,9 +8,9 @@ import { heroLines, heroSupport } from '@/content/home';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14">
+    <section className="relative overflow-hidden pt-24 pb-10 sm:pt-28 sm:pb-12">
       <div className="relative mx-auto max-w-6xl px-6">
-        <h1 className="max-w-[34ch] font-display text-[clamp(1.7rem,3.9vw,3rem)] font-normal leading-[1.1] tracking-[-0.011em]">
+        <h1 className="max-w-[34ch] font-display text-[clamp(1.8rem,4.4vw,3.4rem)] font-normal leading-[1.08] tracking-[-0.014em]">
           {heroLines.map((line, i) => (
             <span key={i} className="block overflow-hidden pb-[0.06em]">
               <motion.span
@@ -41,9 +41,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
-          className="mt-7 flex flex-col gap-1.5 sm:mt-8"
+          className="mt-6 flex flex-col gap-1.5 sm:mt-7"
         >
-          <p className="max-w-[58ch] text-[1rem] leading-[1.65] text-ink-2">
+          <p className="max-w-[58ch] text-[1.0625rem] leading-[1.65] text-ink-2">
             {heroSupport}
           </p>
         </motion.div>

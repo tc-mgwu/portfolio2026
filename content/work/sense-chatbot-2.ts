@@ -14,8 +14,9 @@ const senseChatbot2: CaseStudy = {
   collection: 'agentic',
   year: '2023',
   company: 'Sense',
+  logo: '/logos/sense-tile-3.png',
   monogram: 'SE',
-  title: 'Sense Chatbot 2.0',
+  title: 'Chatbot 2.0',
   summary:
     'Rebuilding the chatbot around natural-language understanding, and ' +
     'settling a design freeze with six recruiters and a user test.',

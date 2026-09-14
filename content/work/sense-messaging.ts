@@ -14,11 +14,15 @@ const senseMessaging: CaseStudy = {
   collection: 'agentic',
   year: '2024',
   company: 'Sense',
+  logo: '/logos/sense-tile-3.png',
+  kicker: 'Messaging',
   monogram: 'SE',
-  title: 'Sense Messaging',
+  title: 'Hiring through messaging',
   summary:
-    'Rebuilding the recruiter inbox on a new design system and a scalable ' +
-    'information architecture, without losing the people who lived in the old one.',
+    'I rearchitected Sense Messaging across mobile and desktop after a design ' +
+    'system pilot exposed foundational usability problems the old UI had been ' +
+    'hiding. What began as a reskin became a rebuild for recruiters, hiring ' +
+    'managers and candidates.',
   projectType: 'Re-architecture and design system adoption',
   role: 'Lead Product Designer',
   protected: false,

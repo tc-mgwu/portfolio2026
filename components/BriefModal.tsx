@@ -1,15 +1,17 @@
 'use client';
 
 import { useEffect, useId, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { CaseStudy } from '@/lib/types';
 import { LockGlyph } from './CursorPill';
 
-/* The short form, in a dialog.
+/* The short form, in a side panel.
 
    Enough to decide whether the long form is worth opening: the five blocks, the
-   facts strip, and one way through. Escape closes, focus is trapped while open
-   and handed back to the card that opened it. */
+   facts strip, and one way through. Full height on the right edge, so it fits
+   with little scrolling and the page stays in view. Escape closes, focus is
+   trapped while open and handed back to the card that opened it. */
 
 export default function BriefModal({
   study,
@@ -53,14 +55,16 @@ export default function BriefModal({
   }
 
   return (
-    <div className="fixed inset-0 z-[70] grid place-items-center p-4 sm:p-6">
+    <div className="fixed inset-0 z-[70]">
       <button
         type="button"
         aria-label="Close"
         onClick={onClose}
-        className="absolute inset-0 cursor-default bg-ink/40 backdrop-blur-[3px]"
+        className="absolute inset-0 cursor-default bg-ink/35 backdrop-blur-[2px]"
       />
 
+      {/* A panel on the right edge, full height, so the whole brief fits with
+          little or no scrolling and the page stays visible behind it. */}
       <div
         ref={panel}
         role="dialog"
@@ -68,41 +72,53 @@ export default function BriefModal({
         aria-labelledby={titleId}
         tabIndex={-1}
         onKeyDown={trap}
-        className="relative flex max-h-[86svh] w-full max-w-[46rem] flex-col overflow-hidden rounded-2xl border border-hair bg-paper shadow-[0_28px_80px_-24px_rgba(26,23,20,0.5)] outline-none motion-safe:animate-[pill-in_200ms_cubic-bezier(0.22,1,0.36,1)]"
+        className="absolute inset-y-0 right-0 flex w-full max-w-[38rem] flex-col border-l border-hair bg-paper shadow-[-24px_0_80px_-24px_rgba(26,23,20,0.45)] outline-none motion-safe:animate-[drawer-in_260ms_cubic-bezier(0.22,1,0.36,1)]"
       >
-        {/* Light theme: the study's tint gradient with dark type. Dark theme:
-            a dark ground with only a cast of the tint, and light type. The
-            gradient itself lives in globals.css under .brief-head. */}
-        <div
-          className="brief-head shrink-0 px-7 pb-3.5 pt-3.5 text-[#1A1714] dark:text-ink"
-          style={{ '--tint-a': study.tint[0], '--tint-b': study.tint[1] } as React.CSSProperties}
-        >
-          <p className="text-[0.6875rem] font-medium uppercase tracking-[0.16em] opacity-65">
-            {study.year} &nbsp;·&nbsp; {study.company} &nbsp;·&nbsp; {study.projectType}
-          </p>
-          <h2
-            id={titleId}
-            className="mt-1 font-display text-[1.25rem] leading-[1.2] tracking-[-0.015em]"
+        <div className="flex shrink-0 items-start justify-between gap-4 border-b border-hair px-6 pb-4 pt-5 text-ink sm:px-7">
+          <div className="flex items-center gap-3">
+            {study.logo && (
+              <Image
+                src={study.logo}
+                alt=""
+                width={28}
+                height={28}
+                className="h-7 w-7 shrink-0 rounded-[8px] ring-1 ring-hair"
+              />
+            )}
+            <h2
+              id={titleId}
+              className="font-display text-[1.375rem] leading-[1.15] tracking-[-0.015em]"
+            >
+              {study.title}
+            </h2>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close"
+            className="-mr-1.5 -mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-full opacity-70 transition-opacity hover:opacity-100"
           >
-            {study.title}
-          </h2>
+            <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <path d="M3 3l10 10M13 3 3 13" />
+            </svg>
+          </button>
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto px-7 py-7">
-          <dl className="grid gap-3 border-b border-hair pb-6 sm:grid-cols-3">
+        <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5 sm:px-7">
+          <dl className="grid grid-cols-3 gap-x-4 gap-y-3 border-b border-hair pb-4">
             {study.facts.map((f) => (
               <div key={f.label}>
                 <dt className="label-sc">{f.label}</dt>
-                <dd className="mt-1 text-[0.875rem] text-ink">{f.value}</dd>
+                <dd className="mt-1 text-[0.8125rem] leading-snug text-ink">{f.value}</dd>
               </div>
             ))}
           </dl>
 
-          <dl className="mt-7 space-y-6">
+          <dl className="mt-4 space-y-3.5">
             {study.brief.map((b) => (
               <div key={b.label}>
                 <dt className="label-sc">{b.label}</dt>
-                <dd className="mt-2 max-w-[64ch] text-[0.9375rem] leading-[1.6] text-ink-2">
+                <dd className="mt-1 text-[0.9375rem] leading-[1.5] text-ink-2">
                   {b.body}
                 </dd>
               </div>
@@ -110,13 +126,14 @@ export default function BriefModal({
           </dl>
         </div>
 
-        <div className="flex shrink-0 flex-wrap items-center gap-4 border-t border-hair px-7 py-5">
+        <div className="flex shrink-0 items-center gap-4 border-t border-hair px-6 py-2.5 sm:px-7">
           <Link
             href={`/work/${study.slug}`}
             prefetch={study.protected ? false : undefined}
-            className="inline-flex items-center gap-2 rounded-full border border-ink px-5 py-2.5 text-[0.875rem] font-medium text-ink transition-colors hover:bg-ink hover:text-paper"
+            className="inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-1.5 text-[0.8125rem] font-medium text-paper transition-opacity hover:opacity-85"
           >
             Read the full case study
+            <span aria-hidden="true">&rarr;</span>
             {study.protected && (
               <>
                 <LockGlyph className="h-3 w-2.5" />
@@ -124,13 +141,6 @@ export default function BriefModal({
               </>
             )}
           </Link>
-          <button
-            type="button"
-            onClick={onClose}
-            className="text-[0.875rem] text-ink-3 transition-colors hover:text-ink"
-          >
-            Close
-          </button>
         </div>
       </div>
     </div>

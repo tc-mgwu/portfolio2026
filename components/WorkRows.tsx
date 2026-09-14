@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { CaseStudy } from '@/lib/types';
 import ProjectPlate from './ProjectPlate';
@@ -54,8 +55,17 @@ function Card({
         </div>
 
         <div className="min-w-0 pb-1 sm:pr-4">
-          <p className="label-sc">
-            {study.year} &nbsp;·&nbsp; {study.company}
+          <p className="label-sc flex items-center gap-2">
+            {study.logo && (
+              <Image
+                src={study.logo}
+                alt=""
+                width={20}
+                height={20}
+                className="h-5 w-5 rounded-[6px] ring-1 ring-hair"
+              />
+            )}
+            {study.kicker ?? study.company}
           </p>
 
           <h3 className="mt-2 font-display text-[clamp(1.25rem,2.2vw,1.6rem)] leading-[1.18] tracking-[-0.015em] text-ink">
@@ -70,7 +80,7 @@ function Card({
           </h3>
 
           <p className="mt-2 max-w-[56ch] text-[0.9375rem] leading-[1.6] text-ink-2">
-            {study.comingSoon ? 'Case study coming soon.' : study.summary}
+            {study.comingSoon && study.summary.startsWith('[') ? 'Case study coming soon.' : study.summary}
           </p>
 
           {/* Styled as a button, but the whole row is already the link, and a
@@ -98,7 +108,7 @@ export default function WorkRows({ studies }: { studies: CaseStudy[] }) {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="overflow-x-clip pb-24 pt-16"
+      className="overflow-x-clip pb-24 pt-8"
     >
       <h2 id="work-heading" className="sr-only">
         Selected work

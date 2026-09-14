@@ -42,7 +42,7 @@ export default function ComingSoon({
 
           <nav aria-label="More work" className="mt-16 flex flex-wrap gap-3">
             <Link
-              href="/#work"
+              href="/work"
               className="inline-flex rounded-full border border-ink px-5 py-2.5 text-[0.875rem] font-medium text-ink transition-colors hover:bg-ink hover:text-paper"
             >
               &larr; All work

@@ -26,13 +26,12 @@ export const caseStudies: CaseStudy[] = [
   agenticAssistant,
 ];
 
-/* The home page shows these four. Everything else lives on the collection
+/* The home page shows these three. Everything else lives on the collection
    pages, so the front page stays a thirty-second read. Collections with no
    featured project are skipped rather than rendered empty. */
 export const featured: CaseStudy[] = [
   fountainReferrals,
   senseChatbot,
-  fountainHireGo,
   senseMessaging,
 ];
 

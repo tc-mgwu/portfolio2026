@@ -9,7 +9,7 @@ const medalAnnotations: CaseStudy = {
   year: '2019',
   company: 'Medal',
   monogram: 'ME',
-  title: 'Medal Annotations',
+  title: 'Annotations',
   summary: '[ONE LINE ON THE PROBLEM OR THE OUTCOME]',
   projectType: '[PROJECT TYPE]',
   role: '[ROLE]',

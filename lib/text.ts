@@ -1,7 +1,8 @@
 /* Title case for navigation labels. Section headings in the content files are
    written in sentence case; the contents rail shows them as titles.
 
-   Small words stay lower case unless they open the title or follow a colon.
+   Small words stay lower case unless they open or close the title or follow
+   a colon.
    Words that already carry capitals (Reva, PM, PowerBI) are left
    as written, and each part of a hyphenated word is capitalised. */
 
@@ -23,7 +24,7 @@ export function titleCase(s: string): string {
   const words = s.split(' ');
   return words
     .map((w, i) => {
-      const startsClause = i === 0 || /[:.?!]$/.test(words[i - 1]);
+      const startsClause = i === 0 || i === words.length - 1 || /[:.?!]$/.test(words[i - 1]);
       const bare = w.replace(/[^\p{L}\p{N}’'-]/gu, '').toLowerCase();
       if (!startsClause && SMALL.has(bare)) return w;
       return cap(w);

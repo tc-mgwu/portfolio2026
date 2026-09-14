@@ -17,7 +17,7 @@ export async function generateMetadata(
   const { slug } = await params;
   const study = await loadHiddenStudy(slug);
   if (!study) return { robots: NOINDEX };
-  return { title: `${study.title} — Toni Chen`, description: study.summary, robots: NOINDEX };
+  return { title: `${study.title}, ${study.company} — Toni Chen`, description: study.summary, robots: NOINDEX };
 }
 
 export default async function SecretWorkPage(

@@ -29,14 +29,14 @@ export default async function CollectionPage(
   const others = collections.filter((c) => c.id !== collection.id);
 
   return (
-    <div className="mx-auto max-w-6xl px-6 pb-28 pt-32 sm:pt-36">
-      <Link href="/" className="label-sc inline-block hover:text-ink">
+    <div className="mx-auto max-w-6xl px-6 pb-28 pt-28">
+      <Link href="/work" className="label-sc inline-block hover:text-ink">
         &larr; All work
       </Link>
 
       <header className="mt-8 max-w-[46rem]">
         <p className="label-sc">{collection.label}</p>
-        <h1 className="mt-3 font-display text-[clamp(2rem,4.6vw,3.2rem)] leading-[1.06] tracking-[-0.022em]">
+        <h1 className="mt-3 font-display text-[clamp(1.8rem,3.6vw,2.6rem)] leading-[1.08] tracking-[-0.02em]">
           {collection.title}
         </h1>
         <p className="mt-5 max-w-[62ch] text-[1.0625rem] leading-[1.7] text-ink-2">

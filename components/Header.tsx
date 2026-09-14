@@ -5,7 +5,7 @@ import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 
 const LINKS = [
-  { href: '/', label: 'Work' },
+  { href: '/work', label: 'Work' },
   { href: '/about', label: 'About' },
   { href: '/#contact', label: 'Contact' },
 ];

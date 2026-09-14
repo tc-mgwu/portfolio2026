@@ -92,6 +92,10 @@
   }
 }
 
+@keyframes drawer-in {
+  from { transform: translateX(24px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
 @keyframes pill-in {
   from { opacity: 0; transform: scale(0.92); }
   to   { opacity: 1; transform: scale(1); }
@@ -330,18 +334,4 @@
   opacity: 1;
   filter: blur(0px);
   transform: translate(-50%, -50%) translate(var(--x), var(--y)) rotate(var(--rot)) scale(1);
-}
-
-/* Brief modal header: the study tint in light, a dark ground with a cast of
-   the tint in dark. --tint-a / --tint-b are set inline per study. */
-.brief-head {
-  background: linear-gradient(135deg, var(--tint-a), var(--tint-b));
-}
-.dark .brief-head {
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--tint-a) 14%, var(--color-paper-2)),
-    color-mix(in srgb, var(--tint-b) 22%, var(--color-paper-2))
-  );
-  border-bottom: 1px solid var(--color-hair);
 }

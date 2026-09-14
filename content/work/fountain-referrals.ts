@@ -8,9 +8,14 @@ const fountainReferrals: CaseStudy = {
   collection: 'zero-to-one',
   year: '2025',
   company: 'Fountain',
+  logo: '/logos/fountain-tile-3.png',
+  kicker: 'Referrals',
   monogram: 'FO',
-  title: 'Fountain Referrals Product',
-  summary: '[ONE LINE ON THE PROBLEM OR THE OUTCOME]',
+  title: 'Sourcing through employees',
+  summary:
+    'I designed a 0 to 1 referral product end to end, from the employer\u2019s ' +
+    'campaign tooling on web to the worker\u2019s mobile referral flow. Live in 12 ' +
+    'customer contracts within six months of GA.',
   projectType: '[PROJECT TYPE]',
   role: '[ROLE]',
   protected: false,

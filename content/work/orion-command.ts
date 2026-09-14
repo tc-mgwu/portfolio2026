@@ -9,7 +9,7 @@ const orionCommand: CaseStudy = {
   year: '2017',
   company: 'Orion',
   monogram: 'OR',
-  title: 'Orion Command Center',
+  title: 'Command Center',
   summary: '[ONE LINE ON THE PROBLEM OR THE OUTCOME]',
   projectType: '[PROJECT TYPE]',
   role: '[ROLE]',

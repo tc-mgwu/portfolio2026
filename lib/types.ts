@@ -76,6 +76,10 @@ export interface CaseStudy {
   /** Small caps row label, left of the title. */
   year: string;
   company: string;
+  /** Short product name shown as the caption on cards, e.g. "Referrals". Falls back to `company`. */
+  kicker?: string;
+  /** Square company or product mark under /public, shown small beside the kicker. */
+  logo?: string;
   /** Monogram chip text in the cursor pill. Two characters reads best. */
   monogram: string;
   title: string;
