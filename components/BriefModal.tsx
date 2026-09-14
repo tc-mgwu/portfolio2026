@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, useEffect, useId, useRef } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CaseStudy } from '@/lib/types';
@@ -22,8 +22,8 @@ export default function BriefModal({
 }) {
   const panel = useRef<HTMLDivElement>(null);
   const titleId = useId();
-  const impact = study.facts.find((f) => f.label === 'Impact');
-  const strip = study.facts.filter((f) => f !== impact);
+  // Impact stays out of the panel; the Outcome block carries it.
+  const strip = study.facts.filter((f) => f.label !== 'Impact');
 
   useEffect(() => {
     const opener = document.activeElement as HTMLElement | null;
@@ -107,9 +107,7 @@ export default function BriefModal({
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5 sm:px-7">
-          {/* Impact is a sentence, so it reads as a block after Background
-              rather than squeezed into the facts strip. */}
-          <dl className={`grid gap-x-4 gap-y-3 border-b border-hair pb-4 ${strip.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
+          <dl className={`grid gap-x-4 gap-y-3 border-b border-hair pb-4 ${strip.length <= 1 ? 'grid-cols-1' : strip.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
             {strip.map((f) => (
               <div key={f.label}>
                 <dt className="label-sc">{f.label}</dt>
@@ -119,42 +117,38 @@ export default function BriefModal({
           </dl>
 
           <dl className="mt-4 space-y-3.5">
-            {study.brief.map((b, i) => (
-              <Fragment key={b.label}>
-                <div>
-                  <dt className="label-sc">{b.label}</dt>
-                  <dd className="mt-1 text-[0.9375rem] leading-[1.5] text-ink-2">
-                    {b.body}
-                  </dd>
-                </div>
-                {i === 0 && impact && (
-                  <div>
-                    <dt className="label-sc">{impact.label}</dt>
-                    <dd className="mt-1 text-[0.9375rem] leading-[1.5] text-ink">
-                      {impact.value}
-                    </dd>
-                  </div>
-                )}
-              </Fragment>
+            {study.brief.map((b) => (
+              <div key={b.label}>
+                <dt className="label-sc">{b.label}</dt>
+                <dd className="mt-1 whitespace-pre-line text-[0.9375rem] leading-[1.5] text-ink-2">
+                  {b.body}
+                </dd>
+              </div>
             ))}
           </dl>
         </div>
 
         <div className="flex shrink-0 items-center gap-4 border-t border-hair px-6 py-2.5 sm:px-7">
-          <Link
-            href={`/work/${study.slug}`}
-            prefetch={study.protected ? false : undefined}
-            className="inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-1.5 text-[0.8125rem] font-medium text-paper transition-opacity hover:opacity-85"
-          >
-            Read the full case study
-            <span aria-hidden="true">&rarr;</span>
-            {study.protected && (
-              <>
-                <LockGlyph className="h-3 w-2.5" />
-                <span className="sr-only">, password protected</span>
-              </>
-            )}
-          </Link>
+          {study.comingSoon ? (
+            <span className="inline-flex items-center rounded-full border border-hair px-4 py-1.5 text-[0.8125rem] font-medium text-ink-3">
+              Full case study coming soon
+            </span>
+          ) : (
+            <Link
+              href={`/work/${study.slug}`}
+              prefetch={study.protected ? false : undefined}
+              className="inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-1.5 text-[0.8125rem] font-medium text-paper transition-opacity hover:opacity-85"
+            >
+              Read the full case study
+              <span aria-hidden="true">&rarr;</span>
+              {study.protected && (
+                <>
+                  <LockGlyph className="h-3 w-2.5" />
+                  <span className="sr-only">, password protected</span>
+                </>
+              )}
+            </Link>
+          )}
         </div>
       </div>
     </div>

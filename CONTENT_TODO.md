@@ -28,8 +28,12 @@ coming-soon page until written; drop the flag when each is done. Each needs:
 - [ ] `sections` — the long-form body: Overview, Problem, Process, Solution, Outcome
 - [ ] `heroAlt` (read out for the hero on the home page and in galleries), plus alt text and captions on every image block. `heroCaption` is kept in the content files but no longer shown: the case study page no longer repeats the hero.
 
-Files: `fountain-referrals`, `orion-command`, `edutech-platform`,
-`agentic-assistant`.
+Files: `orion-command`, `edutech-platform`, `agentic-assistant`.
+
+`fountain-referrals` has its short form (Sep 14, 2026) and opens the brief
+panel from the home page, but the long-form `sections` are still the skeleton,
+so the Work card and the panel footer read "coming soon". `projectType` and
+`role` are still placeholders.
 
 ## Open questions
 - [ ] **Sense Chatbot year.** Listed as 2023, but the copy describes 2020 and a
@@ -88,9 +92,17 @@ Figma frames; the Sketch sources are in `~/Documents/Medal 2019`.
 - [ ] Screens must show no real patient data (HIPAA); use the demo records only.
 
 ## `content/work/sense-messaging.ts`
-Short form rewritten in September 2026. Two things to confirm before relying
-on them publicly:
-- [ ] "Both shipped before general release" is inferred from beta at 7 months
-      and GTM at 8; confirm the fixes actually landed before GA.
+Short form replaced again on Sep 14, 2026 (Role / Company / Problem / Solution /
+Outcome). Unverified claims now in the public copy:
+- [ ] "one of Sense's most used products" (Company).
+- [ ] The 0 to 5 out of 10 feedback scores being representative (Problem).
+- [ ] "within 1 click" for the most used actions (Outcome).
+- [ ] "fixed before general release" is inferred from beta at 7 months and GTM
+      at 8; confirm the fixes actually landed before GA.
 - [ ] Add a post-fix number to the end of the outcome if one exists (a second
       CSAT, ticket volume, time to send); without it the story ends on the fix.
+
+Needed before the full case study is rewritten:
+- [ ] The answer on scope pushback (who resisted widening reskin to
+      rearchitecture, and how it was resolved).
+- [ ] Whether Genesis, Bullhorn and the Slack feedback can be shown publicly.

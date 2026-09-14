@@ -23,7 +23,7 @@ const fountainHireGo: CaseStudy = {
   projectType: 'Admin configuration for an AI agent',
   role: 'Lead Product Designer',
   protected: true,
-  tint: ['#E7DFF2', '#8B79B8'],
+  tint: ['#EADDF3', '#9A6CC2'],
   tags: ['Agentic AI', 'Workflows', 'Design complete'],
   art: 'grid',
   heroAspect: 16 / 10,
@@ -32,8 +32,8 @@ const fountainHireGo: CaseStudy = {
     'The Opening Flows builder in Hire Go: a list of flows with the default ' +
     'row locked, and a question editor beside it.',
   facts: [
-    { label: 'Timeline', value: 'About 3.5 weeks' },
     { label: 'Role', value: 'Lead Product Designer' },
+    { label: 'Timeline', value: 'About 3.5 weeks' },
     { label: 'Impact', value: 'Design complete; shipped after I left' },
   ],
   details: [

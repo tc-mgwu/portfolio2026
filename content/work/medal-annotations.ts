@@ -27,7 +27,7 @@ const medalAnnotations: CaseStudy = {
   projectType: 'Clinical review tooling',
   role: 'Sole Product Designer',
   protected: false,
-  tint: ['#DDE2F0', '#7E88BE'],
+  tint: ['#DCE1F2', '#5D6FBF'],
   tags: ['0 to 1', 'Tooling', 'Shipped'],
   art: 'bars',
   heroAspect: 16 / 10,
@@ -36,8 +36,8 @@ const medalAnnotations: CaseStudy = {
     'A medical record open in the Medal annotation tool, with a categorized ' +
     'label menu beside the highlighted text.',
   facts: [
-    { label: 'Timeline', value: 'About 2 months, from November 2019' },
     { label: 'Role', value: 'Sole Product Designer' },
+    { label: 'Timeline', value: 'About 2 months, from November 2019' },
     { label: 'Impact', value: 'Versioning, admin portal and menu shipped' },
   ],
   details: [

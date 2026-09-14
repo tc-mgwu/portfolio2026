@@ -15,15 +15,15 @@ const agenticAssistant: CaseStudy = {
   role: '[ROLE]',
   protected: false,
   comingSoon: true,
-  tint: ['#E3E0D6', '#948D74'],
+  tint: ['#E6DEEE', '#8E7BB0'],
   tags: ['Independent', 'Agentic AI', 'Prototype'],
   art: 'grid',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',
   heroAlt: '[ALT TEXT FOR THE HERO VISUAL]',
   facts: [
-    { label: 'Timeline', value: '[TIMELINE]' },
     { label: 'Team', value: '[TEAM]' },
+    { label: 'Timeline', value: '[TIMELINE]' },
     { label: 'Impact', value: '[IMPACT]' },
   ],
   details: [

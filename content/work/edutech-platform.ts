@@ -15,15 +15,15 @@ const edutechPlatform: CaseStudy = {
   role: '[ROLE]',
   protected: true,
   comingSoon: true,
-  tint: ['#EFDCD8', '#B27A78'],
+  tint: ['#EBDFF3', '#A27CC9'],
   tags: ['Contract', 'EdTech', 'NDA'],
   art: 'bars',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',
   heroAlt: '[ALT TEXT FOR THE HERO VISUAL]',
   facts: [
-    { label: 'Timeline', value: '[TIMELINE]' },
     { label: 'Team', value: '[TEAM]' },
+    { label: 'Timeline', value: '[TIMELINE]' },
     { label: 'Impact', value: '[IMPACT]' },
   ],
   details: [

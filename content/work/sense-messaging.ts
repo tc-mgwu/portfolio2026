@@ -26,17 +26,18 @@ const senseMessaging: CaseStudy = {
   projectType: 'Re-architecture and design system adoption',
   role: 'Lead Product Designer',
   protected: false,
-  tint: ['#DCE6DF', '#7B9A88'],
+  tint: ['#F8DCC4', '#E0763A'],
   tags: ['Information Architecture', 'Design systems', 'Shipped'],
   art: 'bars',
+  heroSrc: '/work/sense-messaging/hero.png',
   heroAspect: 16 / 10,
   heroCaption: 'The redesigned inbox inside the Chrome extension.',
   heroAlt:
     'The redesigned Sense Messaging inbox inside the Chrome extension, beside ' +
     'an applicant tracking system: inbox list, conversation and compose bar.',
   facts: [
-    { label: 'Timeline', value: '7 months to beta, 8 to market' },
     { label: 'Role', value: 'Lead Product Designer' },
+    { label: 'Timeline', value: '8 months' },
     {
       label: 'Impact',
       value:
@@ -55,56 +56,47 @@ const senseMessaging: CaseStudy = {
   ],
   brief: [
     {
-      label: 'Background',
+      label: 'Company',
       body:
-        'Sense Messaging is how staffing recruiters text candidates over SMS and ' +
-        'WhatsApp, mostly from a Chrome extension docked beside their ATS. It was ' +
-        'built by engineers and a PM without a designer, and it was one of the ' +
-        'most used products Sense had.',
+        'Sense sells recruiting automation to staffing agencies. Messaging is the ' +
+        'SMS and WhatsApp app recruiters use to talk with candidates, and it is ' +
+        'one of Sense\u2019s most used products.',
     },
     {
-      label: 'Project context',
+      label: 'Problem',
       body:
-        'The brief was to reskin the app on the new company design system. ' +
-        'Feedback in our Slack channel was scoring it 0 to 5 out of 10, and ' +
-        'support tickets showed new recruiters couldn’t find features, so I made ' +
-        'the case that a coat of paint wouldn’t fix it and got the PM, ' +
-        'engineering and leadership to expand scope to the information ' +
-        'architecture. Team: a PM, a design system designer, a junior designer ' +
-        'and 6 engineers, working in 2-week sprints. Web app and Chrome extension.',
+        'Staffing recruiters run hundreds of candidate conversations a day, and ' +
+        'many share 1 inbox across a team. Messaging was built by engineers and a ' +
+        'product manager without a designer. Navigation was scattered, common ' +
+        'actions sat behind extra clicks, and the layout could not support the ' +
+        'product integrations Sense was planning. Users rated the app between 0 ' +
+        'and 5 out of 10 in feedback, and the outdated interface undercut trust ' +
+        'in the product.',
     },
     {
-      label: 'The problem',
+      label: 'Solution',
       body:
-        'Navigation was scattered across 3 places, common actions sat behind an ' +
-        'extra menu, and the layout had nowhere to put the integrations the ' +
-        'business wanted next, starting with AI-written messages. The old design ' +
-        'system also fell short of accessibility standards.',
+        'I was asked to lead the reskin of Messaging in Sense\u2019s new design ' +
+        'system, working with the design system designer and driving alignment ' +
+        'across the teams involved. The reskin exposed the information ' +
+        'architecture problems, so I widened the scope to a rearchitecture. I ran ' +
+        'a 3-day workshop with Customer Success, Sales, Product, and Engineering ' +
+        'to agree on what to fix now and what to defer. I tested 2 layouts with ' +
+        'users, customer success managers, and implementation specialists. We ' +
+        'shipped a 3-panel structure that put compose actions up front and left ' +
+        'room for future integrations.',
     },
     {
-      label: 'The solution',
+      label: 'Outcome',
       body:
-        'I ran a 3-day workshop with sales, support, product and engineering to ' +
-        'agree what to fix now and what to defer. From competitive analysis of ' +
-        'TextUs and Intercom I drew up 2 four-level architectures (global bar, ' +
-        'inbox, conversation, details panel) and tested them with recruiters, ' +
-        'CSMs and implementation staff; the panel-by-panel option won. Priority ' +
-        'order for launch: reskin, move navigation under each inbox, rebuild the ' +
-        'compose bar, feature parity for everything else, and leave the global ' +
-        'bar ready for integrations.',
-    },
-    {
-      label: 'The outcome',
-      body:
-        'Beta reached 860 recruiters. 121 answered a CSAT survey and 45 left ' +
-        'comments; half were dissatisfied, which is normal right after a big ' +
-        'change and mostly came from users who preferred the old layout. The 2 ' +
-        'most common complaints, candidate details hidden behind a menu and an ' +
-        'inbox panel that couldn’t collapse, became the first post-launch fixes: ' +
-        'contact info moved into the conversation header, and the details panel ' +
-        'now opens in place of the inbox list on wider screens, with a ' +
-        'notification badge added to keep other inboxes visible. Both shipped ' +
-        'before general release.',
+        'Recruiters now see a candidate\u2019s phone number and email in the ' +
+        'conversation header, reach every compose action without opening a menu, ' +
+        'and collapse the inbox list to work in a single panel. The new ' +
+        'information architecture put the actions recruiters use most within 1 ' +
+        'click. The app meets WCAG 2.1 AA, which the old design system did not, ' +
+        'and it now looks and behaves like the rest of Sense\u2019s products. The ' +
+        'beta reached 860 recruiters, and the 2 most common complaints from their ' +
+        'feedback were fixed before general release.',
     },
   ],
   sections: [

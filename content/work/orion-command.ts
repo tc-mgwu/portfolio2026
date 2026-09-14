@@ -15,15 +15,15 @@ const orionCommand: CaseStudy = {
   role: '[ROLE]',
   protected: false,
   comingSoon: true,
-  tint: ['#D9E3E6', '#6E8E9B'],
+  tint: ['#D9E4F0', '#5E86B0'],
   tags: ['0 to 1', 'Enterprise', 'Shipped'],
   art: 'rings',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',
   heroAlt: '[ALT TEXT FOR THE HERO VISUAL]',
   facts: [
-    { label: 'Timeline', value: '[TIMELINE]' },
     { label: 'Team', value: '[TEAM]' },
+    { label: 'Timeline', value: '[TIMELINE]' },
     { label: 'Impact', value: '[IMPACT]' },
   ],
   details: [

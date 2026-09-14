@@ -21,13 +21,11 @@ const senseChatbot: CaseStudy = {
   summary:
     'I designed Sense’s first chatbot end to end, from the recruiter’s setup ' +
     'flow to the candidate’s conversation, taking repetitive work off ' +
-    'recruiters and giving candidates answers at any hour. Shipped in six ' +
-    'months to 10 paying customers, at more than double the revenue stretch ' +
-    'goal.',
+    'recruiters and giving candidates answers at any hour. Shipped in 6 months.',
   projectType: '0 to 1 product design',
   role: 'Lead Designer',
   protected: false,
-  tint: ['#EBDCC9', '#B7794E'],
+  tint: ['#CFE9E6', '#2FA39A'],
   tags: ['0 to 1', 'Conversational AI', 'Shipped', 'WCAG'],
   art: 'grid',
   heroSrc: '/work/sense-chatbot/hero.png',
@@ -38,57 +36,61 @@ const senseChatbot: CaseStudy = {
     'introduction and closing nodes, with the add menu open offering a question, ' +
     'a message, a summary or a jump.',
   facts: [
-    { label: 'Timeline', value: '6 months, 2020' },
     { label: 'Role', value: 'Lead Designer' },
+    { label: 'Timeline', value: '6 months' },
     { label: 'Impact', value: '10 paying customers by December' },
   ],
   details: [
     { label: 'Role', value: 'Lead Designer' },
     { label: 'Team', value: 'ML engineer, PM, front-end engineer, me' },
-    { label: 'Timeline', value: '6 months, 2020' },
+    { label: 'Timeline', value: '6 months' },
     { label: 'Tools', value: 'Figma, Notion, UserTesting' },
   ],
   brief: [
     {
-      label: 'Background',
+      label: 'Company',
       body:
-        'Sense builds automation for recruiting agencies: personalized candidate ' +
-        'communication that integrates with applicant tracking systems (ATS). In ' +
-        '2020 it had 2 products, Engage and Messaging, and a pandemic-battered ' +
-        'market.',
+        'Sense sells recruiting agencies personalized candidate communication ' +
+        'that integrates with their ATS. In 2020 it had 2 products, Engage and ' +
+        'Messaging, and the chatbot became its third.',
     },
     {
-      label: 'Project context',
+      label: 'Problem',
       body:
-        "I led all design for Sense's third product, a recruiting chatbot, on a " +
-        'team of 4 (ML engineer, PM, front-end engineer, and me), on a timeline ' +
-        'compressed by the need to stay competitive mid-pandemic.',
+        'Recruiters at staffing agencies spend their days on candidate calls and ' +
+        'manual data entry, with up to 60% of their time going to entering data ' +
+        'by hand. Many introductory calls only verify a resume or read out a job ' +
+        'description, and the time is wasted when the candidate turns out to be ' +
+        'unqualified or unavailable. Agencies wanted a bot that collects that ' +
+        'data, pre-screens, and writes answers back to their ATS without ' +
+        'candidates feeling processed. The pandemic drove heavy contract churn, ' +
+        'so Sense compressed the roadmap and sold the chatbot to customers before ' +
+        'it was finished.',
     },
     {
-      label: 'The problem',
+      label: 'Solution',
       body:
-        'Recruiters spend up to 60% of their time on data entry and low-value ' +
-        "introductory calls, while sourcing candidates remains the industry's " +
-        'hardest job. Agencies wanted to automate data collection and pre-screening ' +
-        'without making candidates feel processed. The framing: accelerate hiring ' +
-        'for recruiters while keeping the candidate experience genuinely good.',
+        'I joined a month before the team had a product manager, so I did the initial ' +
+        'product research and competitive feature analysis that gave the team a ' +
+        'shared understanding of the space before we scoped the MVP to a web ' +
+        'data-collection bot first, with SMS deferred. For candidates, I built an ' +
+        'accessible WCAG compliant design system, and our product team ran internal ' +
+        'testing and UserTesting rounds that led us to add answer validation and ' +
+        'clearer error handling. For recruiters, I designed the Conversation Flow ' +
+        'Designer, a self-service tool for building their own chatbot conversations ' +
+        'to collect preliminary data from applicants, pre-screen them, and write the ' +
+        'answers back to the ATS without having to manually input the data ' +
+        'themselves.',
     },
     {
-      label: 'The solution',
+      label: 'Outcome',
       body:
-        'A two-sided MVP. Candidates got a conversational web chatbot with a ' +
-        'WCAG-compliant design system, natural-language validation, and a tone ' +
-        'shaped by internal dogfooding and UserTesting rounds. Recruiters got the ' +
-        'Conversation Flow Designer: a node-based canvas for building custom ' +
-        'conversations, mapping responses to ATS fields, and branching with ' +
-        'condition nodes.',
-    },
-    {
-      label: 'The outcome',
-      body:
-        'Shipped in 6 months. 10 paying customers by December, more than ' +
-        "doubling the revenue stretch goal, including Sense's largest enterprise " +
-        'deal, and it helped keep the company alive through the pandemic.',
+        'Recruiters can collect and pre-screen applicant data through a conversation ' +
+        'they built themselves, with the answers landing in their ATS without a phone ' +
+        'call or manual entry. Candidates get a conversation that validates their ' +
+        'answers as they go and tells them clearly when something doesn\u2019t fit. The ' +
+        'product shipped in 6 months and signed its first paying customer within ' +
+        'weeks of launch.',
     },
   ],
   sections: [

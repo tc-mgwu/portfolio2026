@@ -23,7 +23,7 @@ const senseChatbot2: CaseStudy = {
   projectType: 'AI-enabled redesign',
   role: 'Lead Product Designer',
   protected: false,
-  tint: ['#E2E6F3', '#7383BC'],
+  tint: ['#DAE6F6', '#5F8ED2'],
   tags: ['Agentic AI', 'Conversational AI', 'Shipped'],
   art: 'grid',
   heroAspect: 16 / 10,
@@ -32,8 +32,8 @@ const senseChatbot2: CaseStudy = {
     'A laptop showing the Chatbot 2.0 conversation builder: a flow on a dotted ' +
     'canvas and a side panel listing preset questions.',
   facts: [
-    { label: 'Timeline', value: 'About 18 months, with stops' },
     { label: 'Role', value: 'Lead Product Designer' },
+    { label: 'Timeline', value: 'About 18 months, with stops' },
     { label: 'Impact', value: 'Candidates rate 2.0 above 1.0' },
   ],
   details: [
