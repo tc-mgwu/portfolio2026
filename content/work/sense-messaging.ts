@@ -1,4 +1,5 @@
 import type { CaseStudy } from '@/lib/types';
+import { figmaLink } from '@/lib/figma';
 
 /* One file per case study. Edit copy here, never inside a component.
    Set `protected: true` to put this route behind the password gate.
@@ -89,14 +90,11 @@ const senseMessaging: CaseStudy = {
     {
       label: 'Outcome',
       body:
-        'Recruiters now see a candidate\u2019s phone number and email in the ' +
-        'conversation header, reach every compose action without opening a menu, ' +
-        'and collapse the inbox list to work in a single panel. The new ' +
-        'information architecture put the actions recruiters use most within 1 ' +
-        'click. The app meets WCAG 2.1 AA, which the old design system did not, ' +
-        'and it now looks and behaves like the rest of Sense\u2019s products. The ' +
-        'beta reached 860 recruiters, and the 2 most common complaints from their ' +
-        'feedback were fixed before general release.',
+        'Recruiters can now see a candidate\u2019s contact information in the chat ' +
+        'window header and can access every action related to composing a message ' +
+        'where they compose messages. In addition, the applications all feature a ' +
+        'design system that is WCAG 2.1 AA compliant, making it more accessible ' +
+        'than the legacy version.',
     },
   ],
   sections: [
@@ -236,27 +234,19 @@ const senseMessaging: CaseStudy = {
             'them. Two-week sprints, with design QA in every one.',
         },
         {
-          kind: 'gallery',
-          items: [
-            {
-              src: `${A}/workshop-board.jpg`,
-              aspect: 1850 / 2160,
-              alt: 'A FigJam board of colour-coded sticky notes grouped into themes, with Do Now and Do Next lanes at the bottom.',
-              caption: 'The workshop board: ideas, themes, and the now/next split.',
-            },
-            {
-              src: `${A}/figma-file.jpg`,
-              aspect: 1324 / 2160,
-              alt: 'An overview of the Figma file with sections for Messages, Broadcast, New Messages, Contacts and Settings, each marked MVP or not.',
-              caption: 'The working file, section by section, each marked in or out of the MVP.',
-            },
-          ],
+          kind: 'image',
+          src: `${A}/workshop-board.jpg`,
+          aspect: 1850 / 2160,
+          alt: 'A FigJam board of colour-coded sticky notes grouped into themes, with Do Now and Do Next lanes at the bottom.',
+          caption: 'The workshop board with ideas, themes and the now/next split.',
+          maxWidth: '40rem',
+          lightbox: false,
         },
       ],
     },
     {
       id: 'architecture',
-      title: 'Two architectures, tested',
+      title: 'Testing two layouts',
       blocks: [
         {
           kind: 'p',
@@ -269,25 +259,37 @@ const senseMessaging: CaseStudy = {
             'secondary navigation lived and how much compose sat in view.',
         },
         {
-          kind: 'gallery',
+          kind: 'image',
+          src: `${A}/ia-schematics-3.png`,
+          aspect: 1410 / 456,
+          alt: 'Two schematic wireframes labelled Option 1 and Option 2. Both show a global bar (1), an inbox level (2), a conversation (3) and a dashed details panel (4); Option 1 stacks the inbox and channel bars above the conversation, Option 2 sets the inbox beside it.',
+          caption: 'The two layouts as schematics.',
+          lightbox: false,
+          bare: true,
+        },
+        {
+          kind: 'legend',
           items: [
             {
-              src: `${A}/ia-options.png`,
-              aspect: 840 / 1780,
-              alt: 'Two wireframe schematics numbered one to four, showing the global bar, inbox, conversation and a dashed details panel.',
-              caption: 'The two layouts as schematics.',
+              swatch: '#0660DA',
+              title: 'Primary: Global',
+              body: 'App bar for future product integrations, the part we brainstormed on.',
             },
             {
-              src: `${A}/ia-option-1.jpg`,
-              aspect: 1528 / 1642,
-              alt: 'Option one: a narrow icon rail, an inbox list, and a conversation with a minimal compose bar.',
-              caption: 'Option 1: closer to the old app.',
+              swatch: '#599BF5',
+              title: 'Secondary: Inbox level',
+              body: 'Inbox to see conversations listed by channel.',
             },
             {
-              src: `${A}/ia-option-2.jpg`,
-              aspect: 1564 / 1642,
-              alt: 'Option two: inbox with a New Message button and channel filters, and a conversation with a fuller compose bar.',
-              caption: 'Option 2: compose actions up front.',
+              swatch: '#8DBAF8',
+              title: 'Tertiary: Conversation',
+              body: 'Where conversations with candidates happen.',
+            },
+            {
+              swatch: 'var(--color-ink)',
+              hollow: true,
+              title: 'Quaternary: Details panel',
+              body: 'A hidden panel that expands when an action requires it.',
             },
           ],
         },
@@ -295,9 +297,24 @@ const senseMessaging: CaseStudy = {
           kind: 'p',
           text:
             'I wrote a research plan and we tested both with recruiters, customer ' +
-            'success managers and implementation experts. Option 2 won: it read ' +
-            'panel by panel like the patterns people already knew from messaging ' +
-            'apps, and it kept more of the compose actions in front of the user.',
+            'success managers and implementation experts. The results pointed to ' +
+            'Option 2 as the more usable layout, for 2 reasons.',
+        },
+        {
+          kind: 'list',
+          items: [
+            'It followed the established pattern of messaging apps, so it read panel by panel and was easier to scan.',
+            'It put more of the compose actions at the front of the experience instead of behind a menu.',
+          ],
+        },
+        {
+          kind: 'image',
+          src: `${A}/figma-tour.png`,
+          aspect: 1440 / 790,
+          alt: 'The redesigned Messaging app: a dark icon rail, an inbox list for San Francisco with SMS, WhatsApp and Broadcast tabs, a conversation with John Doe, and a compose box with Send.',
+          caption: 'The design that came out of testing. The Figma file is available with the password.',
+          protectedHref: figmaLink('messaging-tour'),
+          linkLabel: 'View in Figma',
         },
       ],
     },
@@ -317,27 +334,33 @@ const senseMessaging: CaseStudy = {
             'were where the value was.',
         },
         {
-          kind: 'gallery',
-          items: [
-            {
-              src: `${A}/beta-survey.png`,
-              aspect: 1456 / 1114,
-              alt: 'The in-product survey: a five-point satisfaction scale and a free-text box asking what to improve.',
-              caption: 'The survey, shown after four days in beta.',
-            },
-            {
-              src: `${A}/csat.png`,
-              aspect: 1642 / 1548,
-              alt: 'A table of satisfaction scores across five levels with counts and percentages.',
-              caption: 'Satisfaction scores from the beta survey.',
-            },
-            {
-              src: `${A}/complaint-themes.png`,
-              aspect: 1594 / 1572,
-              alt: 'A table of complaint themes with counts: extra clicks for user details 13, inbox panel too big 7, change resistance 10, bugs 6, then templates, text alignment, enhancements and font size.',
-              caption: 'Comment themes. Two of them were fixable design problems.',
-            },
+          kind: 'table',
+          columns: ['How satisfied are you with the new design?', 'Responses', 'Share'],
+          rows: ['Very dissatisfied', 'Dissatisfied', 'Neither', 'Satisfied', 'Very satisfied'],
+          values: [
+            [28, '23.1%'],
+            [34, '28.1%'],
+            [18, '14.9%'],
+            [27, '22.3%'],
+            [14, '11.6%'],
           ],
+          caption: 'Satisfaction scores from the beta survey, 121 responses.',
+        },
+        {
+          kind: 'table',
+          columns: ['Comment theme', 'Mentions'],
+          rows: [
+            'Extra clicks for user details',
+            'Inbox panel too big',
+            'Change resistance, no specific reason',
+            'Bugs',
+            'Templates',
+            'Text alignment',
+            'Enhancements',
+            'Font too big',
+          ],
+          values: [[13], [7], [10], [6], [3], [3], [1], [1]],
+          caption: 'Comment themes from 45 comments. The first two were fixable design problems.',
         },
         {
           kind: 'p',
@@ -405,25 +428,6 @@ const senseMessaging: CaseStudy = {
             'visible, a notification badge went onto the menu button.',
         },
         {
-          kind: 'gallery',
-          items: [
-            {
-              src: `${A}/issue-submenu.jpg`,
-              lightbox: false,
-              aspect: 3 / 4,
-              alt: 'The inbox navigation panel taking up most of the width, with a note that its width is fluid rather than fixed.',
-              caption: 'Before: the submenu panel, fluid and wide.',
-            },
-            {
-              src: `${A}/issue-submenu-fix.jpg`,
-              lightbox: false,
-              aspect: 3 / 4,
-              alt: 'The three-panel view with the inbox list, the conversation and the candidate details panel in place of the submenu.',
-              caption: 'After: details panel by default, submenu on demand.',
-            },
-          ],
-        },
-        {
           kind: 'list',
           items: [
             'Message text hard to read: moved from grey to our darkest primary colour.',
@@ -434,8 +438,9 @@ const senseMessaging: CaseStudy = {
         },
         {
           kind: 'image',
-          src: `${A}/post-launch.jpg`,
-          aspect: 3072 / 1059,
+          src: `${A}/post-launch-2.png`,
+          aspect: 2400 / 857,
+          lightbox: false,
           alt: 'Three views of the launched Messaging app at different widths: three panels, two panels and one.',
           caption: 'The iteration that shipped, at three widths.',
         },

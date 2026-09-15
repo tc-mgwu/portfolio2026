@@ -39,10 +39,17 @@ export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);
 }
 
+/* Previous/next skip studies that have no write-up yet, so the footer never
+   points at a coming-soon page. */
 export function neighbours(slug: string): { prev?: CaseStudy; next?: CaseStudy } {
   const i = caseStudies.findIndex((c) => c.slug === slug);
   if (i === -1) return {};
-  return { prev: caseStudies[i - 1], next: caseStudies[i + 1] };
+  const readable = (c?: CaseStudy) => c && !c.comingSoon;
+  let prev: CaseStudy | undefined;
+  for (let j = i - 1; j >= 0; j--) if (readable(caseStudies[j])) { prev = caseStudies[j]; break; }
+  let next: CaseStudy | undefined;
+  for (let j = i + 1; j < caseStudies.length; j++) if (readable(caseStudies[j])) { next = caseStudies[j]; break; }
+  return { prev, next };
 }
 
 export const protectedSlugs: string[] = caseStudies

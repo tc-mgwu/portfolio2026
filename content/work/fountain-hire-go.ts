@@ -199,7 +199,7 @@ const fountainHireGo: CaseStudy = {
     },
     {
       id: 'users',
-      title: 'Two users, two jobs',
+      title: 'Designing for two users',
       blocks: [
         {
           kind: 'p',
@@ -260,7 +260,7 @@ const fountainHireGo: CaseStudy = {
     },
     {
       id: 'default',
-      title: 'Decision 1: one default flow, always',
+      title: 'Decision 1: every account keeps a default flow',
       subtitle: 'The default flow is the guardrail that makes self-serve safe.',
       blocks: [
         {
@@ -296,7 +296,7 @@ const fountainHireGo: CaseStudy = {
     {
       id: 'mvp',
       title: 'Decision 2: the MVP',
-      subtitle: 'Core builder now, conditionals and validation next.',
+      subtitle: 'Ship the core builder first and sequence conditionals and validation after it.',
       blocks: [
         {
           kind: 'p',
@@ -336,8 +336,8 @@ const fountainHireGo: CaseStudy = {
     },
     {
       id: 'instruction',
-      title: 'Decision 3: tell the agent what, not how',
-      subtitle: 'Tell the agent what it is collecting, not how to say it.',
+      title: 'Decision 3: telling the agent what to collect',
+      subtitle: 'The agent is told what it is collecting rather than how to say it.',
       blocks: [
         {
           kind: 'p',
@@ -377,7 +377,7 @@ const fountainHireGo: CaseStudy = {
     {
       id: 'loop',
       title: 'A weekly loop earned the design',
-      subtitle: 'Prototype, customer call, engineering review, revise. Every week.',
+      subtitle: 'Every week ran the same loop of a prototype, a customer call, an engineering review and a revision.',
       blocks: [
         {
           kind: 'p',
@@ -477,7 +477,7 @@ const fountainHireGo: CaseStudy = {
     {
       id: 'agent',
       title: 'Designing for an agent that runs a flow it did not write',
-      subtitle: 'The agent infers, the admin confirms.',
+      subtitle: 'The agent infers and the admin confirms.',
       blocks: [
         {
           kind: 'p',
@@ -530,7 +530,7 @@ const fountainHireGo: CaseStudy = {
     },
     {
       id: 'structure',
-      title: 'Chat for intake, structure for consequence',
+      title: 'Using chat for intake and structure for consequences',
       blocks: [
         {
           kind: 'p',
@@ -595,7 +595,7 @@ const fountainHireGo: CaseStudy = {
     {
       id: 'measures',
       title: 'What the team committed to measure',
-      subtitle: 'I left before ship, so this is the instrumentation plan, not results.',
+      subtitle: 'I left before the feature shipped, so this is the instrumentation plan rather than results.',
       blocks: [
         {
           kind: 'table',

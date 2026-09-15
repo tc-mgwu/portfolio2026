@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { LockGlyph } from './CursorPill';
 import type { CaseStudy } from '@/lib/types';
 import TableOfContents from '@/components/TableOfContents';
 import CaseBody from '@/components/CaseBody';
@@ -67,16 +68,28 @@ export default function CaseStudyView({
               {prev ? (
                 <Link href={`/work/${prev.slug}`} className="group">
                   <span className="label-sc">Previous</span>
-                  <span className="mt-2 block font-display text-[1.25rem] text-ink group-hover:text-accent">
+                  <span className="mt-2 flex items-center gap-2 font-display text-[1.25rem] text-ink group-hover:text-accent">
                     {prev.title}
+                    {prev.protected && (
+                      <>
+                        <LockGlyph className="h-3.5 w-3 text-ink-3" />
+                        <span className="sr-only">, password protected</span>
+                      </>
+                    )}
                   </span>
                 </Link>
               ) : <span />}
               {next && (
                 <Link href={`/work/${next.slug}`} className="group sm:text-right">
                   <span className="label-sc">Next</span>
-                  <span className="mt-2 block font-display text-[1.25rem] text-ink group-hover:text-accent">
+                  <span className="mt-2 flex items-center gap-2 font-display text-[1.25rem] text-ink group-hover:text-accent sm:justify-end">
                     {next.title}
+                    {next.protected && (
+                      <>
+                        <LockGlyph className="h-3.5 w-3 text-ink-3" />
+                        <span className="sr-only">, password protected</span>
+                      </>
+                    )}
                   </span>
                 </Link>
               )}

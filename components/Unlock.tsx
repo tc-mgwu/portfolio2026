@@ -96,11 +96,11 @@ function UnlockModal({
         // modal has to be dismissed explicitly or it stays over the unlocked
         // page. refresh() drops any router-cache entry captured while locked.
         onUnlocked();
-        const next = data.next as string;
+        const next = (data.next as string) || '';
         if (next.startsWith('/api/')) {
           // A gated file: hand the browser the URL so it downloads.
           window.location.assign(next);
-        } else if (window.location.pathname !== next) {
+        } else if (next && window.location.pathname !== next) {
           router.push(next);
         }
         router.refresh();
@@ -146,8 +146,9 @@ function UnlockModal({
         </h2>
 
         <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-2">
-          {target.redacted ? 'These details are confidential.' : target.slug === 'resume' ? 'The resume is shared on request.' : 'This work is under NDA.'}{' '}
-          Enter the password from my resume, or{' '}
+          {target.slug === 'figma'
+            ? 'Figma files are shared on request. Enter the Figma password, or'
+            : `${target.redacted ? 'These details are confidential.' : target.slug === 'resume' ? 'The resume is shared on request.' : 'This work is under NDA.'} Enter the password from my resume, or`}{' '}
           <a href="/about#contact" onClick={onClose} className="text-accent underline underline-offset-4">
             email me for access
           </a>.

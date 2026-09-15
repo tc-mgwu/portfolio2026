@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Block, Picture, Section } from "@/lib/types";
 import ProtectedFrame from "./ProtectedFrame";
+import GatedLink from "./GatedLink";
+import { FIGMA_SLUG } from "@/lib/figma";
 import ImageGuard from "./ImageGuard";
 import DataTable from "./DataTable";
 import { titleCase } from "@/lib/text";
@@ -36,40 +38,64 @@ function Frame({
   if (picture.protectedSrc) {
     return <ProtectedFrame picture={picture} slug={slug} title={title} />;
   }
+  if (picture.protectedHref) {
+    const label = picture.linkLabel ?? "View in Figma";
+    const figma = picture.protectedHref.startsWith(`/api/asset/${FIGMA_SLUG}/`);
+    return (
+      <GatedLink
+        href={picture.protectedHref}
+        label={label}
+        slug={figma ? FIGMA_SLUG : slug}
+        title={figma ? "Figma file" : title}
+        alt={alt}
+      >
+        <PictureBox picture={picture} sizes={sizes} />
+      </GatedLink>
+    );
+  }
   const Wrap = picture.href ? LinkOut : Zoomable;
   return (
     <Wrap picture={picture} group={group} index={index}>
-      <div
-        className={
-          picture.bare
-            ? "relative"
-            : "relative overflow-hidden rounded-xl border border-hair bg-paper-2"
-        }
-        style={{ aspectRatio: String(aspect), background: picture.background }}
-        {...(src ? {} : { role: "img", "aria-label": alt })}
-      >
-        {src ? (
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            sizes={sizes}
-            unoptimized={src.endsWith(".gif")}
-            className={
-              picture.bare || picture.fit === "contain"
-                ? "object-contain"
-                : "object-cover"
-            }
-          />
-        ) : (
-          <div className="grid h-full w-full place-items-center">
-            <span className="label-sc">
-              Image slot &nbsp;·&nbsp; {aspect.toFixed(2)}:1
-            </span>
-          </div>
-        )}
-      </div>
+      <PictureBox picture={picture} sizes={sizes} />
     </Wrap>
+  );
+}
+
+/* The picture itself: framed unless `bare`, filled by the image, or an
+   empty slot with its ratio while the real picture is still to come. */
+function PictureBox({ picture, sizes }: { picture: Picture; sizes?: string }) {
+  const { src, aspect, alt } = picture;
+  return (
+    <div
+      className={
+        picture.bare
+          ? "relative"
+          : "relative overflow-hidden rounded-xl border border-hair bg-paper-2"
+      }
+      style={{ aspectRatio: String(aspect), background: picture.background }}
+      {...(src ? {} : { role: "img", "aria-label": alt })}
+    >
+      {src ? (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          unoptimized={src.endsWith(".gif")}
+          className={
+            picture.bare || picture.fit === "contain"
+              ? "object-contain"
+              : "object-cover"
+          }
+        />
+      ) : (
+        <div className="grid h-full w-full place-items-center">
+          <span className="label-sc">
+            Image slot &nbsp;·&nbsp; {aspect.toFixed(2)}:1
+          </span>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -154,6 +180,40 @@ function Blocks({
                 ))}
               </ul>
             );
+          case "legend":
+            return (
+              <ol
+                key={i}
+                className="-mt-3 grid grid-cols-2 gap-x-5 gap-y-1 md:grid-cols-4 [&>li:nth-child(n+3)]:mt-3 md:[&>li:nth-child(n+3)]:mt-0"
+              >
+                {b.items.map((item, n) => (
+                  /* Each entry spans two shared rows, so every description starts
+                     on the same line even when one label wraps. */
+                  <li
+                    key={item.title}
+                    className="row-span-2 grid grid-cols-[0.625rem_minmax(0,1fr)] grid-rows-subgrid gap-x-2"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-[0.25rem] h-2.5 w-2.5 rounded-full"
+                      style={
+                        item.hollow
+                          ? { border: `1.5px solid ${item.swatch}` }
+                          : { background: item.swatch }
+                      }
+                    />
+                    <p className="text-[0.875rem] font-semibold leading-[1.35] text-ink">
+                      {n + 1}. {item.title}
+                    </p>
+                    {item.body && (
+                      <p className="col-start-2 text-[0.8125rem] leading-[1.45] text-ink-2">
+                        {item.body}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            );
           case "quote":
             return (
               <blockquote
@@ -207,16 +267,27 @@ function Blocks({
             return (
               <ul key={i} className="flex flex-wrap gap-3">
                 {b.items.map((l) => (
-                  <li key={l.href}>
-                    <a
-                      href={l.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-hair px-4 py-2 text-[0.8125rem] text-ink transition-colors hover:border-ink"
-                    >
-                      {l.label}
-                      <span aria-hidden="true">&#8599;</span>
-                    </a>
+                  <li key={l.href ?? l.protectedHref}>
+                    {l.protectedHref ? (
+                      <GatedLink
+                        variant="pill"
+                        href={l.protectedHref}
+                        label={l.label}
+                        slug={l.protectedHref.startsWith(`/api/asset/${FIGMA_SLUG}/`) ? FIGMA_SLUG : slug}
+                        title={l.protectedHref.startsWith(`/api/asset/${FIGMA_SLUG}/`) ? "Figma file" : title}
+                        alt={l.label}
+                      />
+                    ) : (
+                      <a
+                        href={l.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-hair px-4 py-2 text-[0.8125rem] text-ink transition-colors hover:border-ink"
+                      >
+                        {l.label}
+                        <span aria-hidden="true">&#8599;</span>
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

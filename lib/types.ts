@@ -18,6 +18,8 @@ export interface Picture {
   /** Link out instead of opening the lightbox: the frame becomes a link and shows `linkLabel` on hover. */
   href?: string;
   linkLabel?: string;
+  /** Like `href`, but the destination is confidential: a gated JSON in the asset store holding `{ href }`, fetched on click and opened after unlock. */
+  protectedHref?: string;
   /** `contain` shows the whole picture inside a frame of a different ratio; set `background` to the picture's own ground so the letterboxing disappears. */
   fit?: 'cover' | 'contain';
   background?: string;
@@ -31,12 +33,15 @@ export type Block =
   | { kind: 'p'; text: string }
   | { kind: 'lead'; text: string }
   | { kind: 'list'; items: string[] }
+  /** A colour key under a diagram: a dot per entry, a bold title and a line of explanation. */
+  | { kind: 'legend'; items: { swatch: string; hollow?: boolean; title: string; body?: string }[] }
   | { kind: 'quote'; text: string }
   | ({ kind: 'image'; caption: string } & Picture)
   /** Two or three pictures side by side, for comparing options. */
   | { kind: 'gallery'; items: Picture[]; caption?: string }
   /** External references, such as Figma files. */
-  | { kind: 'links'; items: { label: string; href: string }[] }
+  /** Pills linking out. `protectedHref` points at a gated JSON in the asset store instead of a public URL. */
+  | { kind: 'links'; items: { label: string; href?: string; protectedHref?: string }[] }
   /** A banner pointing to related work, e.g. the next version of a product. */
   | { kind: 'callout'; text: string; cta: string; href: string }
   /** Copy beside a picture, in two columns on wide screens. */

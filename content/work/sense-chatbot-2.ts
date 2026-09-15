@@ -409,14 +409,20 @@ const senseChatbot2: CaseStudy = {
           kind: 'table',
           columns: ['Questions in use', 'Count', 'Share'],
           rows: ['Custom', 'Preset'],
-          protectedSrc: '/api/asset/sense-chatbot-2/questions-by-type.json',
-          caption: 'Bot questions in use, one month after launch. Confidential; unlock to view.',
+          values: [
+            [491, '63.5%'],
+            [282, '36.5%'],
+          ],
+          caption: 'Bot questions in use, one month after launch.',
         },
         {
           kind: 'table',
           columns: ['Custom questions', 'Count', 'Share'],
           rows: ['Preset available', 'No preset available'],
-          protectedSrc: '/api/asset/sense-chatbot-2/custom-with-preset.json',
+          values: [
+            [259, '52.7%'],
+            [232, '47.3%'],
+          ],
           caption: 'Of the custom questions in use, about half had a preset equivalent.',
         },
         {
@@ -427,7 +433,13 @@ const senseChatbot2: CaseStudy = {
           kind: 'table',
           columns: ['Month', 'Chatbot 1.0', 'Chatbot 2.0'],
           rows: ['January 2023', 'February 2023', 'March 2023', 'April 2023', 'May 2023'],
-          protectedSrc: '/api/asset/sense-chatbot-2/ratings.json',
+          values: [
+            ['4.4', '\u2014'],
+            ['4.4', '\u2014'],
+            ['4.5', '5.0'],
+            ['4.5', '4.6'],
+            ['4.5', '4.6'],
+          ],
           caption:
             'Average candidate rating by month, out of 5. Chatbot 2.0 launched in ' +
             'March. Read from the monthly chart, so approximate.',

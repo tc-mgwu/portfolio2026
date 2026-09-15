@@ -1,4 +1,5 @@
 import type { CaseStudy } from '@/lib/types';
+import { figmaLink } from '@/lib/figma';
 
 /* One file per case study. Edit copy here, never inside a component.
    Set `protected: true` to put this route behind the password gate.
@@ -497,7 +498,7 @@ const senseChatbot: CaseStudy = {
         {
           kind: 'image',
           src: `${A}/branching-options.png`,
-          href: 'https://www.figma.com/file/ZbqcLEEKudYjv3eQ9WqWkn/Branching-Options',
+          protectedHref: figmaLink('chatbot-branching-options'),
           aspect: 2 / 1,
           fit: 'contain',
           background: '#3A4655',
@@ -539,11 +540,11 @@ const senseChatbot: CaseStudy = {
           items: [
             {
               label: 'Figma: conversation flow inside Engage',
-              href: 'https://www.figma.com/file/JB0wGRTXrLYNod3k688dh4/Chatbot-MVP-Conversion-Flow',
+              protectedHref: figmaLink('chatbot-mvp-conversion-flow'),
             },
             {
               label: 'Figma: chatbot MVP',
-              href: 'https://www.figma.com/file/Lxsn8lQEaNwT48XtCxQXyQ/Chatbot-MVP',
+              protectedHref: figmaLink('chatbot-mvp'),
             },
           ],
         },

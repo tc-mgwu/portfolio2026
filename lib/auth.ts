@@ -54,12 +54,25 @@ export function hasOwnPassword(slug: string): boolean {
   return Boolean(process.env[`CASE_PASSWORD_${slug.toUpperCase().replace(/-/g, '_')}`]);
 }
 
+/* The cookie may carry several signed scopes joined by '|', so unlocking the
+   Figma files does not throw away an earlier case study unlock, or the other
+   way round. Each part is checked on its own. */
+const TOKEN_SEP = '|';
+const MAX_TOKENS = 8;
+
 export async function tokenUnlocks(token: string | undefined, slug: string): Promise<boolean> {
   if (!token) return false;
   const scopes = hasOwnPassword(slug) ? [slug] : ['all'];
+  const parts = token.split(TOKEN_SEP).slice(0, MAX_TOKENS);
   for (const scope of scopes) {
     const expected = await signScope(scope);
-    if (safeEqual(token, expected)) return true;
+    for (const part of parts) if (safeEqual(part, expected)) return true;
   }
   return false;
+}
+
+/** Adds a freshly signed scope to whatever the cookie already holds. */
+export function mergeTokens(existing: string | undefined, fresh: string): string {
+  const parts = (existing ? existing.split(TOKEN_SEP) : []).filter((p) => p && p !== fresh);
+  return [fresh, ...parts].slice(0, MAX_TOKENS).join(TOKEN_SEP);
 }
