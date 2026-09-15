@@ -85,7 +85,10 @@ export default function PlayMosaic({ items }: { items: PlayItem[] }) {
                     width={item.width}
                     height={item.height}
                     className="absolute inset-0 m-auto max-h-[80%] max-w-[80%]"
-                    style={{ width: item.width, height: item.height }}
+                    style={{
+                      width: item.width && item.width * (item.scale ?? 1),
+                      height: item.height && item.height * (item.scale ?? 1),
+                    }}
                   />
                 ) : item.src ? (
                   <Image

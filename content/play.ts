@@ -20,6 +20,8 @@ export interface PlayItem {
   /** Pixel size of a contained picture, so it is never upscaled. */
   width?: number;
   height?: number;
+  /** Display factor for a contained picture, 1 = its pixel size. Under 1 keeps a small sprite small on dense screens. */
+  scale?: number;
   /** A muted, looping video instead of a picture. `phone` is the 9:16 tile for screen recordings. */
   video?: string;
 }
@@ -50,6 +52,7 @@ export const playItems: PlayItem[] = [
     contain: true,
     width: 205,
     height: 210,
+    scale: 0.55,
   },
   {
     title: 'Zombie Critters, in play',
