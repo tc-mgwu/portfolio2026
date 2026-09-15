@@ -620,17 +620,20 @@ const senseChatbot: CaseStudy = {
           kind: 'table',
           columns: ['Use case', 'Conversations started', 'Unique candidates', 'Active bots'],
           rows: ['Data enrichment', 'Pre-screening', 'Sourcing'],
-          protectedSrc: '/api/asset/sense-chatbot/usage-by-use-case.json',
+          values: [
+            ['268,928', '857,797', 130],
+            ['117,699', '171,736', 204],
+            [553, 2, 27],
+          ],
           caption:
             'Usage by mid-2022, by use case. Data enrichment, the first use case, ' +
-            'remained the most used. Figures are confidential; unlock with the ' +
-            'password to see them.',
+            'remained the most used.',
         },
         {
           kind: 'table',
           columns: ['Channel', 'Conversations started'],
           rows: ['SMS', 'Mobile web', 'Desktop web', 'Unknown'],
-          protectedSrc: '/api/asset/sense-chatbot/usage-by-channel.json',
+          values: [['312,043'], ['60,442'], ['14,695'], [0]],
           caption:
             'Conversations started by channel, mid-2022. SMS, the channel we had ' +
             'to cut from the MVP, carried most of the volume.',
@@ -639,7 +642,13 @@ const senseChatbot: CaseStudy = {
           kind: 'table',
           columns: ['Month', 'Typical day', 'Busiest day'],
           rows: ['September 2021', 'November 2021', 'January 2022', 'March 2022', 'May 2022'],
-          protectedSrc: '/api/asset/sense-chatbot/unique-conversations.json',
+          values: [
+            ['~50', '~500'],
+            ['~75', '~950'],
+            ['~100', '~830'],
+            ['~250', '~900'],
+            ['~350', '~1,200'],
+          ],
           caption:
             'Unique conversations per day, September 2021 to May 2022, read from ' +
             'the daily chart, so approximate.',
