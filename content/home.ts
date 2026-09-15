@@ -14,6 +14,6 @@ export const heroLines: Word[][] = [
 ];
 
 export const heroSupport =
-  'Ten years designing enterprise B2B and B2B2C software, from workflow tools ' +
-  'to agentic AI agents. I thrive in ambiguity and enjoy defining the logic ' +
-  'underneath the chaos.';
+  '👋 Hi, I\u2019m Toni, a product designer based in California, with ten ' +
+  'years in enterprise software, from workflow tools to AI agents. I thrive in ' +
+  'ambiguity and enjoy defining the logic underneath the chaos.';
