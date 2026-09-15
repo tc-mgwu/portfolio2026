@@ -23,9 +23,9 @@ import PlateArt from './PlateArt';
    measure the plate rather than the tag's own box. All three sit over the
    screen. The squared bubble corner faces outward, where the tag came from. */
 const ENDS = [
-  { x: -30, y: -30, rot: -6, delay: 0, radius: '0 1.333em 1.333em 1.333em' },
+  { x: -39, y: -30, rot: -6, delay: 0, radius: '0 1.333em 1.333em 1.333em' },
   { x: 33, y: -8, rot: 4, delay: 60, radius: '1.333em 0 1.333em 1.333em' },
-  { x: -28, y: 30, rot: -4, delay: 120, radius: '1.333em 1.333em 1.333em 0' },
+  { x: -37, y: 30, rot: -4, delay: 120, radius: '1.333em 1.333em 1.333em 0' },
 ];
 
 /* How much further out each tag starts, as a multiple of where it lands. Well
