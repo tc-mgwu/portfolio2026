@@ -1,6 +1,5 @@
 /* The Play page: things made off the clock. Each item is a tile in the
-   mosaic, a picture or a muted video. Shapes are mixed on purpose so the
-   page reads as a pinboard; the sprite and the gameplay video keep theirs. (A tile with neither renders as a
+   mosaic, a picture or a muted video. (A tile with neither renders as a
    labelled slot, useful while a picture is on its way.) */
 
 export type PlayShape = 'portrait' | 'square' | 'wide' | 'landscape' | 'screen' | 'phone';
@@ -34,14 +33,14 @@ export const playItems: PlayItem[] = [
   {
     title: 'Audiobook voice picker, a concept',
     kind: 'Product',
-    shape: 'wide',
+    shape: 'landscape',
     src: '/play/audiobook-voices.png',
     alt: 'A concept for choosing an audiobook narrator: a grid of AI voices with tone tags, and a panel to preview a chapter and adjust cadence, pitch and speed.',
   },
   {
     title: 'Thought Stream, watching an AI agent reason',
     kind: 'Product',
-    shape: 'square',
+    shape: 'screen',
     src: '/play/thought-stream.png',
     alt: 'A dark interface: a chat log on the left, a ribbon of flowing coloured lines in the middle, and a Thought Stream panel on the right showing schemas, a function call and a JSON result.',
   },
@@ -66,7 +65,7 @@ export const playItems: PlayItem[] = [
   {
     title: 'Motherbot 2022, hoodie print',
     kind: 'Merch',
-    shape: 'landscape',
+    shape: 'wide',
     src: '/play/motherbot-hoodie.jpg',
     alt: 'A black hoodie printed with a retro poster: a flying saucer beaming up people over a city, the word Motherbot arched above and 2022 below, in yellow and rust on cream.',
   },
