@@ -342,3 +342,15 @@
   filter: blur(0px);
   transform: translate(-50%, -50%) translate(var(--x), var(--y)) rotate(var(--rot)) scale(1);
 }
+
+/* ---- Home hero drawing --------------------------------------------------- */
+.desk-drawing {
+  -webkit-mask-image: url('/home/desk-mask.png');
+  mask-image: url('/home/desk-mask.png');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}

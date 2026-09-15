@@ -10,6 +10,13 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden pt-24 pb-10 sm:pt-28 sm:pb-12">
       <div className="relative mx-auto max-w-6xl px-6">
+        {/* Line drawing in the column the text leaves open. It is an alpha
+            mask painted with the text colour, so it follows the theme and
+            carries no paper of its own. */}
+        <div
+          aria-hidden="true"
+          className="desk-drawing pointer-events-none absolute right-6 top-1/2 hidden aspect-[956/693] w-[clamp(220px,28vw,380px)] -translate-y-1/2 bg-ink sm:block lg:right-8"
+        />
         <h1 className="font-display text-[clamp(1.6rem,3.6vw,2.8rem)] font-normal leading-[1.1] tracking-[-0.014em] sm:max-w-[65%]">
           {/* One flowing sentence that wraps to the page width, revealed in a
               single wipe. The lines in content are joined with spaces. */}
