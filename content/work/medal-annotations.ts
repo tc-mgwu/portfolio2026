@@ -28,7 +28,7 @@ const medalAnnotations: CaseStudy = {
   role: 'Sole Product Designer',
   protected: false,
   tint: ['#DCE1F2', '#5D6FBF'],
-  tags: ['0 to 1', 'Tooling', 'Shipped'],
+  tags: ['0\u21921', 'Tooling', 'Shipped'],
   art: 'bars',
   heroSrc: '/work/medal-annotations/hero.png',
   heroAspect: 16 / 10,

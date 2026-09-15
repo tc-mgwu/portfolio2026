@@ -23,11 +23,11 @@ const senseChatbot: CaseStudy = {
     'I designed Sense’s first chatbot 0\u21921, from the recruiter’s setup ' +
     'flow to the candidate’s conversation, taking repetitive work off ' +
     'recruiters and giving candidates answers at any hour. Shipped in 6 months.',
-  projectType: '0 to 1 product design',
+  projectType: '0\u21921 product design',
   role: 'Lead Designer',
   protected: false,
   tint: ['#F6D8E9', '#D14A9E'],
-  tags: ['0 to 1', 'Conversational AI', 'Shipped', 'WCAG'],
+  tags: ['0\u21921', 'Conversational AI', 'Shipped', 'WCAG'],
   art: 'grid',
   heroSrc: '/work/sense-chatbot/hero.png',
   heroAspect: 16 / 10,

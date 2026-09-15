@@ -13,7 +13,7 @@ export interface Collection {
 export const collections: Collection[] = [
   {
     id: 'zero-to-one',
-    label: '0 to 1',
+    label: '0\u21921',
     title: 'Products I built from the ground up',
     blurb:
       'Work that started with nothing: no users, no patterns, no agreement on ' +

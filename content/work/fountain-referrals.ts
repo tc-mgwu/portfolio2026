@@ -15,12 +15,12 @@ const fountainReferrals: CaseStudy = {
   summary:
     'I designed a 0\u21921 referral product end to end, from the employer\u2019s ' +
     'campaign tooling on web to the worker\u2019s mobile referral flow.',
-  projectType: '0 to 1 product design',
+  projectType: '0\u21921 product design',
   role: 'Lead Product Designer',
   protected: false,
   comingSoon: true,
   tint: ['#F8DCC4', '#E0763A'],
-  tags: ['0 to 1', 'Workflows', 'Shipped'],
+  tags: ['0\u21921', 'Workflows', 'Shipped'],
   art: 'rings',
   heroSrc: '/work/fountain-referrals/hero.png',
   heroAspect: 1596 / 1000,

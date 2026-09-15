@@ -16,7 +16,7 @@ const orionCommand: CaseStudy = {
   protected: false,
   comingSoon: true,
   tint: ['#D9E4F0', '#5E86B0'],
-  tags: ['0 to 1', 'Enterprise', 'Shipped'],
+  tags: ['0\u21921', 'Enterprise', 'Shipped'],
   art: 'rings',
   heroAspect: 16 / 10,
   heroCaption: '[CAPTION FOR THE HERO VISUAL]',

@@ -44,7 +44,7 @@ export const statement =
 export const bio: string[] = [
   'I\u2019m a lead product designer with over ten years designing AI agents and ' +
     'workflow-heavy B2B software across startups and consulting, as a founding ' +
-    'designer and later a design manager. I\u2019m at my best at 0 to 1, when the ' +
+    'designer and later a design manager. I\u2019m at my best at 0\u21921, when the ' +
     'problem is real and the product doesn\u2019t exist yet. I care about making ' +
     'tools people actually want to use, especially the ones they\u2019re required ' +
     'to. I work closely with engineering and product to turn an ambiguous brief ' +
