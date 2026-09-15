@@ -42,7 +42,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
           className="mt-6 flex flex-col gap-1.5 sm:mt-7"
         >
-          <p className="text-[1.0625rem] leading-[1.65] text-ink-2">
+          <p className="max-w-[60ch] text-[1.0625rem] leading-[1.65] text-ink-2">
             {heroSupport}
           </p>
         </motion.div>
