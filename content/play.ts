@@ -3,7 +3,7 @@
    picture exists; `tone` colours a slot instead of hatching it. Aspect is
    width / height. */
 
-export type PlayShape = 'portrait' | 'square' | 'wide' | 'landscape';
+export type PlayShape = 'portrait' | 'square' | 'wide' | 'landscape' | 'screen';
 
 export interface PlayItem {
   title: string;
@@ -13,7 +13,7 @@ export interface PlayItem {
   src?: string;
   alt?: string;
   /** For an empty slot: what the picture will be, e.g. 'ceramics photo'. */
-  /** `landscape` is a two-column tile at 7:5, for a full interface mock. */
+  /** `landscape` is a two-column tile at 7:5; `screen` a two-column tile at 16:9. */
   slot?: string;
   tone?: 'ink' | 'accent';
 }
@@ -27,6 +27,20 @@ export const playItems: PlayItem[] = [
     shape: 'landscape',
     src: '/play/audiobook-voices.png',
     alt: 'A concept for choosing an audiobook narrator: a grid of AI voices with tone tags, and a panel to preview a chapter and adjust cadence, pitch and speed.',
+  },
+  {
+    title: 'Thought Stream, watching an AI agent reason',
+    kind: 'Product',
+    shape: 'screen',
+    src: '/play/thought-stream.png',
+    alt: 'A dark interface: a chat log on the left, a ribbon of flowing coloured lines in the middle, and a Thought Stream panel on the right showing schemas, a function call and a JSON result.',
+  },
+  {
+    title: 'Zombie Critters, a mobile game',
+    kind: 'Games',
+    shape: 'screen',
+    src: '/play/zombie-critters.png',
+    alt: 'Three phone screens from Zombie Critters: the title screen with a carrot-shaped Play button, the instructions card, and a night forest level with zombie critters and bombs.',
   },
   { title: 'Wobbly teacups, set of six', kind: 'Clay', shape: 'portrait', slot: 'ceramics photo' },
   { title: 'Lettering for a tea tin', kind: 'Type', shape: 'square', slot: 'type experiment' },

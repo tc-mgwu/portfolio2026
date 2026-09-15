@@ -14,6 +14,7 @@ const RATIO: Record<PlayItem['shape'], number> = {
   square: 1,
   wide: 16 / 7,
   landscape: 7 / 5,
+  screen: 16 / 9,
 };
 
 const toPicture = (item: PlayItem): Picture => ({
@@ -28,6 +29,7 @@ const ASPECT: Record<PlayItem['shape'], string> = {
   square: 'aspect-square',
   wide: 'aspect-[16/7]',
   landscape: 'aspect-[7/5]',
+  screen: 'aspect-video',
 };
 
 const SPAN: Record<PlayItem['shape'], string> = {
@@ -35,6 +37,7 @@ const SPAN: Record<PlayItem['shape'], string> = {
   square: '',
   wide: 'md:col-span-2',
   landscape: 'md:col-span-2 md:row-span-2',
+  screen: 'md:col-span-2',
 };
 
 export default function PlayMosaic({ items }: { items: PlayItem[] }) {
