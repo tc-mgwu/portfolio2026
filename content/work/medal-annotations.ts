@@ -16,7 +16,7 @@ const medalAnnotations: CaseStudy = {
   year: '2019',
   company: 'Medal',
   logo: '/logos/medal-tile-2.png',
-  kicker: 'Medal',
+  kicker: 'Annotation Tool',
   monogram: 'ME',
   title: 'Collaborative annotation for clinical AI',
   summary:
@@ -30,11 +30,13 @@ const medalAnnotations: CaseStudy = {
   tint: ['#DCE1F2', '#5D6FBF'],
   tags: ['0 to 1', 'Tooling', 'Shipped'],
   art: 'bars',
+  heroSrc: '/work/medal-annotations/hero.png',
   heroAspect: 16 / 10,
   heroCaption: 'The annotation view with the categorized, color-coded label menu open.',
   heroAlt:
-    'A medical record open in the Medal annotation tool, with a categorized ' +
-    'label menu beside the highlighted text.',
+    'A patient record open in the Medal Annotation Tool: numbered lines of a ' +
+    'PDF with highlighted spans labelled Problems, Medications, Lab Tests and ' +
+    'PHI, and a Select Annotation menu open over one highlight.',
   facts: [
     { label: 'Role', value: 'Sole Product Designer' },
     { label: 'Timeline', value: 'About 2 months, from November 2019' },

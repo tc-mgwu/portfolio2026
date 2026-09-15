@@ -13,7 +13,7 @@ const fountainReferrals: CaseStudy = {
   monogram: 'FO',
   title: 'Sourcing through employees',
   summary:
-    'I designed a 0 to 1 referral product end to end, from the employer\u2019s ' +
+    'I designed a 0\u21921 referral product end to end, from the employer\u2019s ' +
     'campaign tooling on web to the worker\u2019s mobile referral flow.',
   projectType: '0 to 1 product design',
   role: 'Lead Product Designer',

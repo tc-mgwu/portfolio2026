@@ -37,7 +37,7 @@ export default function CaseStudyView({
             <p className="label-sc">
               {study.year} &nbsp;·&nbsp; {study.company}
             </p>
-            <h1 className="max-w-[24ch] font-display text-[clamp(1.9rem,3.4vw,2.8rem)] leading-[1.1] tracking-[-0.02em]">
+            <h1 className="font-display text-[clamp(1.9rem,3.4vw,2.8rem)] leading-[1.1] tracking-[-0.02em]">
               {study.title}
             </h1>
             <p className="max-w-[50rem] text-[1.0625rem] leading-[1.6] text-ink-2">

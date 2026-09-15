@@ -13,24 +13,28 @@ const fountainHireGo: CaseStudy = {
   collection: 'agentic',
   year: '2026',
   company: 'Fountain',
+  kicker: 'Hire Go',
   logo: '/logos/fountain-tile-3.png',
   monogram: 'FO',
-  title: 'Configurable Opening Flows',
+  title: 'Configurable activation flows',
   summary:
-    'Hire Go activation moved from prompts only engineers could edit to ' +
-    'configuration admins own and an agent runs, with one rule: an admin can ' +
-    'never break activation for the account.',
+    'I designed a way for admins to build and manage their own opening ' +
+    'activation flows, so they no longer had to ask engineers to hand-write ' +
+    'prompts. It also made the flows something an AI agent could run on behalf ' +
+    'of the recruiting team.',
   projectType: 'Admin configuration for an AI agent',
   role: 'Lead Product Designer',
   protected: true,
   tint: ['#EADDF3', '#9A6CC2'],
   tags: ['Agentic AI', 'Workflows', 'Design complete'],
   art: 'grid',
+  heroSrc: '/work/fountain-hire-go/hero.png',
   heroAspect: 16 / 10,
-  heroCaption: 'The flow builder, with the default flow locked at the top of the list.',
+  heroCaption: 'The default activation flow, with the Copilot panel configuring it alongside.',
   heroAlt:
-    'The Opening Flows builder in Hire Go: a list of flows with the default ' +
-    'row locked, and a question editor beside it.',
+    'The Standard Activation Flow settings in Hire Go: flow name, opening ' +
+    'coverage options, and 5 standard questions, with the Fountain Copilot ' +
+    'panel on the right setting the flow to Houston openings.',
   facts: [
     { label: 'Role', value: 'Lead Product Designer' },
     { label: 'Timeline', value: 'About 3.5 weeks' },
@@ -446,9 +450,9 @@ const fountainHireGo: CaseStudy = {
             'Once the flow model was settled with the team and customers, it ' +
             'needed somewhere to live. Hire Go had no account-level settings ' +
             'paradigm. Its Settings page held the logged-in user’s notifications ' +
-            'and language, which made it a user-level page. Opening Flows needed ' +
+            'and language, which made it a user-level page. Activation Flows needed ' +
             'an organization-level home, so I designed the new Hire Go account ' +
-            'settings page as an extensible container: Opening Flows is the first ' +
+            'settings page as an extensible container: Activation Flows is the first ' +
             'section, not the reason the page exists. User notification settings ' +
             'moved to the user profile, the old Settings entry became an admin-only ' +
             'shortcut to the account page, and a Notifications item in navigation ' +
@@ -470,7 +474,7 @@ const fountainHireGo: CaseStudy = {
             'for the platform settings page: how sections stack, how a section ' +
             'opens into a full-page editor, where actions sit, and how a locked ' +
             'row reads at phone width. It is the standard the rest of Hire Go’s ' +
-            'account settings will follow, not a one-off for Opening Flows.',
+            'account settings will follow, not a one-off for Activation Flows.',
         },
       ],
     },
@@ -564,7 +568,7 @@ const fountainHireGo: CaseStudy = {
           kind: 'p',
           text:
             'The platform owns the orchestrator. Cue is one agent across the whole ' +
-            'platform. Opening Flows does not own the conversation, the memory, or ' +
+            'platform. Activation Flows does not own the conversation, the memory, or ' +
             'the order in which a user arrives at it. An admin might ask Cue to set ' +
             'up a flow midway through a different task, with context from an ' +
             'earlier session, and with other tools competing for the same intent. ' +

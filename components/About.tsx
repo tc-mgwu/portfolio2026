@@ -1,6 +1,5 @@
 import { bio, contact, statement } from '@/content/about';
 import Image from 'next/image';
-import ContactForm from './ContactForm';
 
 /* About: the statement, the bio, and how to get in touch. Skills and
    credentials live in the resume, which downloads from here. The full resume is a gated download from the
@@ -12,7 +11,7 @@ export default function About() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="md:grid md:grid-cols-[minmax(0,1fr)_14rem] md:items-end md:gap-x-12 lg:grid-cols-[minmax(0,1fr)_16rem]">
           <div>
-            <h2 id="about-heading" className="font-display text-[clamp(2rem,5vw,3.4rem)] leading-[1.05] tracking-[-0.025em]">
+            <h2 id="about-heading" className="font-display text-[clamp(1.8rem,3.6vw,2.6rem)] leading-[1.08] tracking-[-0.02em]">
               About me
             </h2>
 
@@ -50,11 +49,14 @@ export default function About() {
           {/* Contact, with the resume, in the wide column: it is the action
               this page exists for. */}
           <div id="contact" className="scroll-mt-28">
-            <h3 className="border-b border-hair pb-3 font-display text-[1.125rem]">
-              Contact me
-            </h3>
-            <div className="mt-8 max-w-[48rem]">
-              <ContactForm fallbackEmail={contact[0]?.value ?? ''} />
+            <div className="max-w-[48rem]">
+              <a
+                href={`mailto:${contact[0].value}?subject=${encodeURIComponent('Hello from your portfolio')}`}
+                className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[0.9375rem] font-medium text-paper transition-opacity hover:opacity-85"
+              >
+                Send me a note
+                <span aria-hidden="true">&rarr;</span>
+              </a>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ contact block. Dates are years only; dollar figures are left out.
 ## `content/work/*.ts` — nine case studies
 
 **Written so far:** Sense Chatbot, Sense Messaging, Sense Chatbot 2.0, Fountain
-Hire Go (Configurable Opening Flows), Medal Annotations and one unlisted study.
+Hire Go (Configurable activation flows), Medal Annotations and one unlisted study.
 Use them as the model. The other four are flagged `comingSoon: true` and show a
 coming-soon page until written; drop the flag when each is done. Each needs:
 

@@ -20,7 +20,7 @@ const senseChatbot: CaseStudy = {
   monogram: 'SE',
   title: 'Recruiting through conversation',
   summary:
-    'I designed Sense’s first chatbot end to end, from the recruiter’s setup ' +
+    'I designed Sense’s first chatbot 0\u21921, from the recruiter’s setup ' +
     'flow to the candidate’s conversation, taking repetitive work off ' +
     'recruiters and giving candidates answers at any hour. Shipped in 6 months.',
   projectType: '0 to 1 product design',

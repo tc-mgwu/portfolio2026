@@ -14,23 +14,29 @@ const senseChatbot2: CaseStudy = {
   collection: 'agentic',
   year: '2023',
   company: 'Sense',
+  kicker: 'Chatbot 2.0',
   logo: '/logos/sense-tile-3.png',
   monogram: 'SE',
-  title: 'Chatbot 2.0',
+  title: 'Smarter questions, cleaner data',
   summary:
-    'Rebuilding the chatbot around natural-language understanding, and ' +
-    'settling a design freeze with 6 recruiters and a user test.',
+    'I designed the evolution of Sense Chatbot around a preset question ' +
+    'library: validated, ready-made questions like email or phone number that ' +
+    'the bot already knew how to check. Recruiters built better conversations ' +
+    'without guessing, and candidates stopped hitting dead ends on bad input.',
   projectType: 'AI-enabled redesign',
   role: 'Lead Product Designer',
   protected: false,
   tint: ['#DAE6F6', '#5F8ED2'],
   tags: ['Agentic AI', 'Conversational AI', 'Shipped'],
   art: 'grid',
+  heroSrc: '/work/sense-chatbot-2/hero.png',
   heroAspect: 16 / 10,
-  heroCaption: 'The Chatbot 2.0 builder with the preset question library open.',
+  heroCaption: 'The Chatbot 2.0 builder, with question library suggestions appearing as a recruiter types.',
   heroAlt:
-    'A laptop showing the Chatbot 2.0 conversation builder: a flow on a dotted ' +
-    'canvas and a side panel listing preset questions.',
+    'The Chatbot 2.0 conversation builder: a Start, Greeting, New Question, ' +
+    'Goodbye and End flow on a dotted canvas, and a side panel editing the ' +
+    'question with library suggestions, a response type, an ATS writeback ' +
+    'field and validation.',
   facts: [
     { label: 'Role', value: 'Lead Product Designer' },
     { label: 'Timeline', value: 'About 18 months, with stops' },
