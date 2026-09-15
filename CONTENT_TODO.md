@@ -106,3 +106,9 @@ Needed before the full case study is rewritten:
 - [ ] The answer on scope pushback (who resisted widening reskin to
       rearchitecture, and how it was resolved).
 - [ ] Whether Genesis, Bullhorn and the Slack feedback can be shown publicly.
+
+## Play page (`content/play.ts`)
+Added Sep 14, 2026 with 6 placeholder tiles (hatched slots naming the picture
+that belongs there). To fill one, drop the image in `public/play/` and set
+`src` and `alt` on the item; remove `slot` and `tone`. Titles and categories
+are placeholders from the mock and should be replaced with Toni's own.

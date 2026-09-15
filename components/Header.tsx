@@ -2,15 +2,18 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 
 const LINKS = [
   { href: '/work', label: 'Work' },
+  { href: '/play', label: 'Play' },
   { href: '/about', label: 'About' },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -31,15 +34,32 @@ export default function Header() {
         </Link>
         <div className="flex items-center gap-5 sm:gap-7">
           <nav aria-label="Primary" className="flex items-center gap-6 sm:gap-8">
-            {LINKS.map((l) => (
-              <Link
-                key={l.label}
-                href={l.href}
-                className="text-[0.875rem] text-ink-2 transition-colors hover:text-ink"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {LINKS.map((l) => {
+              /* The current section reads in the display italic with a dot
+                 beneath; the others stay in the sans. Case study pages count
+                 as Work. */
+              const current = pathname === l.href || pathname.startsWith(`${l.href}/`);
+              return (
+                <Link
+                  key={l.label}
+                  href={l.href}
+                  aria-current={current ? 'page' : undefined}
+                  className={`relative inline-flex items-center pb-1 text-[0.875rem] transition-colors ${
+                    current
+                      ? 'font-display text-[1.0625rem] italic leading-none text-ink'
+                      : 'text-ink-2 hover:text-ink'
+                  }`}
+                >
+                  {l.label}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute left-1/2 top-full h-[5px] w-[5px] -translate-x-1/2 rounded-full bg-accent transition-opacity duration-300 ${
+                      current ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </nav>
           <ThemeToggle />
         </div>
