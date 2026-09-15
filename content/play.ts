@@ -1,7 +1,6 @@
 /* The Play page: things made off the clock. Each item is a tile in the
-   mosaic. Leave `src` out and the tile renders as a labelled slot until the
-   picture exists; `tone` colours a slot instead of hatching it. Aspect is
-   width / height. */
+   mosaic, a picture or a muted video. (A tile with neither renders as a
+   labelled slot, useful while a picture is on its way.) */
 
 export type PlayShape = 'portrait' | 'square' | 'wide' | 'landscape' | 'screen' | 'phone';
 
@@ -66,10 +65,4 @@ export const playItems: PlayItem[] = [
     src: '/play/kitsune.jpg',
     alt: 'A fox spirit in a rose-coloured dress kneels on a rock under a crescent moon, holding a red rose to her face, her long orange tail curling around her, misty pine forest behind.',
   },
-  { title: 'Wobbly teacups, set of six', kind: 'Clay', shape: 'portrait', slot: 'ceramics photo' },
-  { title: 'Lettering for a tea tin', kind: 'Type', shape: 'square', slot: 'type experiment' },
-  { title: 'Mochi, judging', kind: 'Cats', shape: 'square', slot: 'cat portrait', tone: 'ink' },
-  { title: 'Risograph, two colours', kind: 'Paper', shape: 'square', slot: 'poster', tone: 'accent' },
-  { title: 'Sketchbook, spring, mostly hands', kind: 'Paper', shape: 'wide', slot: 'sketchbook spread' },
-  { title: 'A bowl that came out fine', kind: 'Clay', shape: 'square', slot: 'ceramics photo' },
 ];
