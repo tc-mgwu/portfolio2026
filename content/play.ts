@@ -18,7 +18,7 @@ export interface PlayItem {
   tone?: 'ink' | 'accent';
 }
 
-export const playIntro = ['Off the clock, ', 'on the table.'] as const;
+export const playIntro = ['Made in my free time. ', 'Just cause.'] as const;
 
 export const playItems: PlayItem[] = [
   {
