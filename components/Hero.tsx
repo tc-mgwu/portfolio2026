@@ -11,30 +11,29 @@ export default function Hero() {
     <section className="relative overflow-hidden pt-24 pb-10 sm:pt-28 sm:pb-12">
       <div className="relative mx-auto max-w-6xl px-6">
         <h1 className="font-display text-[clamp(1.6rem,3.6vw,2.8rem)] font-normal leading-[1.1] tracking-[-0.014em]">
-          {heroLines.map((line, i) => (
-            <span key={i} className="block overflow-hidden pb-[0.06em]">
-              <motion.span
-                className="block"
-                initial={{ y: '108%' }}
-                animate={{ y: '0%' }}
-                transition={{
-                  duration: 0.85,
-                  delay: 0.08 + i * 0.11,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                {line.map((w, j) =>
+          {/* One flowing sentence that wraps to the page width, revealed in a
+              single wipe. The lines in content are joined with spaces. */}
+          <span className="block overflow-hidden pb-[0.06em]">
+            <motion.span
+              className="block"
+              initial={{ y: '108%' }}
+              animate={{ y: '0%' }}
+              transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {heroLines.flatMap((line, i) => [
+                ...(i > 0 ? [<span key={`sp-${i}`}> </span>] : []),
+                ...line.map((w, j) =>
                   w.em ? (
-                    <em key={j} className="italic text-accent [margin-inline-end:0.05em]">
+                    <em key={`${i}-${j}`} className="italic text-accent [margin-inline-end:0.05em]">
                       {w.t}
                     </em>
                   ) : (
-                    <span key={j}>{w.t}</span>
+                    <span key={`${i}-${j}`}>{w.t}</span>
                   ),
-                )}
-              </motion.span>
-            </span>
-          ))}
+                ),
+              ])}
+            </motion.span>
+          </span>
         </h1>
 
         <motion.div
