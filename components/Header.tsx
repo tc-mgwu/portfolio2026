@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
+import PeaceBadge from './PeaceBadge';
 
 const LINKS = [
   { href: '/work', label: 'Work' },
@@ -29,7 +30,8 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="font-display text-[1.0625rem] tracking-tight">
+        <Link href="/" className="inline-flex items-center gap-3 font-display text-[1.0625rem] tracking-tight">
+          <PeaceBadge className="h-8 w-8 shrink-0" />
           Toni Chen
         </Link>
         <div className="flex items-center gap-5 sm:gap-7">
