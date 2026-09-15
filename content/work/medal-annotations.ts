@@ -46,7 +46,7 @@ const medalAnnotations: CaseStudy = {
     { label: 'Role', value: 'Sole Product Designer' },
     {
       label: 'Team',
-      value: '2 front-end engineers, two back-end engineers, a PM, a machine learning advisor, me',
+      value: '2 front-end engineers, 2 back-end engineers, a PM, a machine learning advisor',
     },
     { label: 'Timeline', value: 'About 2 months, starting November 2019' },
     { label: 'Tools', value: 'Figma, Sketch' },

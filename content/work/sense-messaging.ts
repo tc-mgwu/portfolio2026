@@ -50,7 +50,7 @@ const senseMessaging: CaseStudy = {
     { label: 'Role', value: 'Lead Product Designer' },
     {
       label: 'Team',
-      value: 'PM, design system designer, junior designer, 2 engineering managers, 4 engineers, me',
+      value: 'PM, design system designer, junior designer, 2 engineering managers, 4 engineers',
     },
     { label: 'Timeline', value: '8 months' },
     { label: 'Tools', value: 'Figma, FigJam, in-product survey' },

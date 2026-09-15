@@ -41,7 +41,7 @@ const fountainReferrals: CaseStudy = {
   ],
   details: [
     { label: 'Role', value: 'Lead Product Designer' },
-    { label: 'Team', value: 'PM, engineering lead, 2 engineers, QA engineer, me' },
+    { label: 'Team', value: 'PM, engineering lead, 2 engineers, QA engineer' },
     { label: 'Timeline', value: '6 months' },
     { label: 'Tools', value: 'Figma, FigJam' },
   ],

@@ -46,7 +46,7 @@ const senseChatbot2: CaseStudy = {
     { label: 'Role', value: 'Lead Product Designer' },
     {
       label: 'Team',
-      value: 'Directors of product and engineering, PM, 3 engineering managers, 7 engineers including 2 in ML, me',
+      value: 'Directors of product and engineering, PM, 3 engineering managers, 7 engineers including 2 in ML',
     },
     { label: 'Timeline', value: '2022 to May 2023' },
     { label: 'Tools', value: 'Figma, UserTesting' },

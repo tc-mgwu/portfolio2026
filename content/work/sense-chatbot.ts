@@ -43,7 +43,7 @@ const senseChatbot: CaseStudy = {
   ],
   details: [
     { label: 'Role', value: 'Lead Designer' },
-    { label: 'Team', value: 'ML engineer, PM, front-end engineer, me' },
+    { label: 'Team', value: 'ML engineer, PM, front-end engineer' },
     { label: 'Timeline', value: '6 months' },
     { label: 'Tools', value: 'Figma, Notion, UserTesting' },
   ],
