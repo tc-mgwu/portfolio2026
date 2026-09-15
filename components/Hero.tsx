@@ -20,7 +20,7 @@ export default function Hero() {
         >
           {/* Fades up a beat after the intro, so the hero arrives as one piece. */}
           <motion.div
-            className="desk-drawing aspect-[956/693] w-full bg-ink"
+            className="desk-drawing aspect-[763/748] w-full bg-ink"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{

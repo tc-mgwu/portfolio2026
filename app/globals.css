@@ -345,8 +345,8 @@
 
 /* ---- Home hero drawing --------------------------------------------------- */
 .desk-drawing {
-  -webkit-mask-image: url('/home/desk-mask.png');
-  mask-image: url('/home/desk-mask.png');
+  -webkit-mask-image: url('/home/desk-mask-2.png');
+  mask-image: url('/home/desk-mask-2.png');
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
