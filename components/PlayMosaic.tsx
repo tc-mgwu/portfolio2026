@@ -15,6 +15,7 @@ const RATIO: Record<PlayItem['shape'], number> = {
   wide: 16 / 7,
   landscape: 7 / 5,
   screen: 16 / 9,
+  phone: 9 / 16,
 };
 
 const toPicture = (item: PlayItem): Picture => ({
@@ -30,6 +31,7 @@ const ASPECT: Record<PlayItem['shape'], string> = {
   wide: 'aspect-[16/7]',
   landscape: 'aspect-[7/5]',
   screen: 'aspect-video',
+  phone: 'aspect-[9/16]',
 };
 
 const SPAN: Record<PlayItem['shape'], string> = {
@@ -38,6 +40,7 @@ const SPAN: Record<PlayItem['shape'], string> = {
   wide: 'md:col-span-2',
   landscape: 'md:col-span-2 md:row-span-2',
   screen: 'md:col-span-2',
+  phone: '',
 };
 
 export default function PlayMosaic({ items }: { items: PlayItem[] }) {
@@ -48,27 +51,50 @@ export default function PlayMosaic({ items }: { items: PlayItem[] }) {
         const picture = toPicture(item);
         const index = pictures.findIndex((p) => p.src === item.src);
         return (
-          <li key={item.title} className={`${SPAN[item.shape]} ${item.shape === 'portrait' ? 'md:row-span-2' : ''}`}>
-            <Zoomable picture={picture} group={pictures} index={index < 0 ? 0 : index}>
+          <li key={item.title} className={`${SPAN[item.shape]} ${item.shape === 'portrait' || item.shape === 'phone' ? 'md:row-span-2' : ''}`}>
+            <Zoomable picture={picture} group={pictures} index={index < 0 ? 0 : index} disabled={Boolean(item.video)}>
               <div
                 className={`relative overflow-hidden rounded-2xl ${ASPECT[item.shape]} ${
                   item.tone === 'ink'
                     ? 'bg-ink text-paper'
                     : item.tone === 'accent'
                       ? 'bg-accent text-paper'
-                      : item.contain
+                      : item.contain || item.video
                       ? 'bg-paper-2'
                       : 'play-slot text-ink-3'
                 } ${item.tone === 'accent' ? 'md:-rotate-1' : ''}`}
               >
-                {item.src ? (
+                {item.video ? (
+                  /* Muted and looping, so it plays inline without a click. */
+                  <video
+                    src={item.video}
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                    preload="metadata"
+                    aria-label={item.alt ?? item.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                ) : item.src && item.contain ? (
+                  /* Native pixel size, centred, never enlarged. */
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={item.src}
+                    alt={item.alt ?? item.title}
+                    width={item.width}
+                    height={item.height}
+                    className="absolute inset-0 m-auto max-h-[80%] max-w-[80%]"
+                    style={{ width: item.width, height: item.height }}
+                  />
+                ) : item.src ? (
                   <Image
                     src={item.src}
                     alt={item.alt ?? item.title}
                     fill
                     sizes="(min-width: 768px) 66vw, (min-width: 640px) 50vw, 100vw"
                     unoptimized={item.src.endsWith('.gif')}
-                    className={item.contain ? 'object-contain p-6' : 'object-cover'}
+                    className="object-cover"
                   />
                 ) : (
                   <span className="absolute inset-0 grid place-items-center font-mono text-[0.75rem] tracking-[0.08em] opacity-80">
