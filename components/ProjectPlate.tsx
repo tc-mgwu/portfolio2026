@@ -33,8 +33,8 @@ const ENDS = [
 const SPREAD = 2.2;
 
 /* The screen's margins on the plate, as a share of the plate's width. */
-const PAD_Y = 9;
-const PAD_X = 10;
+const PAD_Y = 5;
+const PAD_X = 5;
 
 export default function ProjectPlate({
   study,

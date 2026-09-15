@@ -279,7 +279,7 @@
 }
 
 .plate[data-revealed] .plate-circle {
-  transform: translate(-50%, -50%) translate(var(--away-x, 0px), 4cqw);
+  transform: translate(-50%, -50%) translate(var(--away-x, 0px), 6cqw) scale(1.12);
 }
 
 .plate-screen-wrap {
@@ -295,8 +295,8 @@
 }
 
 .plate[data-revealed] .plate-screen {
-  transform: translateY(-4%) scale(1.05);
-  box-shadow: 0 34px 70px -22px rgba(26, 23, 20, 0.5);
+  transform: translateY(-7%) scale(1.14);
+  box-shadow: 0 48px 90px -26px rgba(26, 23, 20, 0.55);
 }
 
 .plate-tags {
