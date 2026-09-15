@@ -15,8 +15,16 @@ export default function Hero() {
             carries no paper of its own. */}
         <div
           aria-hidden="true"
-          className="desk-drawing pointer-events-none absolute right-6 top-1/2 hidden aspect-[956/693] w-[clamp(220px,28vw,380px)] -translate-y-1/2 bg-ink sm:block lg:right-8"
-        />
+          className="pointer-events-none absolute right-6 top-1/2 hidden w-[clamp(220px,28vw,380px)] -translate-y-1/2 sm:block lg:right-8"
+        >
+          {/* Fades up a beat after the intro, so the hero arrives as one piece. */}
+          <motion.div
+            className="desk-drawing aspect-[956/693] w-full bg-ink"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          />
+        </div>
         <h1 className="font-display text-[clamp(1.6rem,3.6vw,2.8rem)] font-normal leading-[1.1] tracking-[-0.014em] sm:max-w-[65%]">
           {/* One flowing sentence that wraps to the page width, revealed in a
               single wipe. The lines in content are joined with spaces. */}
