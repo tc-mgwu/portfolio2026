@@ -279,7 +279,7 @@
 }
 
 .plate[data-revealed] .plate-circle {
-  transform: translate(-50%, -50%) translate(var(--away-x, 0px), 6cqw) scale(1.12);
+  transform: translate(-50%, -50%) translate(var(--away-x, 0px), 4cqw) scale(1.06);
 }
 
 .plate-screen-wrap {
@@ -288,15 +288,18 @@
 
 .plate-screen {
   transform: translateY(0) scale(1);
-  box-shadow: 0 14px 38px -14px rgba(26, 23, 20, 0.55);
+  /* Shadow in the plate's own hue (set on .plate), not black: black at low
+     alpha is what greys a cream page. */
+  box-shadow: 0 14px 40px -12px rgba(var(--plate-shadow-rgb, 120, 90, 70), 0.32);
   transition:
     transform 760ms var(--plate-ease),
     box-shadow 760ms var(--plate-ease);
 }
 
+/* Lift, not darken: a 3% scale with a longer, softer shadow. */
 .plate[data-revealed] .plate-screen {
-  transform: translateY(-7%) scale(1.14);
-  box-shadow: 0 48px 90px -26px rgba(26, 23, 20, 0.55);
+  transform: translateY(-2%) scale(1.03);
+  box-shadow: 0 28px 70px -18px rgba(var(--plate-shadow-rgb, 120, 90, 70), 0.42);
 }
 
 .plate-tags {

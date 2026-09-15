@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CaseStudy } from '@/lib/types';
-import ProjectPlate from './ProjectPlate';
+import ProjectPlate, { rgbTriplet } from './ProjectPlate';
 import { LockGlyph } from './CursorPill';
 
 /* The gallery a collection opens into.
@@ -41,7 +41,8 @@ function GalleryCard({ study, index: i }: { study: CaseStudy; index: number }) {
       <Link
         href={`/work/${study.slug}`}
         prefetch={study.protected ? false : undefined}
-        className="group flex h-full flex-col rounded-[22px] border border-black/[0.04] bg-white shadow-[0_2px_30px_-12px_rgba(26,23,20,0.18)] transition-shadow duration-300 hover:shadow-[0_18px_50px_-18px_rgba(26,23,20,0.3)] dark:border-white/[0.06] dark:bg-paper-2"
+        style={{ '--card-shadow-rgb': rgbTriplet(study.tint[1]) } as React.CSSProperties}
+        className="group flex h-full flex-col rounded-[22px] border border-black/[0.04] bg-white shadow-[0_2px_30px_-12px_rgba(var(--card-shadow-rgb),0.22)] transition-shadow duration-300 hover:shadow-[0_20px_60px_-18px_rgba(var(--card-shadow-rgb),0.3)] dark:border-white/[0.06] dark:bg-paper-2"
       >
         {/* Inset, so the tags and the growing screen have room to break
                 past the panel on hover. Extra on top, where the screen rises.

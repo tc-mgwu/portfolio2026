@@ -33,6 +33,15 @@ const ENDS = [
 const SPREAD = 2.2;
 
 /* The screen's margins on the plate, as a share of the plate's width. */
+/* Hex to 'r, g, b', for shadows tinted with the study's own hue rather than
+   black, which greys a cream page at low alpha. */
+function rgbTriplet(hex: string): string {
+  const h = hex.replace('#', '');
+  const n = parseInt(h.length === 3 ? h.split('').map((c) => c + c).join('') : h, 16);
+  return `${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}`;
+}
+const withAlpha = (hex: string, a: number) => `rgba(${rgbTriplet(hex)}, ${a})`;
+
 const PAD_Y = 5;
 const PAD_X = 5;
 
@@ -92,6 +101,7 @@ export default function ProjectPlate({
     <div
       ref={ref}
       className={`plate relative isolate ${className}`}
+      style={{ '--plate-shadow-rgb': rgbTriplet(study.tint[1]) } as React.CSSProperties}
       data-revealed={revealed || undefined}
       onPointerEnter={controlled ? undefined : (e) => e.pointerType === 'mouse' && setHoveredSelf(true)}
       onPointerLeave={controlled ? undefined : () => setHoveredSelf(false)}
@@ -104,7 +114,10 @@ export default function ProjectPlate({
           {
             left: `${circleX}%`,
             '--away-x': `${away * 6}cqw`,
-            background: `radial-gradient(circle, ${study.tint[1]} 0%, ${study.tint[0]} 42%, transparent 70%)`,
+            /* The far stop is the same hue at zero alpha, never `transparent`
+               (black at zero alpha), and the ramp interpolates in OKLCH, so the
+               fade stays warm instead of passing through grey. */
+            background: `radial-gradient(in oklch, ${study.tint[1]} 0%, ${study.tint[0]} 42%, ${withAlpha(study.tint[0], 0)} 70%)`,
           } as React.CSSProperties
         }
       />
