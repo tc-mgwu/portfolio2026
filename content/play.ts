@@ -26,7 +26,8 @@ export interface PlayItem {
   video?: string;
 }
 
-export const playIntro = ['Made in my free time. ', 'Just cause.'] as const;
+export const playTitle = 'Everything else';
+export const playIntro = 'Contract work, experiments and the occasional detour.';
 
 export const playItems: PlayItem[] = [
   {

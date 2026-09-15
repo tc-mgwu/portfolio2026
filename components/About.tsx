@@ -11,7 +11,7 @@ export default function About() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="md:grid md:grid-cols-[minmax(0,1fr)_14rem] md:items-end md:gap-x-12 lg:grid-cols-[minmax(0,1fr)_16rem]">
           <div>
-            <h2 id="about-heading" className="font-display text-[clamp(1.8rem,3.6vw,2.6rem)] leading-[1.08] tracking-[-0.02em]">
+            <h2 id="about-heading" className="font-display text-[clamp(1.5rem,2.8vw,2.1rem)] leading-[1.1] tracking-[-0.02em]">
               About me
             </h2>
 
