@@ -68,10 +68,10 @@ export default function ProjectGallery({ studies }: { studies: CaseStudy[] }) {
                   but the card itself is the link. */}
               <span
                 aria-hidden="true"
-                className="mt-auto inline-flex h-9 w-fit items-center gap-2 rounded-full border border-ink/15 px-4 text-[0.8125rem] font-medium text-ink transition-colors duration-200 group-hover:border-accent group-hover:bg-accent group-hover:text-white group-focus-visible:border-accent group-focus-visible:bg-accent group-focus-visible:text-white"
+                className="mt-auto inline-flex h-9 w-fit items-center gap-2 rounded-full border border-ink/15 px-4 text-[0.8125rem] font-medium text-ink transition-colors duration-200 group-hover:border-accent group-hover:bg-accent group-hover:text-white group-focus-visible:border-accent group-focus-visible:bg-accent group-focus-visible:text-white dark:group-hover:text-[#14110E] dark:group-focus-visible:text-[#14110E]"
               >
                 {study.comingSoon ? 'Coming soon' : 'View project'}
-                <span className="text-accent transition-colors duration-200 group-hover:text-white group-focus-visible:text-white">
+                <span className="text-accent transition-colors duration-200 group-hover:text-white group-focus-visible:text-white dark:group-hover:text-[#14110E] dark:group-focus-visible:text-[#14110E]">
                   &rarr;
                 </span>
               </span>
