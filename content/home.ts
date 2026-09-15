@@ -15,5 +15,5 @@ export const heroLines: Word[][] = [
 
 export const heroSupport =
   'Based in California, I\u2019ve spent ten years in enterprise software, from ' +
-  'workflow tools to AI agents. I thrive in ambiguity and enjoy defining the ' +
-  'logic underneath the chaos.';
+  'workflow experiences to AI agents. I thrive in ambiguity and enjoy defining ' +
+  'the logic underneath the chaos.';
