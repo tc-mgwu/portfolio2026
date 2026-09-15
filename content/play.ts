@@ -16,6 +16,8 @@ export interface PlayItem {
   /** `landscape` is a two-column tile at 7:5; `screen` a two-column tile at 16:9. */
   slot?: string;
   tone?: 'ink' | 'accent';
+  /** Show the whole picture on a plain ground instead of cropping to the tile: for sprites and transparent art. */
+  contain?: boolean;
 }
 
 export const playIntro = ['Made in my free time. ', 'Just cause.'] as const;
@@ -41,6 +43,14 @@ export const playItems: PlayItem[] = [
     shape: 'screen',
     src: '/play/zombie-critters.png',
     alt: 'Three phone screens from Zombie Critters: the title screen with a carrot-shaped Play button, the instructions card, and a night forest level with zombie critters and bombs.',
+  },
+  {
+    title: 'Jackalope, a game sprite',
+    kind: 'Games',
+    shape: 'square',
+    src: '/play/jackalope.gif',
+    alt: 'A looping animation of a grinning purple jackalope with antlers, waving a small fish.',
+    contain: true,
   },
   { title: 'Wobbly teacups, set of six', kind: 'Clay', shape: 'portrait', slot: 'ceramics photo' },
   { title: 'Lettering for a tea tin', kind: 'Type', shape: 'square', slot: 'type experiment' },

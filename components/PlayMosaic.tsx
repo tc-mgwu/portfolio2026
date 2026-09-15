@@ -56,6 +56,8 @@ export default function PlayMosaic({ items }: { items: PlayItem[] }) {
                     ? 'bg-ink text-paper'
                     : item.tone === 'accent'
                       ? 'bg-accent text-paper'
+                      : item.contain
+                      ? 'bg-paper-2'
                       : 'play-slot text-ink-3'
                 } ${item.tone === 'accent' ? 'md:-rotate-1' : ''}`}
               >
@@ -65,7 +67,8 @@ export default function PlayMosaic({ items }: { items: PlayItem[] }) {
                     alt={item.alt ?? item.title}
                     fill
                     sizes="(min-width: 768px) 66vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover"
+                    unoptimized={item.src.endsWith('.gif')}
+                    className={item.contain ? 'object-contain p-6' : 'object-cover'}
                   />
                 ) : (
                   <span className="absolute inset-0 grid place-items-center font-mono text-[0.75rem] tracking-[0.08em] opacity-80">
