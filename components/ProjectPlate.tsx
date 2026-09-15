@@ -35,7 +35,7 @@ const SPREAD = 2.2;
 /* The screen's margins on the plate, as a share of the plate's width. */
 /* Hex to 'r, g, b', for shadows tinted with the study's own hue rather than
    black, which greys a cream page at low alpha. */
-function rgbTriplet(hex: string): string {
+export function rgbTriplet(hex: string): string {
   const h = hex.replace('#', '');
   const n = parseInt(h.length === 3 ? h.split('').map((c) => c + c).join('') : h, 16);
   return `${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}`;
