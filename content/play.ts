@@ -59,6 +59,13 @@ export const playItems: PlayItem[] = [
     video: '/play/zombie-critters.mp4',
     alt: 'A screen recording of Zombie Critters being played: bombs thrown at critters in a night forest.',
   },
+  {
+    title: 'Kitsune with a rose',
+    kind: 'Illustration',
+    shape: 'portrait',
+    src: '/play/kitsune.jpg',
+    alt: 'A fox spirit in a rose-coloured dress kneels on a rock under a crescent moon, holding a red rose to her face, her long orange tail curling around her, misty pine forest behind.',
+  },
   { title: 'Wobbly teacups, set of six', kind: 'Clay', shape: 'portrait', slot: 'ceramics photo' },
   { title: 'Lettering for a tea tin', kind: 'Type', shape: 'square', slot: 'type experiment' },
   { title: 'Mochi, judging', kind: 'Cats', shape: 'square', slot: 'cat portrait', tone: 'ink' },
