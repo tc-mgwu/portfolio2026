@@ -3,7 +3,7 @@
    picture exists; `tone` colours a slot instead of hatching it. Aspect is
    width / height. */
 
-export type PlayShape = 'portrait' | 'square' | 'wide';
+export type PlayShape = 'portrait' | 'square' | 'wide' | 'landscape';
 
 export interface PlayItem {
   title: string;
@@ -13,6 +13,7 @@ export interface PlayItem {
   src?: string;
   alt?: string;
   /** For an empty slot: what the picture will be, e.g. 'ceramics photo'. */
+  /** `landscape` is a two-column tile at 7:5, for a full interface mock. */
   slot?: string;
   tone?: 'ink' | 'accent';
 }
@@ -20,6 +21,12 @@ export interface PlayItem {
 export const playIntro = ['Off the clock, ', 'on the table.'] as const;
 
 export const playItems: PlayItem[] = [
+  {
+    title: 'Audiobook voice picker, a concept',
+    kind: 'Product',
+    shape: 'landscape',
+    slot: 'interface mock',
+  },
   { title: 'Wobbly teacups, set of six', kind: 'Clay', shape: 'portrait', slot: 'ceramics photo' },
   { title: 'Lettering for a tea tin', kind: 'Type', shape: 'square', slot: 'type experiment' },
   { title: 'Mochi, judging', kind: 'Cats', shape: 'square', slot: 'cat portrait', tone: 'ink' },

@@ -10,12 +10,14 @@ const ASPECT: Record<PlayItem['shape'], string> = {
   portrait: 'aspect-[4/5]',
   square: 'aspect-square',
   wide: 'aspect-[16/7]',
+  landscape: 'aspect-[7/5]',
 };
 
 const SPAN: Record<PlayItem['shape'], string> = {
   portrait: '',
   square: '',
   wide: 'md:col-span-2',
+  landscape: 'md:col-span-2 md:row-span-2',
 };
 
 export default function PlayMosaic({ items }: { items: PlayItem[] }) {
@@ -38,7 +40,7 @@ export default function PlayMosaic({ items }: { items: PlayItem[] }) {
                   src={item.src}
                   alt={item.alt ?? item.title}
                   fill
-                  sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  sizes="(min-width: 768px) 66vw, (min-width: 640px) 50vw, 100vw"
                   className="object-cover"
                 />
               ) : (
