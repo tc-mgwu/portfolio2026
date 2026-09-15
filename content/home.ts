@@ -8,9 +8,9 @@ export interface Word {
 }
 
 export const heroLines: Word[][] = [
-  [{ t: 'Product ' }, { t: 'designer', em: true }, { t: ' specializing in' }],
-  [{ t: 'software that rewards ' }, { t: 'expertise', em: true }],
-  [{ t: 'without requiring it.' }],
+  [{ t: 'Product designer specializing in' }],
+  [{ t: 'software that rewards expertise' }],
+  [{ t: 'without requiring it.', em: true }],
 ];
 
 export const heroSupport =
