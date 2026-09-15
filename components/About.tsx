@@ -15,11 +15,11 @@ export default function About() {
               About me
             </h2>
 
-            <p className="mt-10 font-display text-[clamp(1.375rem,2.8vw,2rem)] leading-[1.25] tracking-[-0.015em]">
+            <p className="mt-8 font-display text-[clamp(1.2rem,2.1vw,1.6rem)] leading-[1.3] tracking-[-0.01em]">
               {statement}
             </p>
 
-            <div className="mt-6 max-w-[68ch] space-y-4 text-[1.0625rem] leading-[1.7] text-ink-2">
+            <div className="mt-6 max-w-[68ch] space-y-4 text-[0.9375rem] leading-[1.7] text-ink-2">
               {bio.map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
