@@ -1,5 +1,6 @@
 'use client';
 
+import { Fragment } from 'react';
 import { motion } from 'framer-motion';
 import { heroLines, heroSupport } from '@/content/home';
 
@@ -22,33 +23,51 @@ export default function Hero() {
             className="desk-drawing aspect-[956/693] w-full bg-ink"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              duration: 1.1,
+              delay: 0.55,
+              ease: [0.22, 1, 0.36, 1],
+            }}
           />
         </div>
         <h1 className="font-display text-[clamp(1.6rem,3.6vw,2.8rem)] font-normal leading-[1.1] tracking-[-0.014em] sm:max-w-[65%]">
-          {/* One flowing sentence that wraps to the page width, revealed in a
-              single wipe. The lines in content are joined with spaces. */}
-          <span className="block overflow-hidden pb-[0.06em]">
-            <motion.span
-              className="block"
-              initial={{ y: '108%' }}
-              animate={{ y: '0%' }}
-              transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {heroLines.flatMap((line, i) => [
-                ...(i > 0 ? [<span key={`sp-${i}`}> </span>] : []),
-                ...line.map((w, j) =>
-                  w.em ? (
-                    <em key={`${i}-${j}`} className="italic text-accent [margin-inline-end:0.05em]">
-                      {w.t}
-                    </em>
-                  ) : (
-                    <span key={`${i}-${j}`}>{w.t}</span>
-                  ),
-                ),
-              ])}
-            </motion.span>
-          </span>
+          {/* One flowing sentence that wraps to the page width. Each word
+              fades and rises on its own, a few milliseconds after the last,
+              so the headline visibly arrives rather than just appearing. */}
+          {(() => {
+            let n = 0;
+            return heroLines.flatMap((line, i) =>
+              line.flatMap((w, j) =>
+                w.t
+                  .split(' ')
+                  .filter(Boolean)
+                  .map((word, k) => {
+                    const idx = n++;
+                    const inner = w.em ? (
+                      <em className="italic text-accent">{word}</em>
+                    ) : (
+                      word
+                    );
+                    return (
+                      <Fragment key={`${i}-${j}-${k}`}>
+                        <motion.span
+                          className="inline-block"
+                          initial={{ opacity: 0, y: '0.35em' }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{
+                            duration: 0.7,
+                            delay: 0.06 + idx * 0.045,
+                            ease: [0.22, 1, 0.36, 1],
+                          }}
+                        >
+                          {inner}
+                        </motion.span>{' '}
+                      </Fragment>
+                    );
+                  }),
+              ),
+            );
+          })()}
         </h1>
 
         <motion.div
@@ -62,7 +81,6 @@ export default function Hero() {
           </p>
         </motion.div>
       </div>
-
     </section>
   );
 }
