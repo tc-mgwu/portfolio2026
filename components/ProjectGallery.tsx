@@ -98,10 +98,10 @@ function GalleryCard({ study, index: i }: { study: CaseStudy; index: number }) {
                   but the card itself is the link. */}
           <span
             aria-hidden="true"
-            className="mt-auto inline-flex h-9 w-fit items-center gap-2 rounded-full border border-ink/15 px-4 text-[0.8125rem] font-medium text-ink transition-colors duration-200 group-hover:border-accent group-hover:bg-accent group-hover:text-white group-focus-visible:border-accent group-focus-visible:bg-accent group-focus-visible:text-white dark:group-hover:text-[#14110E] dark:group-focus-visible:text-[#14110E]"
+            className="mt-auto inline-flex h-9 w-fit items-center gap-2 rounded-full border border-ink/15 px-4 text-[0.8125rem] font-medium text-ink transition-colors duration-200 group-hover:border-ink group-hover:bg-ink group-hover:text-paper group-focus-visible:border-ink group-focus-visible:bg-ink group-focus-visible:text-paper"
           >
             {study.comingSoon ? 'Coming soon' : 'View project'}
-            <span className="text-accent transition-colors duration-200 group-hover:text-white group-focus-visible:text-white dark:group-hover:text-[#14110E] dark:group-focus-visible:text-[#14110E]">
+            <span className="text-accent">
               &rarr;
             </span>
           </span>

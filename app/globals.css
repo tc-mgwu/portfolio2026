@@ -288,18 +288,22 @@
 
 .plate-screen {
   transform: translateY(0) scale(1);
-  /* Shadow in the plate's own hue (set on .plate), not black: black at low
-     alpha is what greys a cream page. */
-  box-shadow: 0 14px 40px -12px rgba(var(--plate-shadow-rgb, 120, 90, 70), 0.32);
+  /* A hairline edge and a shadow in the plate's own hue (set on .plate), so a
+     white screenshot separates from a white card without a black cast. */
+  box-shadow:
+    0 0 0 1px rgba(26, 23, 20, 0.08),
+    0 18px 48px -14px rgba(var(--plate-shadow-rgb, 120, 90, 70), 0.45);
   transition:
     transform 760ms var(--plate-ease),
     box-shadow 760ms var(--plate-ease);
 }
 
-/* Lift, not darken: a 3% scale with a longer, softer shadow. */
+/* Lift, not darken: the screen grows and the shadow lengthens. */
 .plate[data-revealed] .plate-screen {
-  transform: translateY(-2%) scale(1.03);
-  box-shadow: 0 28px 70px -18px rgba(var(--plate-shadow-rgb, 120, 90, 70), 0.42);
+  transform: translateY(-4%) scale(1.08);
+  box-shadow:
+    0 0 0 1px rgba(26, 23, 20, 0.08),
+    0 36px 80px -20px rgba(var(--plate-shadow-rgb, 120, 90, 70), 0.55);
 }
 
 .plate-tags {
