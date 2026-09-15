@@ -18,7 +18,7 @@ export default function ProjectGallery({ studies }: { studies: CaseStudy[] }) {
           <Link
             href={`/work/${study.slug}`}
             prefetch={study.protected ? false : undefined}
-            className="group block h-full rounded-[22px] border border-hair bg-paper shadow-[0_2px_30px_-12px_rgba(26,23,20,0.18)] transition-shadow duration-300 hover:shadow-[0_18px_50px_-18px_rgba(26,23,20,0.3)]"
+            className="group flex h-full flex-col rounded-[22px] border border-hair bg-paper shadow-[0_2px_30px_-12px_rgba(26,23,20,0.18)] transition-shadow duration-300 hover:shadow-[0_18px_50px_-18px_rgba(26,23,20,0.3)]"
           >
             {/* Inset, so the tags and the growing screen have room to break
                 past the panel on hover. Extra on top, where the screen rises.
@@ -27,7 +27,7 @@ export default function ProjectGallery({ studies }: { studies: CaseStudy[] }) {
               <ProjectPlate study={study} circleX={i % 2 ? 62 : 38} />
             </div>
 
-            <div className="flex flex-col gap-2.5 p-5">
+            <div className="flex flex-1 flex-col gap-2.5 p-5">
               <p className="flex items-center gap-2 text-[0.875rem] text-ink-2">
                 {study.logo ? (
                   <Image
@@ -63,11 +63,12 @@ export default function ProjectGallery({ studies }: { studies: CaseStudy[] }) {
                 {study.comingSoon && study.summary.startsWith('[') ? 'Case study coming soon.' : study.summary}
               </p>
 
-              {/* Always visible. Styled as a button, but the card itself is the
-                  link, so this is decoration for the pointer. */}
+              {/* Always visible, pinned to the card's bottom so every button in
+                  a row lines up whatever the summary length. Styled as a button,
+                  but the card itself is the link. */}
               <span
                 aria-hidden="true"
-                className="mt-2 inline-flex h-9 w-fit items-center gap-2 rounded-full border border-ink/15 bg-paper px-4 text-[0.8125rem] font-medium text-ink shadow-[0_1px_2px_rgba(26,23,20,0.06)] transition-colors duration-200 group-hover:border-ink group-hover:bg-ink group-hover:text-paper group-focus-visible:border-ink group-focus-visible:bg-ink group-focus-visible:text-paper"
+                className="mt-auto inline-flex h-9 w-fit items-center gap-2 rounded-full border border-ink/15 bg-paper px-4 text-[0.8125rem] font-medium text-ink shadow-[0_1px_2px_rgba(26,23,20,0.06)] transition-colors duration-200 group-hover:border-ink group-hover:bg-ink group-hover:text-paper group-focus-visible:border-ink group-focus-visible:bg-ink group-focus-visible:text-paper"
               >
                 {study.comingSoon ? 'Coming soon' : 'View project'}
                 <span>&rarr;</span>
