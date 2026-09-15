@@ -16,7 +16,7 @@ export default function Hero() {
             carries no paper of its own. */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute right-6 top-1/2 hidden w-[clamp(160px,19vw,260px)] -translate-y-1/2 sm:block lg:right-8"
+          className="pointer-events-none absolute left-[68%] top-1/2 hidden w-[clamp(160px,19vw,260px)] -translate-y-1/2 sm:block"
         >
           {/* Fades up a beat after the intro, so the hero arrives as one piece. */}
           <motion.div
