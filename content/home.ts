@@ -14,5 +14,6 @@ export const heroLines: Word[][] = [
 ];
 
 export const heroSupport =
-  'Ten years designing B2B software, from data-heavy dashboards to AI agents. ' +
-  'I thrive in ambiguity and enjoy defining the logic underneath the chaos.';
+  'Ten years designing enterprise B2B and B2B2C software, from workflow tools ' +
+  'to agentic AI agents. I thrive in ambiguity and enjoy defining the logic ' +
+  'underneath the chaos.';

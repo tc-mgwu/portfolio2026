@@ -21,7 +21,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Toni Chen — Senior Product Designer',
-  description: 'Ten years designing B2B software, from data-heavy dashboards to AI agents.',
+  description: 'Ten years designing enterprise B2B and B2B2C software, from workflow tools to agentic AI agents.',
   /* Not for search engines. Every page inherits this; the X-Robots-Tag header
      in next.config.ts says the same thing for non-HTML responses. */
   robots: {
