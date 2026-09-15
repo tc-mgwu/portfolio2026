@@ -59,7 +59,7 @@ export default function PlayMosaic({ items }: { items: PlayItem[] }) {
                     ? 'bg-ink text-paper'
                     : item.tone === 'accent'
                       ? 'bg-accent text-paper'
-                      : item.contain || item.video
+                      : item.contain || item.video || item.src
                       ? 'bg-paper-2'
                       : 'play-slot text-ink-3'
                 } ${item.tone === 'accent' ? 'md:-rotate-1' : ''}`}

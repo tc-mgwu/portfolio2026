@@ -59,6 +59,13 @@ export const playItems: PlayItem[] = [
     alt: 'A screen recording of Zombie Critters being played: bombs thrown at critters in a night forest.',
   },
   {
+    title: 'Motherbot 2022, hoodie print',
+    kind: 'Merch',
+    shape: 'wide',
+    src: '/play/motherbot-hoodie.jpg',
+    alt: 'A black hoodie printed with a retro poster: a flying saucer beaming up people over a city, the word Motherbot arched above and 2022 below, in yellow and rust on cream.',
+  },
+  {
     title: 'Kitsune with a rose',
     kind: 'Illustration',
     shape: 'portrait',
